@@ -1,0 +1,25 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "xlsx_parse",
+  "name": "XLSX Parse",
+  "description": "Parse Excel files — sheets, ranges, formulas.",
+  "tier": "free",
+  "category": "research",
+  "publisher": "hearth",
+  "author": "hearth-team",
+  "api_keys_required": [],
+  "api_keys_optional": [],
+  "cost_estimate": {
+    "kind": "free",
+    "usd": 0
+  },
+  "latency_p50_ms": 200,
+  "permissions": [],
+  "handler": {
+    "runtime": "node",
+    "entry": "xlsx-parse"
+  },
+  "status": "placeholder",
+  "risk": "low",
+  "icon": "table"
+}

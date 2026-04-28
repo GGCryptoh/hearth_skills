@@ -1,0 +1,27 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "youtube_transcript",
+  "name": "YouTube Transcript",
+  "description": "Fetch the transcript of a YouTube video by URL or ID.",
+  "tier": "free",
+  "category": "research",
+  "publisher": "hearth",
+  "author": "hearth-team",
+  "api_keys_required": [],
+  "api_keys_optional": [],
+  "cost_estimate": {
+    "kind": "free",
+    "usd": 0
+  },
+  "latency_p50_ms": 1500,
+  "permissions": [
+    "net:outbound"
+  ],
+  "handler": {
+    "runtime": "node",
+    "entry": "youtube-transcript"
+  },
+  "status": "placeholder",
+  "risk": "low",
+  "icon": "video"
+}

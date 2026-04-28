@@ -1,0 +1,27 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "forex_rate",
+  "name": "Forex Rate",
+  "description": "Currency conversion rates via exchangerate-api.",
+  "tier": "free",
+  "category": "finance",
+  "publisher": "hearth",
+  "author": "hearth-team",
+  "api_keys_required": [],
+  "api_keys_optional": [],
+  "cost_estimate": {
+    "kind": "free",
+    "usd": 0
+  },
+  "latency_p50_ms": 600,
+  "permissions": [
+    "net:outbound"
+  ],
+  "handler": {
+    "runtime": "node",
+    "entry": "forex-rate"
+  },
+  "status": "placeholder",
+  "risk": "low",
+  "icon": "dollar-sign"
+}

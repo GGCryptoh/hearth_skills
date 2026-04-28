@@ -1,0 +1,27 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "hearth_get_context",
+  "name": "Hearth Get Context",
+  "description": "Native — pull live state (approvals, missions, financials, agents).",
+  "tier": "free",
+  "category": "native",
+  "publisher": "hearth",
+  "author": "hearth-team",
+  "api_keys_required": [],
+  "api_keys_optional": [],
+  "cost_estimate": {
+    "kind": "free",
+    "usd": 0
+  },
+  "latency_p50_ms": 100,
+  "permissions": [
+    "read:sessions"
+  ],
+  "handler": {
+    "runtime": "mcp",
+    "entry": "hearth-mcp"
+  },
+  "status": "shipped",
+  "risk": "low",
+  "icon": "info"
+}

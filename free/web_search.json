@@ -1,0 +1,29 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "web_search",
+  "name": "Web Search",
+  "description": "Search the web via Brave Search (optional API key) with DuckDuckGo HTML fallback.",
+  "tier": "free",
+  "category": "research",
+  "publisher": "hearth",
+  "author": "hearth-team",
+  "api_keys_required": [],
+  "api_keys_optional": [
+    "BRAVE_API_KEY"
+  ],
+  "cost_estimate": {
+    "kind": "free",
+    "usd": 0
+  },
+  "latency_p50_ms": 800,
+  "permissions": [
+    "net:outbound"
+  ],
+  "handler": {
+    "runtime": "node",
+    "entry": "web-search"
+  },
+  "status": "shipped",
+  "risk": "low",
+  "icon": "search"
+}

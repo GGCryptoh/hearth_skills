@@ -1,0 +1,25 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "hearth_skill_recommend",
+  "name": "Hearth Skill Recommend",
+  "description": "Native — detect intent and recommend installed/catalog skills.",
+  "tier": "free",
+  "category": "native",
+  "publisher": "hearth",
+  "author": "hearth-team",
+  "api_keys_required": [],
+  "api_keys_optional": [],
+  "cost_estimate": {
+    "kind": "free",
+    "usd": 0
+  },
+  "latency_p50_ms": 80,
+  "permissions": [],
+  "handler": {
+    "runtime": "mcp",
+    "entry": "hearth-mcp"
+  },
+  "status": "shipped",
+  "risk": "low",
+  "icon": "sparkles"
+}

@@ -1,0 +1,25 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "hearth_notify",
+  "name": "Hearth Notify",
+  "description": "Native — surface notification in dashboard chat + audit log.",
+  "tier": "free",
+  "category": "native",
+  "publisher": "hearth",
+  "author": "hearth-team",
+  "api_keys_required": [],
+  "api_keys_optional": [],
+  "cost_estimate": {
+    "kind": "free",
+    "usd": 0
+  },
+  "latency_p50_ms": 50,
+  "permissions": [],
+  "handler": {
+    "runtime": "mcp",
+    "entry": "hearth-mcp"
+  },
+  "status": "shipped",
+  "risk": "low",
+  "icon": "bell"
+}

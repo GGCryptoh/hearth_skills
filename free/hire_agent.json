@@ -1,0 +1,25 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "hire_agent",
+  "name": "Hire Agent",
+  "description": "Native — spawn a new agent with role-based skill curation.",
+  "tier": "free",
+  "category": "native",
+  "publisher": "hearth",
+  "author": "hearth-team",
+  "api_keys_required": [],
+  "api_keys_optional": [],
+  "cost_estimate": {
+    "kind": "free",
+    "usd": 0
+  },
+  "latency_p50_ms": 200,
+  "permissions": [],
+  "handler": {
+    "runtime": "mcp",
+    "entry": "hearth-mcp"
+  },
+  "status": "shipped",
+  "risk": "low",
+  "icon": "user-plus"
+}

@@ -1,0 +1,25 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "voice_stt_transcribe",
+  "name": "Voice STT",
+  "description": "Transcribe audio via Whisper.cpp (local) or Web Speech.",
+  "tier": "free",
+  "category": "media",
+  "publisher": "hearth",
+  "author": "hearth-team",
+  "api_keys_required": [],
+  "api_keys_optional": [],
+  "cost_estimate": {
+    "kind": "free",
+    "usd": 0
+  },
+  "latency_p50_ms": 2000,
+  "permissions": [],
+  "handler": {
+    "runtime": "node",
+    "entry": "voice-stt"
+  },
+  "status": "placeholder",
+  "risk": "low",
+  "icon": "mic"
+}

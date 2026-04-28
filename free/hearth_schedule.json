@@ -1,0 +1,27 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "hearth_schedule",
+  "name": "Hearth Schedule",
+  "description": "Native — schedule a future prompt back to the agent.",
+  "tier": "free",
+  "category": "native",
+  "publisher": "hearth",
+  "author": "hearth-team",
+  "api_keys_required": [],
+  "api_keys_optional": [],
+  "cost_estimate": {
+    "kind": "free",
+    "usd": 0
+  },
+  "latency_p50_ms": 50,
+  "permissions": [
+    "schedule:run"
+  ],
+  "handler": {
+    "runtime": "mcp",
+    "entry": "hearth-mcp"
+  },
+  "status": "shipped",
+  "risk": "low",
+  "icon": "clock"
+}

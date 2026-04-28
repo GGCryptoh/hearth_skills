@@ -1,0 +1,27 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "crypto_price",
+  "name": "Crypto Price",
+  "description": "Get cryptocurrency prices via CoinGecko.",
+  "tier": "free",
+  "category": "finance",
+  "publisher": "hearth",
+  "author": "hearth-team",
+  "api_keys_required": [],
+  "api_keys_optional": [],
+  "cost_estimate": {
+    "kind": "free",
+    "usd": 0
+  },
+  "latency_p50_ms": 800,
+  "permissions": [
+    "net:outbound"
+  ],
+  "handler": {
+    "runtime": "node",
+    "entry": "crypto-price"
+  },
+  "status": "catalog-only",
+  "risk": "low",
+  "icon": "bitcoin"
+}

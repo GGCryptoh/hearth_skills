@@ -1,0 +1,27 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "summarize_long",
+  "name": "Summarize Long",
+  "description": "Chunk + summarize long-form content — papers, reports, transcripts.",
+  "tier": "free",
+  "category": "research",
+  "publisher": "hearth",
+  "author": "hearth-team",
+  "api_keys_required": [],
+  "api_keys_optional": [],
+  "cost_estimate": {
+    "kind": "per_call",
+    "usd": 0.02
+  },
+  "latency_p50_ms": 8000,
+  "permissions": [
+    "call:provider"
+  ],
+  "handler": {
+    "runtime": "node",
+    "entry": "summarize-long"
+  },
+  "status": "placeholder",
+  "risk": "low",
+  "icon": "compress"
+}

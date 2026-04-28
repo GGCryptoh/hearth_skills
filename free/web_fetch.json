@@ -1,0 +1,27 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "web_fetch",
+  "name": "Web Fetch",
+  "description": "Fetch a URL and convert HTML to clean markdown.",
+  "tier": "free",
+  "category": "research",
+  "publisher": "hearth",
+  "author": "hearth-team",
+  "api_keys_required": [],
+  "api_keys_optional": [],
+  "cost_estimate": {
+    "kind": "free",
+    "usd": 0
+  },
+  "latency_p50_ms": 1200,
+  "permissions": [
+    "net:outbound"
+  ],
+  "handler": {
+    "runtime": "node",
+    "entry": "web-fetch"
+  },
+  "status": "shipped",
+  "risk": "low",
+  "icon": "link"
+}

@@ -1,0 +1,27 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "dns_lookup",
+  "name": "DNS Lookup",
+  "description": "Resolve A/AAAA/MX/TXT records via Cloudflare DNS-over-HTTPS.",
+  "tier": "free",
+  "category": "dev",
+  "publisher": "hearth",
+  "author": "hearth-team",
+  "api_keys_required": [],
+  "api_keys_optional": [],
+  "cost_estimate": {
+    "kind": "free",
+    "usd": 0
+  },
+  "latency_p50_ms": 200,
+  "permissions": [
+    "net:outbound"
+  ],
+  "handler": {
+    "runtime": "node",
+    "entry": "dns-lookup"
+  },
+  "status": "shipped",
+  "risk": "low",
+  "icon": "globe"
+}

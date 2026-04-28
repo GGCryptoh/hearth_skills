@@ -1,0 +1,27 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "obsidian_write",
+  "name": "Obsidian Write",
+  "description": "Append or create notes in a local Obsidian vault.",
+  "tier": "free",
+  "category": "productivity",
+  "publisher": "hearth",
+  "author": "hearth-team",
+  "api_keys_required": [],
+  "api_keys_optional": [],
+  "cost_estimate": {
+    "kind": "free",
+    "usd": 0
+  },
+  "latency_p50_ms": 100,
+  "permissions": [
+    "write:memories"
+  ],
+  "handler": {
+    "runtime": "node",
+    "entry": "obsidian-write"
+  },
+  "status": "catalog-only",
+  "risk": "moderate",
+  "icon": "pencil"
+}

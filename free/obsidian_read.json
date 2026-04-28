@@ -1,0 +1,27 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "obsidian_read",
+  "name": "Obsidian Read",
+  "description": "Read notes from a local Obsidian vault by path or tag.",
+  "tier": "free",
+  "category": "productivity",
+  "publisher": "hearth",
+  "author": "hearth-team",
+  "api_keys_required": [],
+  "api_keys_optional": [],
+  "cost_estimate": {
+    "kind": "free",
+    "usd": 0
+  },
+  "latency_p50_ms": 100,
+  "permissions": [
+    "read:vault.entries"
+  ],
+  "handler": {
+    "runtime": "node",
+    "entry": "obsidian-read"
+  },
+  "status": "catalog-only",
+  "risk": "low",
+  "icon": "file-text"
+}

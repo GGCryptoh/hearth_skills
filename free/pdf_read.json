@@ -1,0 +1,27 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "pdf_read",
+  "name": "PDF Read",
+  "description": "Extract text from a PDF file or URL.",
+  "tier": "free",
+  "category": "research",
+  "publisher": "hearth",
+  "author": "hearth-team",
+  "api_keys_required": [],
+  "api_keys_optional": [],
+  "cost_estimate": {
+    "kind": "free",
+    "usd": 0
+  },
+  "latency_p50_ms": 1500,
+  "permissions": [
+    "net:outbound"
+  ],
+  "handler": {
+    "runtime": "node",
+    "entry": "pdf-read"
+  },
+  "status": "catalog-only",
+  "risk": "low",
+  "icon": "file-text"
+}

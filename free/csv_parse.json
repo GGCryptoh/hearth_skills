@@ -1,0 +1,25 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "csv_parse",
+  "name": "CSV Parse",
+  "description": "Parse a CSV file or string into structured rows.",
+  "tier": "free",
+  "category": "research",
+  "publisher": "hearth",
+  "author": "hearth-team",
+  "api_keys_required": [],
+  "api_keys_optional": [],
+  "cost_estimate": {
+    "kind": "free",
+    "usd": 0
+  },
+  "latency_p50_ms": 50,
+  "permissions": [],
+  "handler": {
+    "runtime": "node",
+    "entry": "csv-parse"
+  },
+  "status": "placeholder",
+  "risk": "low",
+  "icon": "table"
+}
