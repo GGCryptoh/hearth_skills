@@ -1,0 +1,142 @@
+{
+  "version": "0.1.0",
+  "format": "hearth.skill/1",
+  "updated_at": "2026-04-29T00:30:52Z",
+  "skills": [
+    {
+      "path": "free/arxiv_search.json",
+      "type": "file",
+      "checksum": "dbfd0a29a63c6025d329b8cc5248b9ef5cc1d021d83e846f0da50fa08f4f27a0"
+    },
+    {
+      "path": "free/crypto_price.json",
+      "type": "file",
+      "checksum": "23ba082de7dd07bbb8459864f8e74bba3516d19e1eda428eab363fc5c6a956d1"
+    },
+    {
+      "path": "free/csv_parse.json",
+      "type": "file",
+      "checksum": "5f0e81192ab05440c6067fb5a3f8a99c7843be43425ff2be4156f7a434261531"
+    },
+    {
+      "path": "free/dns_lookup.json",
+      "type": "file",
+      "checksum": "fb7c9abf6959e6e212fb46f838b4b41ced9654625c98121ca6cd595fdbcd938f"
+    },
+    {
+      "path": "free/forex_rate.json",
+      "type": "file",
+      "checksum": "cf9f6a9ef4061af19b0d8781f79e1af285cc72a8c01590461800bfe4651d1df9"
+    },
+    {
+      "path": "free/hearth_create_mission.json",
+      "type": "file",
+      "checksum": "cb6604621a2a0b52b1d3658c2f1aacc92f80c729502fcebe6dc6d92dc77eac2f"
+    },
+    {
+      "path": "free/hearth_get_context.json",
+      "type": "file",
+      "checksum": "781f2a703c5222cb2f55ed83bb8e0b104663011e732074d0940d8f23c20887a1"
+    },
+    {
+      "path": "free/hearth_notify.json",
+      "type": "file",
+      "checksum": "ae50961e29bfb79d2c01a81cf60cc35a441be006b66f60886ab831cb5dacd611"
+    },
+    {
+      "path": "free/hearth_schedule.json",
+      "type": "file",
+      "checksum": "475f39ce7b582bdade19cf4ffe9ef7be6c501d12157d4b601fb2574414983a48"
+    },
+    {
+      "path": "free/hearth_skill_recommend.json",
+      "type": "file",
+      "checksum": "8372093d4f65ed47a88a7f141c5c617e4890d71d74ca2bf8c2ea73c3f3713fd6"
+    },
+    {
+      "path": "free/hire_agent.json",
+      "type": "file",
+      "checksum": "d99f5aa4f770445a3f802f6a753f7a61b7f0dd63f3165a9ef4d5b12a4033db5b"
+    },
+    {
+      "path": "free/news_fetch.json",
+      "type": "file",
+      "checksum": "2c70fa0b80b45ed8be1a494c68ffbc60476dbdabdeee695b225119b6ad5ca7e8"
+    },
+    {
+      "path": "free/obsidian_read.json",
+      "type": "file",
+      "checksum": "e05a61115cc48f028459bd93ba036c2f7c3041cd6f1025486d73210b4f8c7ec3"
+    },
+    {
+      "path": "free/obsidian_write.json",
+      "type": "file",
+      "checksum": "0c2d9a0f0bae91d2c72edad826b68408a6c64e4428939d0f5768835a6b90d27b"
+    },
+    {
+      "path": "free/pdf_read.json",
+      "type": "file",
+      "checksum": "95143b60da9dbc5ee9c765e12d4797686fc031daf2bfe25fd50fef65e64e1502"
+    },
+    {
+      "path": "free/stock_price.json",
+      "type": "file",
+      "checksum": "9ffb956d37cc8efb0db6f73ece3d532b6488dcae6940bd48821fef6b386811f9"
+    },
+    {
+      "path": "free/summarize_long.json",
+      "type": "file",
+      "checksum": "3b1e85e81c4632de14ff1f22168a0dddb67d54b86fe8602f7958b55485c8d341"
+    },
+    {
+      "path": "free/telegram_send.json",
+      "type": "file",
+      "checksum": "f4e86ed09c6cc14c16863e6cbc46cf08d51e065dc2f85ec6e8129d710cdc3a77"
+    },
+    {
+      "path": "free/voice_stt_transcribe.json",
+      "type": "file",
+      "checksum": "3e0ed7c8bfbc53061df036bc50a98d8a3d49ff28b87c7c682bc479c219cf73e9"
+    },
+    {
+      "path": "free/voice_tts_play.json",
+      "type": "file",
+      "checksum": "c81ef78ab36079508224c2cb5808032601a326ea877191c45784b38caf72ae3c"
+    },
+    {
+      "path": "free/weather.json",
+      "type": "file",
+      "checksum": "737f0f4d0a8997c59aba7d2ceb23ed4af6202e741fd0a8ff1289266d5a4ad5d6"
+    },
+    {
+      "path": "free/web_fetch.json",
+      "type": "file",
+      "checksum": "2657dd4c2420e63dadab59666c622e0f2c7999ab6510839b15a9d48cd7b7d7ae"
+    },
+    {
+      "path": "free/web_search.json",
+      "type": "file",
+      "checksum": "a79c4f7c1c92059cc4e3a3909ee92919ff8c5817cfd9ce291c5534b16a811ec1"
+    },
+    {
+      "path": "free/whois.json",
+      "type": "file",
+      "checksum": "378f7dd2652e90d41edee243d69bf7914b15106feaa109e974af5aae1babde55"
+    },
+    {
+      "path": "free/wikipedia_lookup.json",
+      "type": "file",
+      "checksum": "63243f00beac2eb7d74dc6371ec162f6bd39ad77eb44c4f80ce0b1a54f2065d7"
+    },
+    {
+      "path": "free/xlsx_parse.json",
+      "type": "file",
+      "checksum": "e98eb785048069b912afa17f23f39999ebe6fce1e20cff1066b737eb4b7485a0"
+    },
+    {
+      "path": "free/youtube_transcript.json",
+      "type": "file",
+      "checksum": "aa08bee10fcd9ab7b1350ad07dd1b5139e059dd932481bab9939fcc5c0d0bece"
+    }
+  ]
+}
