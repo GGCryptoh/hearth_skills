@@ -1,8 +1,20 @@
 {
-  "version": "0.2.0",
+  "version": "0.3.0",
   "format": "hearth.skill/1",
-  "updated_at": "2026-05-01T01:01:44.155Z",
+  "updated_at": "2026-05-01T05:00:00.000Z",
   "skills": [
+    {
+      "path": "free/create-images-openai",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "836ee80aaf766f301d0ad6e46cdfefe1a2ce1415a8a81a73794818c12ba476d6",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "74c1d32b090f518bc59994dc3b17b906d62d041d548d5b6db3e49950b2615a57"
+        }
+      ]
+    },
     {
       "path": "free/csv_parse.json",
       "type": "file",

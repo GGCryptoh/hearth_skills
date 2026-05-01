@@ -1,0 +1,26 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "create-images-openai",
+  "name": "Image Generation — OpenAI",
+  "version": "0.2.0",
+  "author": "hearth-team",
+  "description": "Generate images using DALL-E 3 (OpenAI). Saves the result to /dashboard/collateral as a base64 PNG.",
+  "tier": "free",
+  "type": "tool",
+  "category": "creation",
+  "risk": "low",
+  "handler": {
+    "runtime": "node",
+    "entrypoint": "handler.js",
+    "function": "run"
+  },
+  "permissions": [],
+  "api_keys_required": ["OPENAI_API_KEY"],
+  "files": ["handler.js"],
+  "marketplace": {
+    "tags": ["connection:api_key", "image", "dall-e-3"],
+    "icon": "Image"
+  },
+  "bundled": false,
+  "lifecycle_state": "new"
+}
