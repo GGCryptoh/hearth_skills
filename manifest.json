@@ -1,8 +1,20 @@
 {
-  "version": "0.3.0",
+  "version": "0.4.0",
   "format": "hearth.skill/1",
-  "updated_at": "2026-05-01T05:00:00.000Z",
+  "updated_at": "2026-05-04T22:30:00.000Z",
   "skills": [
+    {
+      "path": "free/cat-selfie-maker",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "982f68752c751e7ba0c7a2c09db65f4e2747ef13a7407281a4a6e08c032ca996",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "4f57f81e1dd2b9d2eff4a4f7e49255e73a736446808f1499b624e4f793c62a45"
+        }
+      ]
+    },
     {
       "path": "free/create-images-openai",
       "type": "directory",
@@ -12,6 +24,18 @@
         {
           "name": "handler.js",
           "checksum": "74c1d32b090f518bc59994dc3b17b906d62d041d548d5b6db3e49950b2615a57"
+        }
+      ]
+    },
+    {
+      "path": "free/dog-selfie-maker",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "0aa76bbd977d3809d5aff9273475f329d8e7570fc805dc01965e7d0d8424ceb4",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "833baba101e761ae215a369507fb7d1644386acbde138ff257aab994be878977"
         }
       ]
     },

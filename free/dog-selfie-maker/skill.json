@@ -1,0 +1,41 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "dog-selfie-maker",
+  "name": "Dog Selfie Maker",
+  "version": "0.1.0",
+  "author": "hearth-team",
+  "description": "Generate a 9:16 vertical iPhone-style selfie of a dog — deliberately ordinary, with awkward framing or candid imperfection. Uses OpenAI gpt-image-1. The default prompt is editable from Configure Skill (override) and falls back when cleared.",
+  "tier": "free",
+  "type": "tool",
+  "category": "creation",
+  "risk": "low",
+  "handler": {
+    "runtime": "node",
+    "entrypoint": "handler.js",
+    "function": "run"
+  },
+  "permissions": [],
+  "api_keys_required": ["OPENAI_API_KEY"],
+  "files": ["handler.js"],
+  "marketplace": {
+    "tags": ["connection:api_key", "image", "gpt-image-1", "selfie", "dog", "fun"],
+    "icon": "Dog"
+  },
+  "prompt_template": "A vertical 9:16 ordinary iPhone snapshot of a dog taking a selfie in a casual setting, with some accessory/prop, an awkward or goofy candid expression (tongue out, wonky ears, head-tilt), and an imperfection like blur, bad framing, slobber on the lens, clutter, or harsh lighting. Avoid cinematic, polished, professional, or glamour-style composition.",
+  "vault_inputs": [
+    {
+      "key": "prompt_template",
+      "label": "Prompt template",
+      "kind": "textarea",
+      "placeholder": "Leave blank to use the default dog-selfie prompt baked into this skill.",
+      "help": "Override the default image-generation prompt. Clear the box to fall back to the skill's bundled default. Stored encrypted in your local vault.",
+      "required": false
+    }
+  ],
+  "output_kind": "image",
+  "expected_duration_ms": 12000,
+  "pre_call_message": "Cooking up a dog selfie…",
+  "post_call_message": "Dog selfie saved to Collateral.",
+  "bundled": false,
+  "lifecycle_state": "new"
+}

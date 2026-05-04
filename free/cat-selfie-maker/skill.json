@@ -1,0 +1,41 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "cat-selfie-maker",
+  "name": "Cat Selfie Maker",
+  "version": "0.1.0",
+  "author": "hearth-team",
+  "description": "Generate a 9:16 vertical iPhone-style selfie of a cat — deliberately ordinary, with awkward framing or candid imperfection. Uses OpenAI gpt-image-1. The default prompt is editable from Configure Skill (override) and falls back when cleared.",
+  "tier": "free",
+  "type": "tool",
+  "category": "creation",
+  "risk": "low",
+  "handler": {
+    "runtime": "node",
+    "entrypoint": "handler.js",
+    "function": "run"
+  },
+  "permissions": [],
+  "api_keys_required": ["OPENAI_API_KEY"],
+  "files": ["handler.js"],
+  "marketplace": {
+    "tags": ["connection:api_key", "image", "gpt-image-1", "selfie", "cat", "fun"],
+    "icon": "Cat"
+  },
+  "prompt_template": "A vertical 9:16 ordinary iPhone snapshot of a cat taking a selfie in a casual setting, with some accessory/prop, an awkward or mundane candid expression, and an imperfection like blur, bad framing, clutter, or harsh lighting. Avoid cinematic, polished, professional, or glamour-style composition.",
+  "vault_inputs": [
+    {
+      "key": "prompt_template",
+      "label": "Prompt template",
+      "kind": "textarea",
+      "placeholder": "Leave blank to use the default cat-selfie prompt baked into this skill.",
+      "help": "Override the default image-generation prompt. Clear the box to fall back to the skill's bundled default. Stored encrypted in your local vault.",
+      "required": false
+    }
+  ],
+  "output_kind": "image",
+  "expected_duration_ms": 12000,
+  "pre_call_message": "Cooking up a cat selfie…",
+  "post_call_message": "Cat selfie saved to Collateral.",
+  "bundled": false,
+  "lifecycle_state": "new"
+}
