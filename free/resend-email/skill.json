@@ -1,0 +1,45 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "resend-email",
+  "name": "Email — Resend",
+  "version": "0.1.0",
+  "author": "hearth-team",
+  "description": "Send transactional email via Resend. Bring your own RESEND_API_KEY and a verified sender domain. Simple POST under the hood — agent supplies to/subject/html/text/attachments.",
+  "tier": "free",
+  "type": "tool",
+  "category": "communication",
+  "risk": "moderate",
+  "handler": {
+    "runtime": "node",
+    "entrypoint": "handler.js",
+    "function": "run"
+  },
+  "permissions": [],
+  "api_keys_required": ["RESEND_API_KEY"],
+  "vault_inputs": [
+    {
+      "key": "from_email",
+      "label": "From address",
+      "kind": "text",
+      "placeholder": "you@yourdomain.com",
+      "help": "Must be on a verified domain in your Resend account. Verify at https://resend.com/domains",
+      "required": true
+    },
+    {
+      "key": "default_subject_prefix",
+      "label": "Subject prefix (optional)",
+      "kind": "text",
+      "placeholder": "[Hearth] ",
+      "help": "Prepended to every subject line so recipients can filter agent-sent mail",
+      "required": false
+    }
+  ],
+  "files": ["handler.js"],
+  "marketplace": {
+    "tags": ["connection:api_key", "email", "resend", "communication"],
+    "icon": "Mail"
+  },
+  "cost_estimate_usd": 0.001,
+  "bundled": false,
+  "lifecycle_state": "new"
+}

@@ -1,7 +1,7 @@
 {
-  "version": "0.4.0",
+  "version": "0.5.0",
   "format": "hearth.skill/1",
-  "updated_at": "2026-05-04T22:30:00.000Z",
+  "updated_at": "2026-05-05T22:00:00.000Z",
   "skills": [
     {
       "path": "free/cat-selfie-maker",
@@ -28,6 +28,18 @@
       ]
     },
     {
+      "path": "free/daily-brief",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "95104bbf8cdcb6638aa5b9f7fa386372fcd52a9e96133f11d2e3647e591dc9e9",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "e181091f931f3ef117a6d253482d5ab1340e3f2a672402e716011f1a7f57d86c"
+        }
+      ]
+    },
+    {
       "path": "free/dog-selfie-maker",
       "type": "directory",
       "manifest_file": "skill.json",
@@ -36,6 +48,18 @@
         {
           "name": "handler.js",
           "checksum": "833baba101e761ae215a369507fb7d1644386acbde138ff257aab994be878977"
+        }
+      ]
+    },
+    {
+      "path": "free/resend-email",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "596f4bc5b9e7752a35656413556fd646eed5c0a2cfcb56f2c00c3e3af0ed3ed4",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "1f019e6c99d2de75c3b65d2d4a98f19f12159e1e45aeeb80974c184ced38d846"
         }
       ]
     },
@@ -75,16 +99,6 @@
       "checksum": "d99f5aa4f770445a3f802f6a753f7a61b7f0dd63f3165a9ef4d5b12a4033db5b"
     },
     {
-      "path": "free/obsidian_read.json",
-      "type": "file",
-      "checksum": "e05a61115cc48f028459bd93ba036c2f7c3041cd6f1025486d73210b4f8c7ec3"
-    },
-    {
-      "path": "free/obsidian_write.json",
-      "type": "file",
-      "checksum": "0c2d9a0f0bae91d2c72edad826b68408a6c64e4428939d0f5768835a6b90d27b"
-    },
-    {
       "path": "free/pdf_read.json",
       "type": "file",
       "checksum": "95143b60da9dbc5ee9c765e12d4797686fc031daf2bfe25fd50fef65e64e1502"
@@ -93,16 +107,6 @@
       "path": "free/telegram_send.json",
       "type": "file",
       "checksum": "f4e86ed09c6cc14c16863e6cbc46cf08d51e065dc2f85ec6e8129d710cdc3a77"
-    },
-    {
-      "path": "free/voice_stt_transcribe.json",
-      "type": "file",
-      "checksum": "3e0ed7c8bfbc53061df036bc50a98d8a3d49ff28b87c7c682bc479c219cf73e9"
-    },
-    {
-      "path": "free/voice_tts_play.json",
-      "type": "file",
-      "checksum": "c81ef78ab36079508224c2cb5808032601a326ea877191c45784b38caf72ae3c"
     },
     {
       "path": "free/xlsx_parse.json",
