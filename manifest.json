@@ -1,13 +1,13 @@
 {
-  "version": "0.5.0",
+  "version": "0.5.1",
   "format": "hearth.skill/1",
-  "updated_at": "2026-05-05T22:00:00.000Z",
+  "updated_at": "2026-05-05T23:30:00.000Z",
   "skills": [
     {
       "path": "free/cat-selfie-maker",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "982f68752c751e7ba0c7a2c09db65f4e2747ef13a7407281a4a6e08c032ca996",
+      "checksum": "8a01c223be39b8e2959cf21a95b1f67f15e6876321fdfb72a17e6196733302cf",
       "files": [
         {
           "name": "handler.js",
@@ -43,7 +43,7 @@
       "path": "free/dog-selfie-maker",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "0aa76bbd977d3809d5aff9273475f329d8e7570fc805dc01965e7d0d8424ceb4",
+      "checksum": "2f4f322ff85529cb41ba2e9254d0f88db49cf7a534650958eb11f883d67eff62",
       "files": [
         {
           "name": "handler.js",

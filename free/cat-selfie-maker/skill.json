@@ -2,7 +2,7 @@
   "schema": "hearth.skill/1",
   "id": "cat-selfie-maker",
   "name": "Cat Selfie Maker",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "hearth-team",
   "description": "Generate a 9:16 vertical iPhone-style selfie of a cat — deliberately ordinary, with awkward framing or candid imperfection. Uses OpenAI gpt-image-1. The default prompt is editable from Configure Skill (override) and falls back when cleared.",
   "tier": "free",
@@ -36,6 +36,7 @@
   "expected_duration_ms": 12000,
   "pre_call_message": "Cooking up a cat selfie…",
   "post_call_message": "Cat selfie saved to Collateral.",
+  "cost_estimate_usd": 0.04,
   "bundled": false,
   "lifecycle_state": "new"
 }
