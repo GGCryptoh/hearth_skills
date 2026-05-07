@@ -9,6 +9,7 @@
   "type": "tool",
   "category": "creation",
   "risk": "low",
+  "cost_estimate_usd": 0.04,
   "handler": {
     "runtime": "node",
     "entrypoint": "handler.js",
