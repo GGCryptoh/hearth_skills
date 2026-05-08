@@ -1,7 +1,7 @@
 {
-  "version": "0.5.1",
+  "version": "0.5.2",
   "format": "hearth.skill/1",
-  "updated_at": "2026-05-05T23:30:00.000Z",
+  "updated_at": "2026-05-07T21:30:00.000Z",
   "skills": [
     {
       "path": "free/cat-selfie-maker",
@@ -19,7 +19,7 @@
       "path": "free/create-images-openai",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "836ee80aaf766f301d0ad6e46cdfefe1a2ce1415a8a81a73794818c12ba476d6",
+      "checksum": "9dc50e1966f458c97d59e9f9d9bcdc191df032deb9ed6db029fd888e905ff495",
       "files": [
         {
           "name": "handler.js",
