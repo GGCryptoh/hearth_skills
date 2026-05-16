@@ -1,17 +1,17 @@
 {
-  "version": "0.5.2",
+  "version": "0.5.3",
   "format": "hearth.skill/1",
-  "updated_at": "2026-05-07T21:30:00.000Z",
+  "updated_at": "2026-05-16T20:46:59.282Z",
   "skills": [
     {
       "path": "free/cat-selfie-maker",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "8a01c223be39b8e2959cf21a95b1f67f15e6876321fdfb72a17e6196733302cf",
+      "checksum": "ff2a3bfdf27ed5e15dbbf1ee7ff3f0ef8f01061ce8923a216292410a798f454f",
       "files": [
         {
           "name": "handler.js",
-          "checksum": "4f57f81e1dd2b9d2eff4a4f7e49255e73a736446808f1499b624e4f793c62a45"
+          "checksum": "71bbad54bd73d906eb05d4021ebac9d13e0f17a205d53c1f826eabeaf7635af2"
         }
       ]
     },
@@ -19,13 +19,18 @@
       "path": "free/create-images-openai",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "9dc50e1966f458c97d59e9f9d9bcdc191df032deb9ed6db029fd888e905ff495",
+      "checksum": "de242de7b2e4520f48ac22c93da5cfc6678b3aa8b343137216d436752f089952",
       "files": [
         {
           "name": "handler.js",
-          "checksum": "74c1d32b090f518bc59994dc3b17b906d62d041d548d5b6db3e49950b2615a57"
+          "checksum": "4a32b0b45bbb8a9a54b0c03f3ef583c53429fd4907f85a9681b48ae5b7926314"
         }
       ]
+    },
+    {
+      "path": "free/csv_parse.json",
+      "type": "file",
+      "checksum": "5f0e81192ab05440c6067fb5a3f8a99c7843be43425ff2be4156f7a434261531"
     },
     {
       "path": "free/daily-brief",
@@ -43,30 +48,13 @@
       "path": "free/dog-selfie-maker",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "2f4f322ff85529cb41ba2e9254d0f88db49cf7a534650958eb11f883d67eff62",
+      "checksum": "775c17230db5beda1fe0528fcf81a1c950f97a9fae2d78145bcaacb98a30b4ea",
       "files": [
         {
           "name": "handler.js",
-          "checksum": "833baba101e761ae215a369507fb7d1644386acbde138ff257aab994be878977"
+          "checksum": "3fd0e13c00439e98f9d78ad308e928bca0140e82740780339c89988528947fed"
         }
       ]
-    },
-    {
-      "path": "free/resend-email",
-      "type": "directory",
-      "manifest_file": "skill.json",
-      "checksum": "596f4bc5b9e7752a35656413556fd646eed5c0a2cfcb56f2c00c3e3af0ed3ed4",
-      "files": [
-        {
-          "name": "handler.js",
-          "checksum": "1f019e6c99d2de75c3b65d2d4a98f19f12159e1e45aeeb80974c184ced38d846"
-        }
-      ]
-    },
-    {
-      "path": "free/csv_parse.json",
-      "type": "file",
-      "checksum": "5f0e81192ab05440c6067fb5a3f8a99c7843be43425ff2be4156f7a434261531"
     },
     {
       "path": "free/hearth_create_mission.json",
@@ -102,6 +90,34 @@
       "path": "free/pdf_read.json",
       "type": "file",
       "checksum": "95143b60da9dbc5ee9c765e12d4797686fc031daf2bfe25fd50fef65e64e1502"
+    },
+    {
+      "path": "free/private_llm",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "fed161fd6520678412d875a568e3bfe209274a5422aaeb1ee4ea5df3b1d9282a",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "2f1c3bd93d7a431614a89e41aeeaeea15b39060e6df038d70a210a7129ea4d5c"
+        },
+        {
+          "name": "architecture.md",
+          "checksum": "07f898634c74e756508bc93ef170a99ee34d218d72bdd162a92ed4d88f796831"
+        }
+      ]
+    },
+    {
+      "path": "free/resend-email",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "596f4bc5b9e7752a35656413556fd646eed5c0a2cfcb56f2c00c3e3af0ed3ed4",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "1f019e6c99d2de75c3b65d2d4a98f19f12159e1e45aeeb80974c184ced38d846"
+        }
+      ]
     },
     {
       "path": "free/telegram_send.json",

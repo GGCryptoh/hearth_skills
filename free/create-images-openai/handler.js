@@ -1,4 +1,4 @@
-// Image Generation — OpenAI DALL-E 3.
+// Image Generation — OpenAI gpt-image-2.
 //
 // Generates a single image from a text prompt and writes it to the
 // founder's collateral table as a base64 PNG. Returns the saved
@@ -42,7 +42,7 @@ export async function run(ctx, args) {
       authorization: `Bearer ${apiKey}`,
     },
     body: JSON.stringify({
-      model: 'dall-e-3',
+      model: 'gpt-image-2',
       prompt,
       n: 1,
       size,
@@ -86,7 +86,7 @@ export async function run(ctx, args) {
         sourceId: 'create-images-openai',
         metadata: JSON.stringify({
           mime: 'image/png',
-          model: 'dall-e-3',
+          model: 'gpt-image-2',
           size,
           quality,
           style,
@@ -94,7 +94,7 @@ export async function run(ctx, args) {
           revised_prompt: revisedPrompt || null,
           skill_id: 'create-images-openai',
         }),
-        tags: JSON.stringify(['image', 'dall-e-3', 'openai']),
+        tags: JSON.stringify(['image', 'gpt-image-2', 'openai']),
         createdAt,
         seenAt: null,
       });
@@ -121,7 +121,7 @@ export async function run(ctx, args) {
   }
 
   const lines = [
-    `## Generated image (DALL-E 3)`,
+    `## Generated image (gpt-image-2)`,
     '',
     `![${titleStub}](${dataUrl})`,
     '',
