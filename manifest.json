@@ -1,7 +1,7 @@
 {
-  "version": "0.5.3",
+  "version": "0.5.4",
   "format": "hearth.skill/1",
-  "updated_at": "2026-05-16T20:46:59.282Z",
+  "updated_at": "2026-05-16T21:08:54.756Z",
   "skills": [
     {
       "path": "free/cat-selfie-maker",
