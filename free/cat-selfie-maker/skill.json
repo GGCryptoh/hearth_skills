@@ -4,7 +4,7 @@
   "name": "Cat Selfie Maker",
   "version": "0.1.1",
   "author": "hearth-team",
-  "description": "Generate a 9:16 vertical iPhone-style selfie of a cat — deliberately ordinary, with awkward framing or candid imperfection. Uses OpenAI gpt-image-1. The default prompt is editable from Configure Skill (override) and falls back when cleared.",
+  "description": "Generate a 9:16 vertical iPhone-style selfie of a cat — deliberately ordinary, with awkward framing or candid imperfection. Uses OpenAI gpt-image-2. The default prompt is editable from Configure Skill (override) and falls back when cleared.",
   "tier": "free",
   "type": "tool",
   "category": "creation",
@@ -18,7 +18,7 @@
   "api_keys_required": ["OPENAI_API_KEY"],
   "files": ["handler.js"],
   "marketplace": {
-    "tags": ["connection:api_key", "image", "gpt-image-1", "selfie", "cat", "fun"],
+    "tags": ["connection:api_key", "image", "gpt-image-2", "selfie", "cat", "fun"],
     "icon": "Cat"
   },
   "prompt_template": "A vertical 9:16 ordinary iPhone snapshot of a cat taking a selfie in a casual setting, with some accessory/prop, an awkward or mundane candid expression, and an imperfection like blur, bad framing, clutter, or harsh lighting. Avoid cinematic, polished, professional, or glamour-style composition.",

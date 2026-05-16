@@ -1,4 +1,4 @@
-// Cat Selfie Maker — OpenAI gpt-image-1.
+// Cat Selfie Maker — OpenAI gpt-image-2.
 //
 // Generates a 9:16 vertical "ordinary iPhone snapshot" of a cat taking a
 // selfie. The prompt is intentionally anti-cinematic — see DEFAULT_PROMPT
@@ -49,7 +49,7 @@ export async function run(ctx, args) {
       authorization: `Bearer ${apiKey}`,
     },
     body: JSON.stringify({
-      model: 'gpt-image-1',
+      model: 'gpt-image-2',
       prompt,
       n: 1,
       size,
@@ -88,13 +88,13 @@ export async function run(ctx, args) {
         sourceId: 'cat-selfie-maker',
         metadata: JSON.stringify({
           mime: 'image/png',
-          model: 'gpt-image-1',
+          model: 'gpt-image-2',
           size,
           prompt,
           prompt_was_override: override.length > 0,
           skill_id: 'cat-selfie-maker',
         }),
-        tags: JSON.stringify(['image', 'gpt-image-1', 'cat', 'selfie']),
+        tags: JSON.stringify(['image', 'gpt-image-2', 'cat', 'selfie']),
         createdAt,
         seenAt: null,
       });
@@ -114,7 +114,7 @@ export async function run(ctx, args) {
         target: collateralId ? `collateral:${collateralId}` : null,
         severity: 'info',
         details: {
-          model: 'gpt-image-1',
+          model: 'gpt-image-2',
           size,
           prompt_was_override: override.length > 0,
         },
@@ -125,7 +125,7 @@ export async function run(ctx, args) {
   }
 
   const lines = [
-    `## Cat selfie (gpt-image-1)`,
+    `## Cat selfie (gpt-image-2)`,
     '',
     `![${titleStub}](${dataUrl})`,
     '',
@@ -140,7 +140,7 @@ export async function run(ctx, args) {
     image_url: dataUrl,
     prompt,
     prompt_was_override: override.length > 0,
-    model: 'gpt-image-1',
+    model: 'gpt-image-2',
     size,
     summary: lines.join('\n'),
   };
