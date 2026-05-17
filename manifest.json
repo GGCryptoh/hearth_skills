@@ -1,7 +1,7 @@
 {
-  "version": "0.5.4",
+  "version": "0.5.5",
   "format": "hearth.skill/1",
-  "updated_at": "2026-05-16T21:08:54.756Z",
+  "updated_at": "2026-05-17T20:12:07.821Z",
   "skills": [
     {
       "path": "free/cat-selfie-maker",
@@ -95,7 +95,7 @@
       "path": "free/private_llm",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "fed161fd6520678412d875a568e3bfe209274a5422aaeb1ee4ea5df3b1d9282a",
+      "checksum": "35b08cfd003ae86d442699d91285e80e6326b6fabb81f249592a09a168611a79",
       "files": [
         {
           "name": "handler.js",
@@ -103,7 +103,7 @@
         },
         {
           "name": "architecture.md",
-          "checksum": "07f898634c74e756508bc93ef170a99ee34d218d72bdd162a92ed4d88f796831"
+          "checksum": "3498caff24473c768a178a693a0b2d805516140635f497a57b5ef33e800a09c8"
         }
       ]
     },

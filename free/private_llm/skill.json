@@ -2,7 +2,7 @@
   "schema": "hearth.skill/1",
   "id": "private_llm",
   "name": "Private LLM",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "hearth-team",
   "description": "Route the chat's incognito mode to a local LLM you run yourself — LM Studio, Ollama, llama.cpp's server, vLLM, or any OpenAI-compatible endpoint. Two URL slots so you can pin a primary (e.g. localhost or LAN) plus an optional fallback (e.g. Tailscale) — Hearth tries the primary first and falls through. While incognito is active, only save-to-collateral is allowed; nothing else leaves your box.",
   "tier": "free",
@@ -16,7 +16,10 @@
   },
   "permissions": [],
   "api_keys_required": [],
-  "files": ["handler.js", "architecture.md"],
+  "files": [
+    "handler.js",
+    "architecture.md"
+  ],
   "marketplace": {
     "tags": [
       "privacy",
@@ -54,7 +57,10 @@
           "value": "openai",
           "label": "OpenAI-compatible (LM Studio, llama.cpp, vLLM, OpenRouter)"
         },
-        { "value": "ollama", "label": "Ollama" }
+        {
+          "value": "ollama",
+          "label": "Ollama"
+        }
       ],
       "help": "LM Studio + most modern local servers speak OpenAI shape. Pick Ollama only if you're running ollama serve.",
       "required": true
@@ -91,7 +97,9 @@
             "description": "Optional system prompt prepended to the conversation"
           }
         },
-        "required": ["prompt"]
+        "required": [
+          "prompt"
+        ]
       }
     }
   ],
