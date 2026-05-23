@@ -1,7 +1,7 @@
 {
-  "version": "0.5.6",
+  "version": "0.5.7",
   "format": "hearth.skill/1",
-  "updated_at": "2026-05-23T14:06:08.673Z",
+  "updated_at": "2026-05-23T14:23:44.339Z",
   "skills": [
     {
       "path": "free/cat-selfie-maker",
@@ -60,11 +60,15 @@
       "path": "free/gmail_read",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "0e84af6c89007d677721f7d082d67d49364c22a02d2cc5bc2b82ea37c0c26a03",
+      "checksum": "b25307e0797afcd968b9b524e78921ab4ed38027f7423ea7accc0d6b2110bb39",
       "files": [
         {
           "name": "handler.js",
           "checksum": "8f4a1b1f65e069d4f255c8179e79cf1b1179a1b689a151771950b89c505cf7fa"
+        },
+        {
+          "name": "architecture.md",
+          "checksum": "d79143c72f9cb16ccf0ab3fad746c91d0589bcd0ffdcd45897cf055f3b8e3a64"
         }
       ]
     },
@@ -72,11 +76,15 @@
       "path": "free/gmail_send",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "a2b0e91157ce6c4fe13d2afd6cb54ea13bd337e0224b3f11296738cb906232ce",
+      "checksum": "1f2a9a25d188ac3ed9a9d324f472b2c5ee643593b376ff445a2d714af08023d8",
       "files": [
         {
           "name": "handler.js",
           "checksum": "68a24fa15126400b8549791bed481e515e10c10989ad1aa2c21c70a7c200df8a"
+        },
+        {
+          "name": "architecture.md",
+          "checksum": "7d0bf2dc33f3e2c3da970c7a7a388db1fc6c28bdd073147f70ec8e86524aadd2"
         }
       ]
     },

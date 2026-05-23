@@ -2,7 +2,7 @@
   "schema": "hearth.skill/1",
   "id": "gmail_send",
   "name": "Gmail — Send",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "hearth-team",
   "description": "Send email through your Gmail account via Google OAuth. Uses the minimum-privilege gmail.send scope — this skill can compose and send mail but physically cannot read your inbox. Pair with Gmail — Read if your agent also needs inbox visibility.",
   "tier": "free",
@@ -16,7 +16,7 @@
   },
   "permissions": ["net:outbound"],
   "api_keys_required": ["GMAIL_SEND_OAUTH_REFRESH_TOKEN"],
-  "files": ["handler.js"],
+  "files": ["handler.js", "architecture.md"],
   "marketplace": {
     "tags": [
       "email",
@@ -34,7 +34,7 @@
       "label": "Google OAuth client ID",
       "kind": "text",
       "placeholder": "xxxxx.apps.googleusercontent.com",
-      "help": "From your Google Cloud project (APIs & Services → Credentials → OAuth 2.0 Client IDs). Shared across all Google Workspace skills — same client for Gmail Send, Gmail Read, Google Calendar, etc.",
+      "help": "One-time setup: console.cloud.google.com → New Project → APIs & Services → Library → enable 'Gmail API' → Credentials → Create Credentials → OAuth client ID → Application type 'Web application' → add 'https://developers.google.com/oauthplayground' as an Authorized redirect URI. Paste the resulting Client ID here. Same client serves Gmail Send + Gmail Read + future Workspace skills.",
       "required": true
     },
     {
@@ -42,7 +42,7 @@
       "label": "Google OAuth client secret",
       "kind": "secret",
       "placeholder": "GOCSPX-...",
-      "help": "Paired with the client ID above. Stored encrypted in your vault.",
+      "help": "The 'Client secret' shown next to the Client ID in the Cloud Console Credentials list. Stored encrypted in your vault. If you ever rotate it, paste the new value here and click Save.",
       "required": true
     },
     {
@@ -50,7 +50,7 @@
       "label": "Gmail send refresh token",
       "kind": "secret",
       "placeholder": "1//0...",
-      "help": "Obtained via the OAuth consent flow with scope `https://www.googleapis.com/auth/gmail.send`. Generate at https://developers.google.com/oauthplayground (paste your client ID/secret, select Gmail API v1 → gmail.send, exchange for refresh token). Use a DIFFERENT token from the read skill — minimum-privilege isolation.",
+      "help": "Generate at developers.google.com/oauthplayground: (1) gear → 'Use your own OAuth credentials' → paste Client ID + secret. (2) Step 1 → 'Gmail API v1' → tick ONLY 'https://www.googleapis.com/auth/gmail.send' (send-only). (3) Authorize + consent. (4) Step 2 → Exchange authorization code → copy Refresh token. Use a DIFFERENT token from the read skill — minimum-privilege isolation.",
       "required": true
     },
     {
