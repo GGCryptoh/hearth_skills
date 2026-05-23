@@ -1,0 +1,68 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "gmail_send",
+  "name": "Gmail — Send",
+  "version": "0.1.0",
+  "author": "hearth-team",
+  "description": "Send email through your Gmail account via Google OAuth. Uses the minimum-privilege gmail.send scope — this skill can compose and send mail but physically cannot read your inbox. Pair with Gmail — Read if your agent also needs inbox visibility.",
+  "tier": "free",
+  "type": "tool",
+  "category": "communication",
+  "risk": "moderate",
+  "handler": {
+    "runtime": "node",
+    "entrypoint": "handler.js",
+    "function": "run"
+  },
+  "permissions": ["net:outbound"],
+  "api_keys_required": ["GMAIL_SEND_OAUTH_REFRESH_TOKEN"],
+  "files": ["handler.js"],
+  "marketplace": {
+    "tags": [
+      "email",
+      "gmail",
+      "google",
+      "communication",
+      "oauth",
+      "send-only"
+    ],
+    "icon": "Mail"
+  },
+  "vault_inputs": [
+    {
+      "key": "GOOGLE_OAUTH_CLIENT_ID",
+      "label": "Google OAuth client ID",
+      "kind": "text",
+      "placeholder": "xxxxx.apps.googleusercontent.com",
+      "help": "From your Google Cloud project (APIs & Services → Credentials → OAuth 2.0 Client IDs). Shared across all Google Workspace skills — same client for Gmail Send, Gmail Read, Google Calendar, etc.",
+      "required": true
+    },
+    {
+      "key": "GOOGLE_OAUTH_CLIENT_SECRET",
+      "label": "Google OAuth client secret",
+      "kind": "secret",
+      "placeholder": "GOCSPX-...",
+      "help": "Paired with the client ID above. Stored encrypted in your vault.",
+      "required": true
+    },
+    {
+      "key": "GMAIL_SEND_OAUTH_REFRESH_TOKEN",
+      "label": "Gmail send refresh token",
+      "kind": "secret",
+      "placeholder": "1//0...",
+      "help": "Obtained via the OAuth consent flow with scope `https://www.googleapis.com/auth/gmail.send`. Generate at https://developers.google.com/oauthplayground (paste your client ID/secret, select Gmail API v1 → gmail.send, exchange for refresh token). Use a DIFFERENT token from the read skill — minimum-privilege isolation.",
+      "required": true
+    },
+    {
+      "key": "gmail_from_name",
+      "label": "From name (optional)",
+      "kind": "text",
+      "placeholder": "Jarvis",
+      "help": "Display name shown to recipients. Leave blank to use just the email address.",
+      "required": false
+    }
+  ],
+  "cost_estimate": { "kind": "free", "usd": 0 },
+  "bundled": false,
+  "lifecycle_state": "new"
+}

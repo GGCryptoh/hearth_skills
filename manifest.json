@@ -1,7 +1,7 @@
 {
-  "version": "0.5.5",
+  "version": "0.5.6",
   "format": "hearth.skill/1",
-  "updated_at": "2026-05-17T20:12:07.821Z",
+  "updated_at": "2026-05-23T14:06:08.673Z",
   "skills": [
     {
       "path": "free/cat-selfie-maker",
@@ -53,6 +53,30 @@
         {
           "name": "handler.js",
           "checksum": "3fd0e13c00439e98f9d78ad308e928bca0140e82740780339c89988528947fed"
+        }
+      ]
+    },
+    {
+      "path": "free/gmail_read",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "0e84af6c89007d677721f7d082d67d49364c22a02d2cc5bc2b82ea37c0c26a03",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "8f4a1b1f65e069d4f255c8179e79cf1b1179a1b689a151771950b89c505cf7fa"
+        }
+      ]
+    },
+    {
+      "path": "free/gmail_send",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "a2b0e91157ce6c4fe13d2afd6cb54ea13bd337e0224b3f11296738cb906232ce",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "68a24fa15126400b8549791bed481e515e10c10989ad1aa2c21c70a7c200df8a"
         }
       ]
     },

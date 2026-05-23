@@ -1,0 +1,60 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "gmail_read",
+  "name": "Gmail — Read",
+  "version": "0.1.0",
+  "author": "hearth-team",
+  "description": "Read-only Gmail access via Google OAuth. Search your inbox, read message bodies, list labels. Uses the minimum-privilege gmail.readonly scope — this skill physically cannot send mail or modify your mailbox. Pair with Gmail — Send for outbound.",
+  "tier": "free",
+  "type": "tool",
+  "category": "communication",
+  "risk": "moderate",
+  "handler": {
+    "runtime": "node",
+    "entrypoint": "handler.js",
+    "function": "run"
+  },
+  "permissions": ["net:outbound"],
+  "api_keys_required": ["GMAIL_READ_OAUTH_REFRESH_TOKEN"],
+  "files": ["handler.js"],
+  "marketplace": {
+    "tags": [
+      "email",
+      "gmail",
+      "google",
+      "communication",
+      "oauth",
+      "read-only"
+    ],
+    "icon": "MailSearch"
+  },
+  "vault_inputs": [
+    {
+      "key": "GOOGLE_OAUTH_CLIENT_ID",
+      "label": "Google OAuth client ID",
+      "kind": "text",
+      "placeholder": "xxxxx.apps.googleusercontent.com",
+      "help": "From your Google Cloud project (APIs & Services → Credentials → OAuth 2.0 Client IDs). Shared across all Google Workspace skills — same client for Gmail Read, Gmail Send, Google Calendar, etc.",
+      "required": true
+    },
+    {
+      "key": "GOOGLE_OAUTH_CLIENT_SECRET",
+      "label": "Google OAuth client secret",
+      "kind": "secret",
+      "placeholder": "GOCSPX-...",
+      "help": "Paired with the client ID above. Stored encrypted in your vault.",
+      "required": true
+    },
+    {
+      "key": "GMAIL_READ_OAUTH_REFRESH_TOKEN",
+      "label": "Gmail read refresh token",
+      "kind": "secret",
+      "placeholder": "1//0...",
+      "help": "Obtained via the OAuth consent flow with scope `https://www.googleapis.com/auth/gmail.readonly`. Generate at https://developers.google.com/oauthplayground (paste your client ID/secret, select Gmail API v1 → gmail.readonly, exchange for refresh token).",
+      "required": true
+    }
+  ],
+  "cost_estimate": { "kind": "free", "usd": 0 },
+  "bundled": false,
+  "lifecycle_state": "new"
+}
