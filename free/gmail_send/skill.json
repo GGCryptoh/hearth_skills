@@ -1,10 +1,10 @@
 {
   "schema": "hearth.skill/1",
   "id": "gmail_send",
-  "name": "Gmail — Send",
-  "version": "0.1.1",
+  "name": "Gmail Email — Send",
+  "version": "0.1.2",
   "author": "hearth-team",
-  "description": "Send email through your Gmail account via Google OAuth. Uses the minimum-privilege gmail.send scope — this skill can compose and send mail but physically cannot read your inbox. Pair with Gmail — Read if your agent also needs inbox visibility.",
+  "description": "Send email through your Gmail account via Google OAuth. Uses the minimum-privilege gmail.send scope — this skill can compose and send email but physically cannot read your inbox. Pair with Gmail Email — Read if your agent also needs inbox visibility.",
   "tier": "free",
   "type": "tool",
   "category": "communication",

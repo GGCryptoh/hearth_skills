@@ -1,10 +1,10 @@
 {
   "schema": "hearth.skill/1",
   "id": "gmail_read",
-  "name": "Gmail — Read",
-  "version": "0.1.1",
+  "name": "Gmail Email — Read",
+  "version": "0.1.2",
   "author": "hearth-team",
-  "description": "Read-only Gmail access via Google OAuth. Search your inbox, read message bodies, list labels. Uses the minimum-privilege gmail.readonly scope — this skill physically cannot send mail or modify your mailbox. Pair with Gmail — Send for outbound.",
+  "description": "Read email from your Gmail inbox via Google OAuth. Search messages, read bodies, list labels. Uses the minimum-privilege gmail.readonly scope — this skill physically cannot send email or modify your mailbox. Pair with Gmail Email — Send for outbound.",
   "tier": "free",
   "type": "tool",
   "category": "communication",
