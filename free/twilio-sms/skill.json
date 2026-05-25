@@ -1,0 +1,58 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "twilio_sms",
+  "name": "Twilio SMS",
+  "version": "1.0.0",
+  "author": "hearth-team",
+  "description": "Send an SMS via Twilio. Configure once with Account SID + Auth Token + a 'from' number (Hearth enumerates your Twilio account-owned numbers and lets you pick); routines + the agent then dispatch.",
+  "tier": "free",
+  "type": "tool",
+  "category": "communication",
+  "icon": "MessageSquare",
+  "publisher": "Hearth Team",
+  "risk": "moderate",
+  "permissions": ["net:outbound", "read:vault.entries"],
+  "handler": {
+    "runtime": "node",
+    "entrypoint": "handler.js",
+    "function": "run"
+  },
+  "vault_inputs": [
+    {
+      "key": "TWILIO_ACCOUNT_SID",
+      "label": "Account SID",
+      "kind": "text",
+      "placeholder": "AC…",
+      "help": "Find this in the Twilio Console: console.twilio.com → Account → API keys & tokens",
+      "required": true
+    },
+    {
+      "key": "TWILIO_AUTH_TOKEN",
+      "label": "Auth Token",
+      "kind": "secret",
+      "help": "Twilio's primary Auth Token from the same console page. Stored encrypted in the vault.",
+      "required": true
+    },
+    {
+      "key": "TWILIO_FROM_NUMBER",
+      "label": "From number",
+      "kind": "enumerated_select",
+      "help": "Hearth lists your Twilio-owned numbers automatically after the SID + Token are saved. Pick the one to send from.",
+      "enumerator": { "endpoint": "twilio.list_from_numbers" },
+      "required": true
+    }
+  ],
+  "api_keys_required": ["TWILIO_ACCOUNT_SID", "TWILIO_AUTH_TOKEN"],
+  "cost_estimate": { "kind": "per_call", "per_call": 0.0079 },
+  "latency_p50_ms": 1500,
+  "expected_duration_ms": 30000,
+  "status": "available",
+  "lifecycle_state": "new",
+  "marketplace": {
+    "category": "communication",
+    "tags": ["sms", "twilio", "delivery"],
+    "icon": "MessageSquare"
+  },
+  "pre_call_message": "Sending SMS via Twilio…",
+  "post_call_message": "SMS sent."
+}
