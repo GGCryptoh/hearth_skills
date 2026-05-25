@@ -33,7 +33,7 @@
     }
   ],
   "output_kind": "image",
-  "expected_duration_ms": 12000,
+  "expected_duration_ms": 90000,
   "pre_call_message": "Cooking up a cat selfie…",
   "post_call_message": "Cat selfie saved to Collateral.",
   "cost_estimate_usd": 0.04,
