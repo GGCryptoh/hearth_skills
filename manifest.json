@@ -1,7 +1,7 @@
 {
-  "version": "0.5.10",
+  "version": "0.5.11",
   "format": "hearth.skill/1",
-  "updated_at": "2026-05-26T13:51:37.299Z",
+  "updated_at": "2026-05-26T14:01:04.582Z",
   "skills": [
     {
       "path": "free/cat-selfie-maker",
@@ -155,11 +155,15 @@
       "path": "free/retellai-call",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "6a04d4619c442ce78b88ab92c68c0c60ad8e78c262beb1fead5cdbeb6031b583",
+      "checksum": "f07602bea706366877a46fca9845942cd032256b4457844945ae74fd8013f297",
       "files": [
         {
           "name": "handler.js",
           "checksum": "cca9f66c6effd685a259c4e0b69a5fafff6c88330de641cfc5cac984ad4f8b68"
+        },
+        {
+          "name": "architecture.md",
+          "checksum": "0051e067574e3036673b5a3740ad52ef07d3b21929172ba31db1bec76ff136f7"
         }
       ]
     },
@@ -172,11 +176,15 @@
       "path": "free/twilio-sms",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "1fb51a21ac46ebf71c98956ce8e7a0bdbe4c287c52531475145b7e4807b32ca4",
+      "checksum": "637a92c942c74fff480447e21ba4d32bec23a4dfd9aa4a16fac256e69c4f79ff",
       "files": [
         {
           "name": "handler.js",
           "checksum": "38e9effd9dd4ef009bde3091d1701fdfd9efc8ac0668cdf164f6d01193156218"
+        },
+        {
+          "name": "architecture.md",
+          "checksum": "94c21e78df2e4699ef2cc8f2e85e81cfc78ceb9b31df5f4f93d1866b3c3a5409"
         }
       ]
     },

@@ -43,10 +43,10 @@
     },
     {
       "key": "RETELLAI_PHONETIC_CODE",
-      "label": "Phonetic code",
+      "label": "Phonetic code (outbound integrity tag — NOT a login code)",
       "kind": "text",
       "placeholder": "hearth-pineapple",
-      "help": "A 2-3 word phrase the agent must say within the first sentence of every call, so recipients can spot an automated misuse instantly. Recommend something memorable + niche.",
+      "help": "OUTBOUND TAG: a niche 2-3 word phrase your agent will SAY OUT LOUD in the first sentence of every call. The recipient hears it and knows the call is from your agent (not a deepfake/impersonator). Tell trusted recipients the phrase ahead of time; they should hang up on any call missing it. Pick something memorable + unlikely to appear in normal speech (e.g. 'octopus-mailbox'). See architecture.md → 'What the Phonetic Code actually is' for the full threat model.",
       "required": true
     },
     {
@@ -59,7 +59,7 @@
     }
   ],
   "api_keys_required": ["RETELLAI_API_KEY"],
-  "files": ["handler.js"],
+  "files": ["handler.js", "architecture.md"],
   "cost_estimate": { "kind": "per_call", "per_call": 0.21 },
   "latency_p50_ms": 8000,
   "expected_duration_ms": 30000,
