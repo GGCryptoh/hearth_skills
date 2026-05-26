@@ -59,6 +59,7 @@
     }
   ],
   "api_keys_required": ["RETELLAI_API_KEY"],
+  "files": ["handler.js"],
   "cost_estimate": { "kind": "per_call", "per_call": 0.21 },
   "latency_p50_ms": 8000,
   "expected_duration_ms": 30000,

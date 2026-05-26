@@ -1,7 +1,7 @@
 {
-  "version": "0.5.9",
+  "version": "0.5.10",
   "format": "hearth.skill/1",
-  "updated_at": "2026-05-25T18:13:04.115Z",
+  "updated_at": "2026-05-26T13:51:37.299Z",
   "skills": [
     {
       "path": "free/cat-selfie-maker",
@@ -155,8 +155,13 @@
       "path": "free/retellai-call",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "a2506bd39e03ca4f29beb1df5245cfe4895c8f3c21c91365bb480e0494bd629a",
-      "files": []
+      "checksum": "6a04d4619c442ce78b88ab92c68c0c60ad8e78c262beb1fead5cdbeb6031b583",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "cca9f66c6effd685a259c4e0b69a5fafff6c88330de641cfc5cac984ad4f8b68"
+        }
+      ]
     },
     {
       "path": "free/telegram_send.json",
@@ -167,8 +172,13 @@
       "path": "free/twilio-sms",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "f818e15b72f95955ceaa9d6dd6ebb0e6e36d647b9353ccc1bccc215a288072a0",
-      "files": []
+      "checksum": "1fb51a21ac46ebf71c98956ce8e7a0bdbe4c287c52531475145b7e4807b32ca4",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "38e9effd9dd4ef009bde3091d1701fdfd9efc8ac0668cdf164f6d01193156218"
+        }
+      ]
     },
     {
       "path": "free/xlsx_parse.json",

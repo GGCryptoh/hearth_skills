@@ -43,6 +43,7 @@
     }
   ],
   "api_keys_required": ["TWILIO_ACCOUNT_SID", "TWILIO_AUTH_TOKEN"],
+  "files": ["handler.js"],
   "cost_estimate": { "kind": "per_call", "per_call": 0.0079 },
   "latency_p50_ms": 1500,
   "expected_duration_ms": 30000,
