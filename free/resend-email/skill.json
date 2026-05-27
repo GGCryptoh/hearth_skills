@@ -2,7 +2,7 @@
   "schema": "hearth.skill/1",
   "id": "resend-email",
   "name": "Email — Resend",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "hearth-team",
   "description": "Send transactional email via Resend. Bring your own RESEND_API_KEY and a verified sender domain. Simple POST under the hood — agent supplies to/subject/html/text/attachments.",
   "tier": "free",

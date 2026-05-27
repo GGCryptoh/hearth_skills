@@ -12,6 +12,14 @@
 //   bcc         string | string[]   optional
 //   reply_to    string              optional
 //   attachments [{filename, content}]  optional — content is base64-encoded bytes
+//   attachment_data_url  string         optional — single attachment as a data URL
+//                                       (data:image/jpeg;base64,…). M38 routine
+//                                       step delivery rail forwards this when a
+//                                       prior step produced binary output. Auto-
+//                                       extracted to attachments[].
+//   attachment_filename  string         optional — name to use when sending
+//                                       attachment_data_url (defaults to
+//                                       attachment.<ext> derived from MIME type).
 //
 // Vault config:
 //   RESEND_API_KEY                 secret, under providers
@@ -73,15 +81,31 @@ export async function run(ctx, args) {
   if (a.cc) body.cc = Array.isArray(a.cc) ? a.cc : [a.cc];
   if (a.bcc) body.bcc = Array.isArray(a.bcc) ? a.bcc : [a.bcc];
   if (typeof a.reply_to === 'string') body.reply_to = a.reply_to;
-  if (Array.isArray(a.attachments) && a.attachments.length > 0) {
-    body.attachments = a.attachments
-      .filter(
-        (x) =>
-          x &&
-          typeof x.filename === 'string' &&
-          typeof x.content === 'string',
-      )
-      .map((x) => ({ filename: x.filename, content: x.content }));
+  // Collect attachments from both manual + M38-routine paths.
+  const collected = [];
+  if (Array.isArray(a.attachments)) {
+    for (const x of a.attachments) {
+      if (
+        x &&
+        typeof x.filename === 'string' &&
+        typeof x.content === 'string'
+      ) {
+        collected.push({ filename: x.filename, content: x.content });
+      }
+    }
+  }
+  if (typeof a.attachment_data_url === 'string' && a.attachment_data_url.length > 0) {
+    const parsed = parseDataUrl(a.attachment_data_url);
+    if (parsed) {
+      const filename =
+        typeof a.attachment_filename === 'string' && a.attachment_filename.length > 0
+          ? a.attachment_filename
+          : `attachment.${parsed.ext}`;
+      collected.push({ filename, content: parsed.base64 });
+    }
+  }
+  if (collected.length > 0) {
+    body.attachments = collected;
   }
 
   const res = await fetch(API_URL, {
@@ -106,4 +130,41 @@ export async function run(ctx, args) {
     subject,
     summary: `Email sent to ${to.join(', ')} — subject "${subject}"`,
   };
+}
+
+// Decode a `data:<mime>;base64,<payload>` URL into { base64, ext }. Returns
+// null on malformed input. Falls back to .bin if the MIME type is unknown.
+const MIME_EXT = {
+  'image/jpeg': 'jpg',
+  'image/jpg': 'jpg',
+  'image/png': 'png',
+  'image/gif': 'gif',
+  'image/webp': 'webp',
+  'image/svg+xml': 'svg',
+  'application/pdf': 'pdf',
+  'text/plain': 'txt',
+  'text/markdown': 'md',
+  'text/csv': 'csv',
+  'application/json': 'json',
+  'application/zip': 'zip',
+  'audio/mpeg': 'mp3',
+  'audio/mp4': 'm4a',
+  'audio/wav': 'wav',
+  'video/mp4': 'mp4',
+};
+
+function parseDataUrl(url) {
+  if (typeof url !== 'string' || !url.startsWith('data:')) return null;
+  const commaIdx = url.indexOf(',');
+  if (commaIdx === -1) return null;
+  const meta = url.slice(5, commaIdx); // strip "data:"
+  const payload = url.slice(commaIdx + 1);
+  const isBase64 = meta.toLowerCase().includes(';base64');
+  const mime = (isBase64 ? meta.split(';')[0] : meta) || 'application/octet-stream';
+  // If the data URL is plain (not base64), encode it before forwarding.
+  const base64 = isBase64
+    ? payload
+    : Buffer.from(decodeURIComponent(payload), 'utf-8').toString('base64');
+  const ext = MIME_EXT[mime.toLowerCase()] || 'bin';
+  return { base64, ext, mime };
 }

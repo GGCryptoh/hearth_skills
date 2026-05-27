@@ -1,7 +1,7 @@
 {
-  "version": "0.5.11",
+  "version": "0.5.12",
   "format": "hearth.skill/1",
-  "updated_at": "2026-05-26T14:01:04.582Z",
+  "updated_at": "2026-05-27T18:31:37.612Z",
   "skills": [
     {
       "path": "free/cat-selfie-maker",
@@ -143,11 +143,11 @@
       "path": "free/resend-email",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "596f4bc5b9e7752a35656413556fd646eed5c0a2cfcb56f2c00c3e3af0ed3ed4",
+      "checksum": "87a1c8362c7c8911cd2b5937c7529d0eb97bf8aed12b9fe2fa48bf8c261d90da",
       "files": [
         {
           "name": "handler.js",
-          "checksum": "1f019e6c99d2de75c3b65d2d4a98f19f12159e1e45aeeb80974c184ced38d846"
+          "checksum": "b8bd423a28fa97eb29e569b1b667efb9ca3cf7fdb82b1c66f5e0481cc8c4e9b3"
         }
       ]
     },
