@@ -1,0 +1,43 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "apify_actor",
+  "name": "Apify Actor",
+  "version": "0.1.0",
+  "author": "hearth-team",
+  "description": "Run any Apify actor synchronously and get the dataset items back. Supply actor_id (e.g. apify/instagram-scraper) + the actor's input JSON. Bring your own APIFY_API_TOKEN; everything else is per-call.",
+  "tier": "free",
+  "type": "tool",
+  "category": "research",
+  "icon": "Database",
+  "publisher": "Hearth Team",
+  "risk": "moderate",
+  "permissions": ["net:outbound", "read:vault.entries"],
+  "handler": {
+    "runtime": "node",
+    "entrypoint": "handler.js",
+    "function": "run"
+  },
+  "vault_inputs": [
+    {
+      "key": "APIFY_API_TOKEN",
+      "label": "Apify API Token",
+      "kind": "secret",
+      "help": "Console → Settings → Integrations → API → 'Personal API token'. Stored encrypted in the vault.",
+      "required": true
+    }
+  ],
+  "api_keys_required": ["APIFY_API_TOKEN"],
+  "files": ["handler.js"],
+  "cost_estimate": { "kind": "variable", "note": "Apify bills per actor — typically $0.01–$0.10/run, more for heavy scrapers" },
+  "latency_p50_ms": 15000,
+  "expected_duration_ms": 300000,
+  "status": "available",
+  "lifecycle_state": "new",
+  "marketplace": {
+    "category": "research",
+    "tags": ["apify", "scraping", "research", "actor"],
+    "icon": "Database"
+  },
+  "pre_call_message": "Running Apify actor…",
+  "post_call_message": "Actor finished."
+}

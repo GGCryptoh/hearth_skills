@@ -1,0 +1,43 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "linkedin_mentions",
+  "name": "LinkedIn Mentions (via Apify)",
+  "version": "0.1.0",
+  "author": "hearth-team",
+  "description": "Search LinkedIn for posts/profiles mentioning a keyword via Apify's harvestapi/linkedin-post-search actor. Same APIFY_API_TOKEN as the generic Apify Actor skill — configure once, reuse here. Returns posts with author + URL + snippet.",
+  "tier": "free",
+  "type": "tool",
+  "category": "research",
+  "icon": "Search",
+  "publisher": "Hearth Team",
+  "risk": "moderate",
+  "permissions": ["net:outbound", "read:vault.entries"],
+  "handler": {
+    "runtime": "node",
+    "entrypoint": "handler.js",
+    "function": "run"
+  },
+  "vault_inputs": [
+    {
+      "key": "APIFY_API_TOKEN",
+      "label": "Apify API Token",
+      "kind": "secret",
+      "help": "Same token as the generic Apify Actor skill — paste once, used here too. Console → Settings → Integrations → API.",
+      "required": true
+    }
+  ],
+  "api_keys_required": ["APIFY_API_TOKEN"],
+  "files": ["handler.js"],
+  "cost_estimate": { "kind": "variable", "note": "harvestapi/linkedin-post-search bills around $0.01–$0.05 per 20 results" },
+  "latency_p50_ms": 12000,
+  "expected_duration_ms": 180000,
+  "status": "available",
+  "lifecycle_state": "new",
+  "marketplace": {
+    "category": "research",
+    "tags": ["linkedin", "scraping", "apify", "research", "mentions"],
+    "icon": "Search"
+  },
+  "pre_call_message": "Searching LinkedIn via Apify…",
+  "post_call_message": "Search complete."
+}

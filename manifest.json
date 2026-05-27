@@ -1,8 +1,20 @@
 {
-  "version": "0.5.12",
+  "version": "0.5.13",
   "format": "hearth.skill/1",
-  "updated_at": "2026-05-27T18:31:37.612Z",
+  "updated_at": "2026-05-27T18:37:20.888Z",
   "skills": [
+    {
+      "path": "free/apify_actor",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "9d2bf5cef72eff660c2921e53b64655afdeb1527b75cb2bd1deab305b2947b4c",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "c6b0580a2f863284d5bf03a91ea65c8b369d2c7de0af7cc17e6ffbb3f71b70e9"
+        }
+      ]
+    },
     {
       "path": "free/cat-selfie-maker",
       "type": "directory",
@@ -117,6 +129,18 @@
       "path": "free/hire_agent.json",
       "type": "file",
       "checksum": "d99f5aa4f770445a3f802f6a753f7a61b7f0dd63f3165a9ef4d5b12a4033db5b"
+    },
+    {
+      "path": "free/linkedin_mentions",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "c60c3ea9b8b3204b4aea0b69343863cc775fcdd4bc1fb98af9f4f16dc33b1abe",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "ea85a6130f197024ec56049a655e18a55aec01129302ea32230c77ecd7228834"
+        }
+      ]
     },
     {
       "path": "free/pdf_read.json",
