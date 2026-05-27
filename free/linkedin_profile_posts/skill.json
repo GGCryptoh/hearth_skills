@@ -1,0 +1,43 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "linkedin_profile_posts",
+  "name": "LinkedIn Profile Posts (via Apify)",
+  "version": "0.1.0",
+  "author": "hearth-team",
+  "description": "Fetch a SPECIFIC person's recent LinkedIn posts from their profile URL. Use this when the founder asks 'what did <person> post on LinkedIn' or 'show me recent posts from <profile URL>'. NOT for keyword search across LinkedIn — use linkedin_mentions for that. Reuses the same APIFY_API_TOKEN.",
+  "tier": "free",
+  "type": "tool",
+  "category": "research",
+  "icon": "User",
+  "publisher": "Hearth Team",
+  "risk": "moderate",
+  "permissions": ["net:outbound", "read:vault.entries"],
+  "handler": {
+    "runtime": "node",
+    "entrypoint": "handler.js",
+    "function": "run"
+  },
+  "vault_inputs": [
+    {
+      "key": "APIFY_API_TOKEN",
+      "label": "Apify API Token",
+      "kind": "secret",
+      "help": "Same token as the generic Apify Actor + LinkedIn Mentions skills — paste once, used here too.",
+      "required": true
+    }
+  ],
+  "api_keys_required": ["APIFY_API_TOKEN"],
+  "files": ["handler.js"],
+  "cost_estimate": { "per_call": 0.03 },
+  "latency_p50_ms": 12000,
+  "expected_duration_ms": 180000,
+  "status": "available",
+  "lifecycle_state": "new",
+  "marketplace": {
+    "category": "research",
+    "tags": ["linkedin", "profile", "scraping", "apify", "research"],
+    "icon": "User"
+  },
+  "pre_call_message": "Fetching LinkedIn profile posts via Apify…",
+  "post_call_message": "Posts retrieved."
+}

@@ -1,7 +1,7 @@
 {
-  "version": "0.5.14",
+  "version": "0.5.15",
   "format": "hearth.skill/1",
-  "updated_at": "2026-05-27T22:57:04.043Z",
+  "updated_at": "2026-05-27T23:29:09.950Z",
   "skills": [
     {
       "path": "free/apify_actor",
@@ -134,11 +134,23 @@
       "path": "free/linkedin_mentions",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "c4823aca3f6e199175d1862564ae7ac389c408e85bba94d7e04ab50f71a6fbc5",
+      "checksum": "f2ecb4bcde61c424ffd93b43300ba1ff729288f880304d8b38bc0381d96e7abc",
       "files": [
         {
           "name": "handler.js",
           "checksum": "ea85a6130f197024ec56049a655e18a55aec01129302ea32230c77ecd7228834"
+        }
+      ]
+    },
+    {
+      "path": "free/linkedin_profile_posts",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "6a3811ab5fd71fca28b085ec23d1a1455d116613701476bd7227d9390eed7708",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "06878290b74a343094f8cc87ac30f61bcd10a32d7a5f99578460dea05d3fce81"
         }
       ]
     },
