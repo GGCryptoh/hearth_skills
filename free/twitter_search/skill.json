@@ -1,0 +1,43 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "twitter_search",
+  "name": "Twitter / X Search (via Apify)",
+  "version": "0.1.0",
+  "author": "hearth-team",
+  "description": "Search X/Twitter posts by keyword or hashtag. Use for brand mention monitoring and trend research on X. NOT for LinkedIn or Instagram — use the platform-specific skills.",
+  "tier": "free",
+  "type": "tool",
+  "category": "research",
+  "icon": "Twitter",
+  "publisher": "Hearth Team",
+  "risk": "moderate",
+  "permissions": ["net:outbound", "read:vault.entries"],
+  "handler": {
+    "runtime": "node",
+    "entrypoint": "handler.js",
+    "function": "run"
+  },
+  "vault_inputs": [
+    {
+      "key": "APIFY_API_TOKEN",
+      "label": "Apify API Token",
+      "kind": "secret",
+      "help": "Same token as the other Apify skills — paste once, used here too.",
+      "required": true
+    }
+  ],
+  "api_keys_required": ["APIFY_API_TOKEN"],
+  "files": ["handler.js"],
+  "cost_estimate": { "per_call": 0.004 },
+  "latency_p50_ms": 12000,
+  "expected_duration_ms": 240000,
+  "status": "available",
+  "lifecycle_state": "new",
+  "marketplace": {
+    "category": "research",
+    "tags": ["twitter", "x", "social", "apify"],
+    "icon": "Twitter"
+  },
+  "pre_call_message": "Calling Apify…",
+  "post_call_message": "Apify call complete."
+}

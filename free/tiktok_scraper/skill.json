@@ -1,0 +1,43 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "tiktok_scraper",
+  "name": "TikTok Scraper (via Apify)",
+  "version": "0.1.0",
+  "author": "hearth-team",
+  "description": "Pull TikTok videos by hashtag or profile. Use this for trend monitoring and content intelligence. NOT for Instagram or YouTube — use the platform-specific skills.",
+  "tier": "free",
+  "type": "tool",
+  "category": "research",
+  "icon": "Music",
+  "publisher": "Hearth Team",
+  "risk": "moderate",
+  "permissions": ["net:outbound", "read:vault.entries"],
+  "handler": {
+    "runtime": "node",
+    "entrypoint": "handler.js",
+    "function": "run"
+  },
+  "vault_inputs": [
+    {
+      "key": "APIFY_API_TOKEN",
+      "label": "Apify API Token",
+      "kind": "secret",
+      "help": "Same token as the other Apify skills — paste once, used here too.",
+      "required": true
+    }
+  ],
+  "api_keys_required": ["APIFY_API_TOKEN"],
+  "files": ["handler.js"],
+  "cost_estimate": { "per_call": 0.05 },
+  "latency_p50_ms": 20000,
+  "expected_duration_ms": 240000,
+  "status": "available",
+  "lifecycle_state": "new",
+  "marketplace": {
+    "category": "research",
+    "tags": ["tiktok", "video", "social", "apify"],
+    "icon": "Music"
+  },
+  "pre_call_message": "Calling Apify…",
+  "post_call_message": "Apify call complete."
+}

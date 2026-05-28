@@ -1,13 +1,13 @@
 {
-  "version": "0.5.16",
+  "version": "0.5.17",
   "format": "hearth.skill/1",
-  "updated_at": "2026-05-28T00:33:17.587Z",
+  "updated_at": "2026-05-28T01:57:10.378Z",
   "skills": [
     {
       "path": "free/apify_actor",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "fc743756e2d02b4e737462114f566c17ff40ddfb7ea9c6a49b79cf9118fcc40c",
+      "checksum": "96eca9d3cdc77d8315d0147ea4dd44a1c491ea960810705c5729cf07fb103176",
       "files": [
         {
           "name": "handler.js",
@@ -69,6 +69,42 @@
       ]
     },
     {
+      "path": "free/ecommerce_pricing",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "41b09672414aeca22428b3a40f0157f50d3d3b19b1bab6c221148dd33d5f440b",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "8654ff8af291a96089861c39d4c2067191789261828e712f5c629c4b576b8974"
+        }
+      ]
+    },
+    {
+      "path": "free/facebook_ads_library",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "7840861645f1babbd1284ba657342abb5ad5bdf12b5bfce2a4bcdbbdf1d96f20",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "45f1d189add5172146516e74ad951eefb2685da8e79467ff86d0029d35ceaf0a"
+        }
+      ]
+    },
+    {
+      "path": "free/facebook_posts",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "4a71d305c70e984a20477d272b83bd215daf962eca8796882683bee727911386",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "65fe1628cb201c0940f87e71e1ef61caa2c84659f3331e5fb5acacd2fe0963e6"
+        }
+      ]
+    },
+    {
       "path": "free/gmail_read",
       "type": "directory",
       "manifest_file": "skill.json",
@@ -97,6 +133,30 @@
         {
           "name": "architecture.md",
           "checksum": "7d0bf2dc33f3e2c3da970c7a7a388db1fc6c28bdd073147f70ec8e86524aadd2"
+        }
+      ]
+    },
+    {
+      "path": "free/google_maps_places",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "f439de76de8bdaa85accea095bfa54372191ca895226e111dec4796c13534ed8",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "57f2600b0f17ad26dbb38d9fe0eff17092bbf534ff9481f1cfa808cec6d449f7"
+        }
+      ]
+    },
+    {
+      "path": "free/google_search",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "084c91fa0746fcd5b03087fd8b591d67d70d07e90ca82a271af5c99f39f6a77d",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "80c816dd7f45062f4a44e7e62776219bf3c133e81c59365195303916acadd4fe"
         }
       ]
     },
@@ -131,6 +191,54 @@
       "checksum": "d99f5aa4f770445a3f802f6a753f7a61b7f0dd63f3165a9ef4d5b12a4033db5b"
     },
     {
+      "path": "free/instagram_posts",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "0dee0c700956a04ead0b994f7ae56c03fa447f9c6070b34341faa48f466d7b1a",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "3d683e27ff56302bd5aace72dc55800961e73617b422b0694585b4f40f71bf2c"
+        }
+      ]
+    },
+    {
+      "path": "free/instagram_profile",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "db3db34347e04190444c40ebe0bc94d01e4760a5e09d4b47833341e777e145d1",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "02d1ace9649149953dc2c602e867b8108052f7de548db20621ac9d60389334b2"
+        }
+      ]
+    },
+    {
+      "path": "free/leads_finder",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "3ecca5f9e2a7f74882e4a587e2213be66e1d8451d90a81428bdda94fbc033b1e",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "dca2474ff544e67ea0ca3a41b1fe510b63aec95dcfaf18c097907baba191d13b"
+        }
+      ]
+    },
+    {
+      "path": "free/linkedin_company_employees",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "424c7e4cf830a26ebc368dbaab990c4590223dd3e56e4e9cb1af5437f30e13f7",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "0661d645689f8fec0ff6d9d0b1deb12969d3c6b63efae9a7933a6c18893263ba"
+        }
+      ]
+    },
+    {
       "path": "free/linkedin_mentions",
       "type": "directory",
       "manifest_file": "skill.json",
@@ -139,6 +247,18 @@
         {
           "name": "handler.js",
           "checksum": "ea85a6130f197024ec56049a655e18a55aec01129302ea32230c77ecd7228834"
+        }
+      ]
+    },
+    {
+      "path": "free/linkedin_profile_lookup",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "073c1fded3084c8cef380ce7b2750124b1d52337b3d09884f2e9b4db590bc68e",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "874bc25c2c9f94d020b25fa7d84b2a7de4a79f4dad4e6469b783a3fb2cb162d4"
         }
       ]
     },
@@ -188,6 +308,18 @@
       ]
     },
     {
+      "path": "free/reddit_search",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "d756e694301b4f935d564ffa7fba7ffd6f810b3c5cf673e90af68d132b120972",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "0b10eb5153da950f9d82b4b7e095a328e5d3706791e1c0edce07ef29080ddc96"
+        }
+      ]
+    },
+    {
       "path": "free/resend-email",
       "type": "directory",
       "manifest_file": "skill.json",
@@ -221,6 +353,18 @@
       "checksum": "f4e86ed09c6cc14c16863e6cbc46cf08d51e065dc2f85ec6e8129d710cdc3a77"
     },
     {
+      "path": "free/tiktok_scraper",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "7dcc7ca2a353ac7a281da7977a786bd2980a8a085b5401412e992054e82a1047",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "9ecd103e95cd6e67bac87a412f53f20a5b882bb1cf29721b2f9f736263b43777"
+        }
+      ]
+    },
+    {
       "path": "free/twilio-sms",
       "type": "directory",
       "manifest_file": "skill.json",
@@ -237,9 +381,45 @@
       ]
     },
     {
+      "path": "free/twitter_search",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "86f533aa8f7b783ebe1a429d306339bfc30672e7c9fb007a93b197cc6a069da8",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "835d8d3ced133b041e710d651439f8646c5e6c25b4ded0dad605eba296210293"
+        }
+      ]
+    },
+    {
+      "path": "free/website_content_crawler",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "cbe04841449357e02b5e10fa9a59790c47cb2eb2d80acf01b6881020be9d6da9",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "1db937434ff595676cbd10a629c7eff4e28e6dc231ed6e5b08513c6c1adfa75b"
+        }
+      ]
+    },
+    {
       "path": "free/xlsx_parse.json",
       "type": "file",
       "checksum": "e98eb785048069b912afa17f23f39999ebe6fce1e20cff1066b737eb4b7485a0"
+    },
+    {
+      "path": "free/youtube_channel",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "83b735069147e0ca8da47b11b6b562ff7a870e0e277445145dfde6b2e6cdb51a",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "29b0b77dd33aa1ed579505bc1c32ce1941a66a6fcd8ef1e1184c702007fe04c9"
+        }
+      ]
     },
     {
       "path": "free/youtube_transcript.json",

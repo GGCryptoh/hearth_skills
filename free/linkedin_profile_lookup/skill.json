@@ -1,14 +1,14 @@
 {
   "schema": "hearth.skill/1",
-  "id": "apify_actor",
-  "name": "Apify Actor",
-  "version": "0.1.2",
+  "id": "linkedin_profile_lookup",
+  "name": "LinkedIn Profile Lookup (via Apify)",
+  "version": "0.1.0",
   "author": "hearth-team",
-  "description": "Run any Apify actor synchronously and get the dataset items back. Supply actor_id (e.g. apify/instagram-scraper) + the actor's input JSON. Bring your own APIFY_API_TOKEN; everything else is per-call.",
+  "description": "Fetch a LinkedIn profile's full details — title, work history, education, contact info when available. Use for researching a specific person. NOT for their posts (use linkedin_profile_posts) or for searching employees (use linkedin_company_employees).",
   "tier": "free",
   "type": "tool",
   "category": "research",
-  "icon": "Database",
+  "icon": "User",
   "publisher": "Hearth Team",
   "risk": "moderate",
   "permissions": ["net:outbound", "read:vault.entries"],
@@ -22,7 +22,7 @@
       "key": "APIFY_API_TOKEN",
       "label": "Apify API Token",
       "kind": "secret",
-      "help": "Console → Settings → Integrations → API → 'Personal API token'. Stored encrypted in the vault.",
+      "help": "Same token as the other Apify skills — paste once, used here too.",
       "required": true
     }
   ],
@@ -30,14 +30,14 @@
   "files": ["handler.js"],
   "cost_estimate": { "per_call": 0.10 },
   "latency_p50_ms": 15000,
-  "expected_duration_ms": 300000,
+  "expected_duration_ms": 240000,
   "status": "available",
   "lifecycle_state": "new",
   "marketplace": {
     "category": "research",
-    "tags": ["apify", "scraping", "research", "actor"],
-    "icon": "Database"
+    "tags": ["linkedin", "profile", "lookup", "apify"],
+    "icon": "User"
   },
-  "pre_call_message": "Running Apify actor…",
-  "post_call_message": "Actor finished."
+  "pre_call_message": "Calling Apify…",
+  "post_call_message": "Apify call complete."
 }

@@ -1,0 +1,43 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "instagram_posts",
+  "name": "Instagram Posts (via Apify)",
+  "version": "0.1.0",
+  "author": "hearth-team",
+  "description": "Scrape posts from an Instagram profile, hashtag, or location. Use for brand monitoring and content research. For a profile's bio + follower count, use instagram_profile instead.",
+  "tier": "free",
+  "type": "tool",
+  "category": "research",
+  "icon": "Camera",
+  "publisher": "Hearth Team",
+  "risk": "moderate",
+  "permissions": ["net:outbound", "read:vault.entries"],
+  "handler": {
+    "runtime": "node",
+    "entrypoint": "handler.js",
+    "function": "run"
+  },
+  "vault_inputs": [
+    {
+      "key": "APIFY_API_TOKEN",
+      "label": "Apify API Token",
+      "kind": "secret",
+      "help": "Same token as the other Apify skills — paste once, used here too.",
+      "required": true
+    }
+  ],
+  "api_keys_required": ["APIFY_API_TOKEN"],
+  "files": ["handler.js"],
+  "cost_estimate": { "per_call": 0.05 },
+  "latency_p50_ms": 20000,
+  "expected_duration_ms": 240000,
+  "status": "available",
+  "lifecycle_state": "new",
+  "marketplace": {
+    "category": "research",
+    "tags": ["instagram", "posts", "social", "apify"],
+    "icon": "Camera"
+  },
+  "pre_call_message": "Calling Apify…",
+  "post_call_message": "Apify call complete."
+}

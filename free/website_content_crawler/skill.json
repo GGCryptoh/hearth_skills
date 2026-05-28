@@ -1,0 +1,43 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "website_content_crawler",
+  "name": "Website Content Crawler (via Apify)",
+  "version": "0.1.0",
+  "author": "hearth-team",
+  "description": "Fetch a website's text content as clean markdown for RAG, summarization, or 'what does this URL say' questions. Use this when the founder gives a URL and wants the readable content. NOT for SERP results — use google_search.",
+  "tier": "free",
+  "type": "tool",
+  "category": "research",
+  "icon": "Globe",
+  "publisher": "Hearth Team",
+  "risk": "moderate",
+  "permissions": ["net:outbound", "read:vault.entries"],
+  "handler": {
+    "runtime": "node",
+    "entrypoint": "handler.js",
+    "function": "run"
+  },
+  "vault_inputs": [
+    {
+      "key": "APIFY_API_TOKEN",
+      "label": "Apify API Token",
+      "kind": "secret",
+      "help": "Same token as the other Apify skills — paste once, used here too.",
+      "required": true
+    }
+  ],
+  "api_keys_required": ["APIFY_API_TOKEN"],
+  "files": ["handler.js"],
+  "cost_estimate": { "per_call": 0.01 },
+  "latency_p50_ms": 15000,
+  "expected_duration_ms": 240000,
+  "status": "available",
+  "lifecycle_state": "new",
+  "marketplace": {
+    "category": "research",
+    "tags": ["web", "crawler", "content", "apify"],
+    "icon": "Globe"
+  },
+  "pre_call_message": "Calling Apify…",
+  "post_call_message": "Apify call complete."
+}

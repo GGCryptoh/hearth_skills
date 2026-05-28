@@ -1,0 +1,43 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "facebook_ads_library",
+  "name": "Facebook Ads Library (via Apify)",
+  "version": "0.1.0",
+  "author": "hearth-team",
+  "description": "Scrape Facebook Ads Library to see what ads competitors are running. Use this for marketing intelligence and ad creative research. NOT for organic Facebook posts — use facebook_posts.",
+  "tier": "free",
+  "type": "tool",
+  "category": "research",
+  "icon": "Megaphone",
+  "publisher": "Hearth Team",
+  "risk": "moderate",
+  "permissions": ["net:outbound", "read:vault.entries"],
+  "handler": {
+    "runtime": "node",
+    "entrypoint": "handler.js",
+    "function": "run"
+  },
+  "vault_inputs": [
+    {
+      "key": "APIFY_API_TOKEN",
+      "label": "Apify API Token",
+      "kind": "secret",
+      "help": "Same token as the other Apify skills — paste once, used here too.",
+      "required": true
+    }
+  ],
+  "api_keys_required": ["APIFY_API_TOKEN"],
+  "files": ["handler.js"],
+  "cost_estimate": { "per_call": 0.025 },
+  "latency_p50_ms": 20000,
+  "expected_duration_ms": 240000,
+  "status": "available",
+  "lifecycle_state": "new",
+  "marketplace": {
+    "category": "research",
+    "tags": ["facebook", "ads", "competitive", "apify"],
+    "icon": "Megaphone"
+  },
+  "pre_call_message": "Calling Apify…",
+  "post_call_message": "Apify call complete."
+}

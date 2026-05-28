@@ -1,0 +1,43 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "reddit_search",
+  "name": "Reddit Search (via Apify)",
+  "version": "0.1.0",
+  "author": "hearth-team",
+  "description": "Search Reddit posts and comments by keyword. Use this for community pulse and customer research. Optional subreddit narrows scope. NOT for X/Twitter — use twitter_search.",
+  "tier": "free",
+  "type": "tool",
+  "category": "research",
+  "icon": "MessageSquare",
+  "publisher": "Hearth Team",
+  "risk": "moderate",
+  "permissions": ["net:outbound", "read:vault.entries"],
+  "handler": {
+    "runtime": "node",
+    "entrypoint": "handler.js",
+    "function": "run"
+  },
+  "vault_inputs": [
+    {
+      "key": "APIFY_API_TOKEN",
+      "label": "Apify API Token",
+      "kind": "secret",
+      "help": "Same token as the other Apify skills — paste once, used here too.",
+      "required": true
+    }
+  ],
+  "api_keys_required": ["APIFY_API_TOKEN"],
+  "files": ["handler.js"],
+  "cost_estimate": { "per_call": 0.05 },
+  "latency_p50_ms": 18000,
+  "expected_duration_ms": 240000,
+  "status": "available",
+  "lifecycle_state": "new",
+  "marketplace": {
+    "category": "research",
+    "tags": ["reddit", "community", "social", "apify"],
+    "icon": "MessageSquare"
+  },
+  "pre_call_message": "Calling Apify…",
+  "post_call_message": "Apify call complete."
+}

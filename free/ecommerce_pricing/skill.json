@@ -1,0 +1,43 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "ecommerce_pricing",
+  "name": "E-commerce Pricing (via Apify)",
+  "version": "0.1.0",
+  "author": "hearth-team",
+  "description": "Scrape product pricing and listings from e-commerce sites — Amazon, eBay, Shopify storefronts. Use this for pricing monitoring and competitive intel. NOT for general crawling — use website_content_crawler.",
+  "tier": "free",
+  "type": "tool",
+  "category": "research",
+  "icon": "ShoppingCart",
+  "publisher": "Hearth Team",
+  "risk": "moderate",
+  "permissions": ["net:outbound", "read:vault.entries"],
+  "handler": {
+    "runtime": "node",
+    "entrypoint": "handler.js",
+    "function": "run"
+  },
+  "vault_inputs": [
+    {
+      "key": "APIFY_API_TOKEN",
+      "label": "Apify API Token",
+      "kind": "secret",
+      "help": "Same token as the other Apify skills — paste once, used here too.",
+      "required": true
+    }
+  ],
+  "api_keys_required": ["APIFY_API_TOKEN"],
+  "files": ["handler.js"],
+  "cost_estimate": { "per_call": 0.05 },
+  "latency_p50_ms": 25000,
+  "expected_duration_ms": 240000,
+  "status": "available",
+  "lifecycle_state": "new",
+  "marketplace": {
+    "category": "research",
+    "tags": ["ecommerce", "pricing", "amazon", "apify"],
+    "icon": "ShoppingCart"
+  },
+  "pre_call_message": "Calling Apify…",
+  "post_call_message": "Apify call complete."
+}
