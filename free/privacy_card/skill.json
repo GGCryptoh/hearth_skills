@@ -1,0 +1,98 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "privacy_card",
+  "name": "Privacy.com Virtual Card",
+  "version": "0.1.0",
+  "author": "hearth-team",
+  "description": "Agent-issued virtual cards via Privacy.com. Mint single-use or merchant-locked cards with spend caps, freeze/unfreeze, list transactions. Bring your own PRIVACY_API_KEY. US-only.",
+  "tier": "free",
+  "type": "tool",
+  "category": "payments",
+  "icon": "CreditCard",
+  "publisher": "Hearth Team",
+  "risk": "dangerous",
+  "permissions": [
+    "net:outbound",
+    "read:vault.entries",
+    "write:vault.entries",
+    "spend:money"
+  ],
+  "requires_master_kill": "agent_spending",
+  "family": {
+    "id": "payments",
+    "name": "Payments Family",
+    "icon": "CreditCard",
+    "description": "Agent-controlled payment surfaces — Privacy.com virtual cards now; Lemon Squeezy + Stripe Connect later."
+  },
+  "handler": {
+    "runtime": "node",
+    "entrypoint": "handler.js",
+    "function": "run"
+  },
+  "vault_inputs": [
+    {
+      "key": "PRIVACY_API_KEY",
+      "label": "Privacy.com API Key",
+      "kind": "secret",
+      "placeholder": "ek_…",
+      "help": "From privacy.com → Account → Developers → Generate API Key. Stored encrypted in vault.",
+      "required": true
+    },
+    {
+      "key": "PRIVACY_DEFAULT_SPEND_CAP_USD",
+      "label": "Default spend cap per card (USD)",
+      "kind": "text",
+      "placeholder": "50",
+      "help": "Even if the agent requests a higher amount, mint will hard-cap at this value. Default: $50.",
+      "required": false
+    },
+    {
+      "key": "PRIVACY_APPROVAL_THRESHOLD_USD",
+      "label": "Approval-required threshold (USD)",
+      "kind": "text",
+      "placeholder": "25",
+      "help": "Mint requests above this amount queue an approval card before the API call fires. Default: $25.",
+      "required": false
+    }
+  ],
+  "api_keys_required": ["PRIVACY_API_KEY"],
+  "files": ["handler.js", "architecture.md"],
+  "cost_estimate": { "kind": "per_call", "per_call": 0 },
+  "latency_p50_ms": 1200,
+  "expected_duration_ms": 5000,
+  "status": "available",
+  "lifecycle_state": "new",
+  "marketplace": {
+    "category": "payments",
+    "tags": ["payment", "virtual-card", "privacy.com", "spend-cap", "fraud-resistant"],
+    "icon": "CreditCard"
+  },
+  "verbs": [
+    {
+      "verb": "mint",
+      "description": "Mint a new virtual card. Args: spend_limit_usd (required), memo (required, what's it for), type ('SINGLE_USE'|'MERCHANT_LOCKED' default MERCHANT_LOCKED). Returns card number + CVV + exp."
+    },
+    {
+      "verb": "list",
+      "description": "List active + recently-paused cards. Returns [{token, last_four, memo, spend_limit, state}]."
+    },
+    {
+      "verb": "freeze",
+      "description": "Pause a card (state=PAUSED). Args: card_token (required)."
+    },
+    {
+      "verb": "unfreeze",
+      "description": "Resume a paused card (state=OPEN). Args: card_token (required)."
+    },
+    {
+      "verb": "set_limit",
+      "description": "Update spend cap on an existing card. Args: card_token, spend_limit_usd."
+    },
+    {
+      "verb": "transactions",
+      "description": "List recent transactions. Args: card_token (optional, filter), begin_iso (optional). Returns [{token, amount_usd, merchant, status, created}]."
+    }
+  ],
+  "pre_call_message": "Calling Privacy.com…",
+  "post_call_message": "Done."
+}
