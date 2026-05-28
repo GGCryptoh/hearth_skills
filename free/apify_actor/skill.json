@@ -2,7 +2,7 @@
   "schema": "hearth.skill/1",
   "id": "apify_actor",
   "name": "Apify Actor",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "author": "hearth-team",
   "description": "Run any Apify actor synchronously and get the dataset items back. Supply actor_id (e.g. apify/instagram-scraper) + the actor's input JSON. Bring your own APIFY_API_TOKEN; everything else is per-call.",
   "tier": "free",
@@ -11,7 +11,10 @@
   "icon": "Database",
   "publisher": "Hearth Team",
   "risk": "moderate",
-  "permissions": ["net:outbound", "read:vault.entries"],
+  "permissions": [
+    "net:outbound",
+    "read:vault.entries"
+  ],
   "handler": {
     "runtime": "node",
     "entrypoint": "handler.js",
@@ -26,17 +29,34 @@
       "required": true
     }
   ],
-  "api_keys_required": ["APIFY_API_TOKEN"],
-  "files": ["handler.js"],
-  "cost_estimate": { "per_call": 0.10 },
+  "api_keys_required": [
+    "APIFY_API_TOKEN"
+  ],
+  "files": [
+    "handler.js"
+  ],
+  "cost_estimate": {
+    "per_call": 0.1
+  },
   "latency_p50_ms": 15000,
   "expected_duration_ms": 300000,
   "status": "available",
   "lifecycle_state": "new",
   "marketplace": {
     "category": "research",
-    "tags": ["apify", "scraping", "research", "actor"],
+    "tags": [
+      "apify",
+      "scraping",
+      "research",
+      "actor"
+    ],
     "icon": "Database"
+  },
+  "family": {
+    "id": "apify",
+    "name": "Apify Family",
+    "icon": "Database",
+    "description": "Web, social, and data scraping via Apify's actor library. One API token unlocks all 18 specialized scrapers."
   },
   "pre_call_message": "Running Apify actor…",
   "post_call_message": "Actor finished."

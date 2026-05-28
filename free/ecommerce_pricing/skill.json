@@ -2,7 +2,7 @@
   "schema": "hearth.skill/1",
   "id": "ecommerce_pricing",
   "name": "E-commerce Pricing (via Apify)",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "hearth-team",
   "description": "Scrape product pricing and listings from e-commerce sites — Amazon, eBay, Shopify storefronts. Use this for pricing monitoring and competitive intel. NOT for general crawling — use website_content_crawler.",
   "tier": "free",
@@ -11,7 +11,10 @@
   "icon": "ShoppingCart",
   "publisher": "Hearth Team",
   "risk": "moderate",
-  "permissions": ["net:outbound", "read:vault.entries"],
+  "permissions": [
+    "net:outbound",
+    "read:vault.entries"
+  ],
   "handler": {
     "runtime": "node",
     "entrypoint": "handler.js",
@@ -26,17 +29,34 @@
       "required": true
     }
   ],
-  "api_keys_required": ["APIFY_API_TOKEN"],
-  "files": ["handler.js"],
-  "cost_estimate": { "per_call": 0.05 },
+  "api_keys_required": [
+    "APIFY_API_TOKEN"
+  ],
+  "files": [
+    "handler.js"
+  ],
+  "cost_estimate": {
+    "per_call": 0.05
+  },
   "latency_p50_ms": 25000,
   "expected_duration_ms": 240000,
   "status": "available",
   "lifecycle_state": "new",
   "marketplace": {
     "category": "research",
-    "tags": ["ecommerce", "pricing", "amazon", "apify"],
+    "tags": [
+      "ecommerce",
+      "pricing",
+      "amazon",
+      "apify"
+    ],
     "icon": "ShoppingCart"
+  },
+  "family": {
+    "id": "apify",
+    "name": "Apify Family",
+    "icon": "Database",
+    "description": "Web, social, and data scraping via Apify's actor library. One API token unlocks all 18 specialized scrapers."
   },
   "pre_call_message": "Calling Apify…",
   "post_call_message": "Apify call complete."

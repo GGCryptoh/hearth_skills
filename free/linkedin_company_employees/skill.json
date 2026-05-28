@@ -2,7 +2,7 @@
   "schema": "hearth.skill/1",
   "id": "linkedin_company_employees",
   "name": "LinkedIn Company Employees (via Apify)",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "hearth-team",
   "description": "Pull all employees from a LinkedIn company page. Use this for sales prospecting at scale or competitive team mapping. NOT for a single person's profile — use linkedin_profile_lookup.",
   "tier": "free",
@@ -11,7 +11,10 @@
   "icon": "Users",
   "publisher": "Hearth Team",
   "risk": "moderate",
-  "permissions": ["net:outbound", "read:vault.entries"],
+  "permissions": [
+    "net:outbound",
+    "read:vault.entries"
+  ],
   "handler": {
     "runtime": "node",
     "entrypoint": "handler.js",
@@ -26,17 +29,34 @@
       "required": true
     }
   ],
-  "api_keys_required": ["APIFY_API_TOKEN"],
-  "files": ["handler.js"],
-  "cost_estimate": { "per_call": 0.50 },
+  "api_keys_required": [
+    "APIFY_API_TOKEN"
+  ],
+  "files": [
+    "handler.js"
+  ],
+  "cost_estimate": {
+    "per_call": 0.5
+  },
   "latency_p50_ms": 45000,
   "expected_duration_ms": 240000,
   "status": "available",
   "lifecycle_state": "new",
   "marketplace": {
     "category": "research",
-    "tags": ["linkedin", "employees", "prospecting", "apify"],
+    "tags": [
+      "linkedin",
+      "employees",
+      "prospecting",
+      "apify"
+    ],
     "icon": "Users"
+  },
+  "family": {
+    "id": "apify",
+    "name": "Apify Family",
+    "icon": "Database",
+    "description": "Web, social, and data scraping via Apify's actor library. One API token unlocks all 18 specialized scrapers."
   },
   "pre_call_message": "Calling Apify…",
   "post_call_message": "Apify call complete."

@@ -2,7 +2,7 @@
   "schema": "hearth.skill/1",
   "id": "leads_finder",
   "name": "B2B Leads Finder (via Apify)",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "hearth-team",
   "description": "Find B2B leads — emails, phones, LinkedIn URLs — from a free-form search query. Use this for outbound sales prospecting. For LinkedIn-specific employee lists, prefer linkedin_company_employees.",
   "tier": "free",
@@ -11,7 +11,10 @@
   "icon": "Briefcase",
   "publisher": "Hearth Team",
   "risk": "moderate",
-  "permissions": ["net:outbound", "read:vault.entries"],
+  "permissions": [
+    "net:outbound",
+    "read:vault.entries"
+  ],
   "handler": {
     "runtime": "node",
     "entrypoint": "handler.js",
@@ -26,17 +29,34 @@
       "required": true
     }
   ],
-  "api_keys_required": ["APIFY_API_TOKEN"],
-  "files": ["handler.js"],
-  "cost_estimate": { "per_call": 0.20 },
+  "api_keys_required": [
+    "APIFY_API_TOKEN"
+  ],
+  "files": [
+    "handler.js"
+  ],
+  "cost_estimate": {
+    "per_call": 0.2
+  },
   "latency_p50_ms": 30000,
   "expected_duration_ms": 240000,
   "status": "available",
   "lifecycle_state": "new",
   "marketplace": {
     "category": "research",
-    "tags": ["leads", "prospecting", "b2b", "apify"],
+    "tags": [
+      "leads",
+      "prospecting",
+      "b2b",
+      "apify"
+    ],
     "icon": "Briefcase"
+  },
+  "family": {
+    "id": "apify",
+    "name": "Apify Family",
+    "icon": "Database",
+    "description": "Web, social, and data scraping via Apify's actor library. One API token unlocks all 18 specialized scrapers."
   },
   "pre_call_message": "Calling Apify…",
   "post_call_message": "Apify call complete."

@@ -2,7 +2,7 @@
   "schema": "hearth.skill/1",
   "id": "tiktok_scraper",
   "name": "TikTok Scraper (via Apify)",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "hearth-team",
   "description": "Pull TikTok videos by hashtag or profile. Use this for trend monitoring and content intelligence. NOT for Instagram or YouTube — use the platform-specific skills.",
   "tier": "free",
@@ -11,7 +11,10 @@
   "icon": "Music",
   "publisher": "Hearth Team",
   "risk": "moderate",
-  "permissions": ["net:outbound", "read:vault.entries"],
+  "permissions": [
+    "net:outbound",
+    "read:vault.entries"
+  ],
   "handler": {
     "runtime": "node",
     "entrypoint": "handler.js",
@@ -26,17 +29,34 @@
       "required": true
     }
   ],
-  "api_keys_required": ["APIFY_API_TOKEN"],
-  "files": ["handler.js"],
-  "cost_estimate": { "per_call": 0.05 },
+  "api_keys_required": [
+    "APIFY_API_TOKEN"
+  ],
+  "files": [
+    "handler.js"
+  ],
+  "cost_estimate": {
+    "per_call": 0.05
+  },
   "latency_p50_ms": 20000,
   "expected_duration_ms": 240000,
   "status": "available",
   "lifecycle_state": "new",
   "marketplace": {
     "category": "research",
-    "tags": ["tiktok", "video", "social", "apify"],
+    "tags": [
+      "tiktok",
+      "video",
+      "social",
+      "apify"
+    ],
     "icon": "Music"
+  },
+  "family": {
+    "id": "apify",
+    "name": "Apify Family",
+    "icon": "Database",
+    "description": "Web, social, and data scraping via Apify's actor library. One API token unlocks all 18 specialized scrapers."
   },
   "pre_call_message": "Calling Apify…",
   "post_call_message": "Apify call complete."

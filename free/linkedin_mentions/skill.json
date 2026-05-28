@@ -2,7 +2,7 @@
   "schema": "hearth.skill/1",
   "id": "linkedin_mentions",
   "name": "LinkedIn Mentions (via Apify)",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "author": "hearth-team",
   "description": "Keyword search across ALL of LinkedIn — finds posts that mention a phrase, by anyone. Use this for 'find posts about X' or 'who's posting about Y'. NOT for 'what did <specific person> post' — use linkedin_profile_posts for that. Returns posts with author + URL + snippet. Reuses APIFY_API_TOKEN.",
   "tier": "free",
@@ -11,7 +11,10 @@
   "icon": "Search",
   "publisher": "Hearth Team",
   "risk": "moderate",
-  "permissions": ["net:outbound", "read:vault.entries"],
+  "permissions": [
+    "net:outbound",
+    "read:vault.entries"
+  ],
   "handler": {
     "runtime": "node",
     "entrypoint": "handler.js",
@@ -26,17 +29,35 @@
       "required": true
     }
   ],
-  "api_keys_required": ["APIFY_API_TOKEN"],
-  "files": ["handler.js"],
-  "cost_estimate": { "per_call": 0.03 },
+  "api_keys_required": [
+    "APIFY_API_TOKEN"
+  ],
+  "files": [
+    "handler.js"
+  ],
+  "cost_estimate": {
+    "per_call": 0.03
+  },
   "latency_p50_ms": 12000,
   "expected_duration_ms": 180000,
   "status": "available",
   "lifecycle_state": "new",
   "marketplace": {
     "category": "research",
-    "tags": ["linkedin", "scraping", "apify", "research", "mentions"],
+    "tags": [
+      "linkedin",
+      "scraping",
+      "apify",
+      "research",
+      "mentions"
+    ],
     "icon": "Search"
+  },
+  "family": {
+    "id": "apify",
+    "name": "Apify Family",
+    "icon": "Database",
+    "description": "Web, social, and data scraping via Apify's actor library. One API token unlocks all 18 specialized scrapers."
   },
   "pre_call_message": "Searching LinkedIn via Apify…",
   "post_call_message": "Search complete."

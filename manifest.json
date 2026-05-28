@@ -1,13 +1,13 @@
 {
-  "version": "0.5.17",
+  "version": "0.5.18",
   "format": "hearth.skill/1",
-  "updated_at": "2026-05-28T01:57:10.378Z",
+  "updated_at": "2026-05-28T11:57:30.702Z",
   "skills": [
     {
       "path": "free/apify_actor",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "96eca9d3cdc77d8315d0147ea4dd44a1c491ea960810705c5729cf07fb103176",
+      "checksum": "efb13e3d6b26ea11e9d1c0d4e686314d1e134283abf52d857e9b90f4204ab7d0",
       "files": [
         {
           "name": "handler.js",
@@ -72,7 +72,7 @@
       "path": "free/ecommerce_pricing",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "41b09672414aeca22428b3a40f0157f50d3d3b19b1bab6c221148dd33d5f440b",
+      "checksum": "674ed0c97a43f98b10645ffbefb615b4156081c5e3f0f4fe471da7c901bb244e",
       "files": [
         {
           "name": "handler.js",
@@ -84,7 +84,7 @@
       "path": "free/facebook_ads_library",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "7840861645f1babbd1284ba657342abb5ad5bdf12b5bfce2a4bcdbbdf1d96f20",
+      "checksum": "fa5255ba742f16934d989073518262b9787b0435a40f866e51429b4659802d5b",
       "files": [
         {
           "name": "handler.js",
@@ -96,7 +96,7 @@
       "path": "free/facebook_posts",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "4a71d305c70e984a20477d272b83bd215daf962eca8796882683bee727911386",
+      "checksum": "398da95db36d4e9e811b1ef5b20593546a6944d13538490355b1b7f2eea272a1",
       "files": [
         {
           "name": "handler.js",
@@ -140,7 +140,7 @@
       "path": "free/google_maps_places",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "f439de76de8bdaa85accea095bfa54372191ca895226e111dec4796c13534ed8",
+      "checksum": "a29a1395d6fbd20a4180f7f1f78de36d0a8c8e304664f7999458714d47d19529",
       "files": [
         {
           "name": "handler.js",
@@ -152,7 +152,7 @@
       "path": "free/google_search",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "084c91fa0746fcd5b03087fd8b591d67d70d07e90ca82a271af5c99f39f6a77d",
+      "checksum": "4bae123fb9aef0dcef715dff7fa2c04f954c910115ca70aa09c874a9c1a79722",
       "files": [
         {
           "name": "handler.js",
@@ -194,7 +194,7 @@
       "path": "free/instagram_posts",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "0dee0c700956a04ead0b994f7ae56c03fa447f9c6070b34341faa48f466d7b1a",
+      "checksum": "a778b076424f0525a7a7d8c24b376bfb025aee0a9dc721b2d3b5faadcb6aad84",
       "files": [
         {
           "name": "handler.js",
@@ -206,7 +206,7 @@
       "path": "free/instagram_profile",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "db3db34347e04190444c40ebe0bc94d01e4760a5e09d4b47833341e777e145d1",
+      "checksum": "061e71ebfa772556a67a8628a51481902b6e9cef40683d7af76b7ccaa0d5294a",
       "files": [
         {
           "name": "handler.js",
@@ -218,7 +218,7 @@
       "path": "free/leads_finder",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "3ecca5f9e2a7f74882e4a587e2213be66e1d8451d90a81428bdda94fbc033b1e",
+      "checksum": "1114532b6441dbdf69c9c28df666a0278bef0ff2edb17cf6594a2734282bbf03",
       "files": [
         {
           "name": "handler.js",
@@ -230,7 +230,7 @@
       "path": "free/linkedin_company_employees",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "424c7e4cf830a26ebc368dbaab990c4590223dd3e56e4e9cb1af5437f30e13f7",
+      "checksum": "73e04e7bebfaf67402a62819c3db3261ce65a86808c6515038dd8bebfd5a5c5f",
       "files": [
         {
           "name": "handler.js",
@@ -242,7 +242,7 @@
       "path": "free/linkedin_mentions",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "f2ecb4bcde61c424ffd93b43300ba1ff729288f880304d8b38bc0381d96e7abc",
+      "checksum": "911dbb983dc7165d049e5275be923925f511137e39294002d63969d37663f83e",
       "files": [
         {
           "name": "handler.js",
@@ -254,7 +254,7 @@
       "path": "free/linkedin_profile_lookup",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "073c1fded3084c8cef380ce7b2750124b1d52337b3d09884f2e9b4db590bc68e",
+      "checksum": "9e6f5d538c2e28303e17cccd9487c8a6de6db2caec303ceedab6da46e87aedd4",
       "files": [
         {
           "name": "handler.js",
@@ -266,7 +266,7 @@
       "path": "free/linkedin_profile_posts",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "6a3811ab5fd71fca28b085ec23d1a1455d116613701476bd7227d9390eed7708",
+      "checksum": "2141b6be49a7b20bf5e42e0b39139ead9ef7e32db8fad29a2db839b7f9d64c2a",
       "files": [
         {
           "name": "handler.js",
@@ -311,7 +311,7 @@
       "path": "free/reddit_search",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "d756e694301b4f935d564ffa7fba7ffd6f810b3c5cf673e90af68d132b120972",
+      "checksum": "5df2eb097d9a432968bdee652069cffe6240ef07fdba50d1ef69f64586d2cb1d",
       "files": [
         {
           "name": "handler.js",
@@ -356,7 +356,7 @@
       "path": "free/tiktok_scraper",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "7dcc7ca2a353ac7a281da7977a786bd2980a8a085b5401412e992054e82a1047",
+      "checksum": "220f5e76d70966466111c953e80b2b1a3894a48e126fd2c5d26f39a143822e4e",
       "files": [
         {
           "name": "handler.js",
@@ -384,7 +384,7 @@
       "path": "free/twitter_search",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "86f533aa8f7b783ebe1a429d306339bfc30672e7c9fb007a93b197cc6a069da8",
+      "checksum": "327c58fe529b022db8fa00c519396375481cff1ff2370b1f21c2bbb30141b7e0",
       "files": [
         {
           "name": "handler.js",
@@ -396,7 +396,7 @@
       "path": "free/website_content_crawler",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "cbe04841449357e02b5e10fa9a59790c47cb2eb2d80acf01b6881020be9d6da9",
+      "checksum": "570c9e4f0ecdb4e110118f064ea65fc96509f3c66d0a9b82a80dde095f6ab314",
       "files": [
         {
           "name": "handler.js",
@@ -413,7 +413,7 @@
       "path": "free/youtube_channel",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "83b735069147e0ca8da47b11b6b562ff7a870e0e277445145dfde6b2e6cdb51a",
+      "checksum": "a19b8ac85eab8309edf905899d37562cdcde3101f7c8fc0f46ef0be70f01c22b",
       "files": [
         {
           "name": "handler.js",
