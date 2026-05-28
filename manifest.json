@@ -1,7 +1,7 @@
 {
-  "version": "0.5.18",
+  "version": "0.5.19",
   "format": "hearth.skill/1",
-  "updated_at": "2026-05-28T11:57:30.702Z",
+  "updated_at": "2026-05-28T20:34:09.407Z",
   "skills": [
     {
       "path": "free/apify_actor",
@@ -283,6 +283,22 @@
         {
           "name": "handler.js",
           "checksum": "86443d6baa7fca9e2f5787e3f12d1396bcf46081bb4ad6cfde39bee8f1d40cfc"
+        }
+      ]
+    },
+    {
+      "path": "free/ngrok_tunnel",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "1e081b8b4ceac74f9c2af1e1905caa150f50159639c36168967c90bd683a8f33",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "65f4d47637a00a449c45eaa22cb4c8772ba285ae74e1e6b38ac4b8af94152b18"
+        },
+        {
+          "name": "architecture.md",
+          "checksum": "69e527d564bc0015b59c7a5fa523ba803126cbbf8c979fe62caca6a226b7493d"
         }
       ]
     },

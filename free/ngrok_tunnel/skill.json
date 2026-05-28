@@ -1,0 +1,93 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "ngrok_tunnel",
+  "name": "ngrok Tunnel",
+  "version": "0.1.0",
+  "author": "hearth-team",
+  "description": "Public HTTPS ingress for inbound webhooks (Apify callbacks, Twilio SMS, Retell voice, GitHub, Stripe). Supervisor spawns ngrok as a child process at boot, captures the public URL, and exposes it to other skills via INGRESS_PUBLIC_URL. HMAC-signed inbound only — no anonymous traffic.",
+  "tier": "free",
+  "type": "tool",
+  "category": "infrastructure",
+  "icon": "Globe",
+  "publisher": "Hearth Team",
+  "risk": "moderate",
+  "permissions": ["net:inbound", "process:spawn", "read:vault.entries", "write:vault.entries"],
+  "lifecycle": {
+    "auto_start": true,
+    "managed_by": "supervisor"
+  },
+  "family": {
+    "id": "ingress",
+    "name": "Ingress Family",
+    "icon": "Globe",
+    "description": "Public-internet ingress providers. Pick one (ngrok / Tailscale Funnel / hosted Hearth) — webhook skills auto-discover via INGRESS_PUBLIC_URL."
+  },
+  "handler": {
+    "runtime": "node",
+    "entrypoint": "handler.js",
+    "function": "run"
+  },
+  "vault_inputs": [
+    {
+      "key": "NGROK_AUTHTOKEN",
+      "label": "ngrok Authtoken",
+      "kind": "secret",
+      "placeholder": "2a…",
+      "help": "From dashboard.ngrok.com → Your Authtoken. Free-tier accounts work. Encrypted in vault.",
+      "required": true
+    },
+    {
+      "key": "NGROK_STATIC_DOMAIN",
+      "label": "Static domain (optional, strongly recommended)",
+      "kind": "text",
+      "placeholder": "your-name.ngrok.app",
+      "help": "Claim a free static domain at dashboard.ngrok.com → Domains → New Domain. Without one, the URL changes every restart and webhook subscriptions break.",
+      "required": false
+    },
+    {
+      "key": "NGROK_WEBHOOK_HMAC_SECRET",
+      "label": "Webhook HMAC secret",
+      "kind": "secret",
+      "help": "Required token in the X-Hearth-Token header on every inbound webhook. Generate a random one (32+ chars). Hearth rejects requests missing or mismatching this.",
+      "required": true,
+      "generate_default": "random_token_32"
+    }
+  ],
+  "settings": [
+    {
+      "key": "tunnel_target_port",
+      "label": "Tunnel target port",
+      "kind": "number",
+      "default": 3417,
+      "help": "Supervisor port that ngrok forwards traffic to. 3417 is the Hearth default — only change if you've remapped."
+    }
+  ],
+  "api_keys_required": ["NGROK_AUTHTOKEN", "NGROK_WEBHOOK_HMAC_SECRET"],
+  "files": ["handler.js", "architecture.md"],
+  "cost_estimate": { "kind": "per_call", "per_call": 0 },
+  "latency_p50_ms": 0,
+  "expected_duration_ms": 0,
+  "status": "available",
+  "lifecycle_state": "new",
+  "marketplace": {
+    "category": "infrastructure",
+    "tags": ["webhook", "ingress", "tunnel", "ngrok", "callback"],
+    "icon": "Globe"
+  },
+  "verbs": [
+    {
+      "verb": "status",
+      "description": "Returns current tunnel state: { running, public_url, started_at, error }."
+    },
+    {
+      "verb": "restart",
+      "description": "Stops + restarts the tunnel process. Use after rotating the authtoken or changing the static domain."
+    }
+  ],
+  "exposes": {
+    "vault_keys_written": ["INGRESS_PUBLIC_URL"],
+    "supervisor_routes": ["/skill-webhooks/:provider/:job_id"]
+  },
+  "pre_call_message": "Checking ngrok tunnel status…",
+  "post_call_message": "ngrok tunnel state reported."
+}
