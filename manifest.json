@@ -1,7 +1,7 @@
 {
-  "version": "0.5.15",
+  "version": "0.5.16",
   "format": "hearth.skill/1",
-  "updated_at": "2026-05-27T23:29:09.950Z",
+  "updated_at": "2026-05-28T00:33:17.587Z",
   "skills": [
     {
       "path": "free/apify_actor",
@@ -151,6 +151,18 @@
         {
           "name": "handler.js",
           "checksum": "06878290b74a343094f8cc87ac30f61bcd10a32d7a5f99578460dea05d3fce81"
+        }
+      ]
+    },
+    {
+      "path": "free/n8n_workflow",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "e379375ca4aa572845d2b6243dc7551fca3ec7561de0b1ab0f3c085e3a797e6a",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "86443d6baa7fca9e2f5787e3f12d1396bcf46081bb4ad6cfde39bee8f1d40cfc"
         }
       ]
     },

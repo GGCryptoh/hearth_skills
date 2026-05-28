@@ -1,0 +1,51 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "n8n_workflow",
+  "name": "n8n Workflow",
+  "version": "0.1.0",
+  "author": "hearth-team",
+  "description": "Orchestrate n8n automations from Hearth. Create, list, activate, trigger, and inspect workflows on your own n8n instance (cloud or self-hosted). Use this when the founder wants to wire third-party systems together (Slack, Gmail, Notion, custom webhooks, etc.) or set up a recurring automation that needs more than a single skill call. Pass `action` ∈ list/get/create/update/delete/activate/deactivate/trigger/executions plus the action-specific args.",
+  "tier": "free",
+  "type": "tool",
+  "category": "automation",
+  "icon": "Workflow",
+  "publisher": "Hearth Team",
+  "risk": "moderate",
+  "permissions": ["net:outbound", "read:vault.entries"],
+  "handler": {
+    "runtime": "node",
+    "entrypoint": "handler.js",
+    "function": "run"
+  },
+  "vault_inputs": [
+    {
+      "key": "N8N_BASE_URL",
+      "label": "n8n base URL",
+      "kind": "text",
+      "placeholder": "https://yourname.n8n.cloud",
+      "help": "Your n8n instance URL — `https://yourname.n8n.cloud` for n8n Cloud, or `http://localhost:5678` / your self-hosted address. Do NOT include `/api/v1` — the handler appends that.",
+      "required": true
+    },
+    {
+      "key": "N8N_API_KEY",
+      "label": "n8n API key",
+      "kind": "secret",
+      "help": "Generate at n8n → Settings → API → Create API key. Stored encrypted in the vault. Sent as `X-N8N-API-KEY` header on every call.",
+      "required": true
+    }
+  ],
+  "api_keys_required": ["N8N_API_KEY"],
+  "files": ["handler.js"],
+  "cost_estimate": { "per_call": 0.001 },
+  "latency_p50_ms": 800,
+  "expected_duration_ms": 30000,
+  "status": "available",
+  "lifecycle_state": "new",
+  "marketplace": {
+    "category": "automation",
+    "tags": ["n8n", "automation", "workflow", "webhook", "orchestration"],
+    "icon": "Workflow"
+  },
+  "pre_call_message": "Calling n8n…",
+  "post_call_message": "n8n call complete."
+}
