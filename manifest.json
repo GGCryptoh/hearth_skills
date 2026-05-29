@@ -1,7 +1,7 @@
 {
-  "version": "0.5.24",
+  "version": "0.5.25",
   "format": "hearth.skill/1",
-  "updated_at": "2026-05-29T02:02:51.967Z",
+  "updated_at": "2026-05-29T02:37:40.703Z",
   "skills": [
     {
       "path": "free/apify_actor",
@@ -31,7 +31,7 @@
       "path": "free/create-images-openai",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "db6033e602968e72897be67c97f709bcddf48c72542bd679231b8d09813a7c9d",
+      "checksum": "013c89fd819f6f1c61bb6127f80ff61a26a1b3ba4fa5f31baa5826137a68056f",
       "files": [
         {
           "name": "handler.js",
@@ -164,11 +164,11 @@
       "path": "free/headshot_business",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "364e65fc9f7df18eb68bd013d9cbd8c15c29f70129753e9c468832d7aa0980d9",
+      "checksum": "751832d2fc352151dd60f03375c94563ac4f2318b5b0e2a4217ff90d266180d2",
       "files": [
         {
           "name": "handler.js",
-          "checksum": "fac32ebf759d28709d02318003735363c5298d5e36864b7a9df7307debe26461"
+          "checksum": "bcdcbc58901e184a1c13a66c0eb947bd52410216e772f038c1e84f2e80432112"
         }
       ]
     },
@@ -201,7 +201,7 @@
       "path": "free/higgsfield_image",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "0b96171a97e24f4ce3ec713ed3ed10cffc35a330159935d6bd9449a12d9dcb22",
+      "checksum": "79d512aea3559d0cc933357cab2db168ea1fcf3ba08ec5eea088bf4f95a35dfb",
       "files": [
         {
           "name": "handler.js",
@@ -242,7 +242,7 @@
       "path": "free/kie_image",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "aee4123d4aa3b8708a010c719f38e208737c9acb5969525be9ceb3179b55e666",
+      "checksum": "fa9981bea494645bc91d5bc0eccf9fcaf76be6ae8dcbedb90e6c4967aaab1e5f",
       "files": [
         {
           "name": "handler.js",
@@ -419,11 +419,11 @@
       "path": "free/social_post_image",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "87594307600e6a43e3928a87988ebba5286dc638f92b7a68673bef3f4addb6d8",
+      "checksum": "276ec7104eff926eaa0f61bdd53813b30660a0c52839078ff8153fe21902652f",
       "files": [
         {
           "name": "handler.js",
-          "checksum": "342ca9286c53ef67559f34d6e31fba871f62cd2081b846ff4e974ebc00e2608a"
+          "checksum": "1dbb3ab0e05b7ccdff142b12db6e193aa1ed0768f81a0cb457ec4ad4fa1ea623"
         }
       ]
     },

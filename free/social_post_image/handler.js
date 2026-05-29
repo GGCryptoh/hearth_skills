@@ -29,10 +29,26 @@ export async function run(ctx, args) {
       : ctx.skillInputs?.preferred_provider || 'openai';
 
   const prompt = PROMPT_TEMPLATE(concept, style);
-  const skillId = providerToSkillId(provider);
-  if (!skillId) {
-    throw new Error(`unknown provider: ${provider} (supported: openai, kie, higgsfield)`);
+  const preferred = providerToSkillId(provider);
+
+  const resolveRes = await fetch(
+    `${SUPERVISOR_BASE}/skills/family-resolve?family=ai_image&capability=text_to_image` +
+      (preferred ? `&preferred=${encodeURIComponent(preferred)}` : ''),
+  );
+  if (!resolveRes.ok) {
+    return { ok: false, error: `family_resolve_failed ${resolveRes.status}` };
   }
+  const resolved = await resolveRes.json();
+  if (!resolved.provider_id) {
+    const need = resolved.missing_keys?.join(', ') || '(none configured)';
+    return {
+      ok: false,
+      error: `no AI image provider is configured for text_to_image. Configure one of: ${need} in Settings → Vault Keys.`,
+      missing_keys: resolved.missing_keys,
+      available_providers: resolved.available_providers,
+    };
+  }
+  const skillId = resolved.provider_id;
 
   const res = await fetch(`${SUPERVISOR_BASE}/skills/${encodeURIComponent(skillId)}/run`, {
     method: 'POST',
@@ -49,7 +65,7 @@ export async function run(ctx, args) {
     const detail = await res.text().catch(() => '');
     return {
       ok: false,
-      provider_used: provider,
+      provider_used: skillId,
       error: `provider ${skillId} returned ${res.status}: ${detail.slice(0, 300)}`,
     };
   }
@@ -57,9 +73,9 @@ export async function run(ctx, args) {
   const output = body.output ?? body;
   return {
     ok: true,
-    provider_used: provider,
+    provider_used: skillId,
     image_url: output.image_url ?? output.image_b64 ?? null,
-    summary: `Social post (${style}) via ${provider}: ${concept.slice(0, 60)}`,
+    summary: `Social post (${style}) via ${skillId}: ${concept.slice(0, 60)}`,
   };
 }
 
@@ -69,5 +85,5 @@ function providerToSkillId(provider) {
     kie: 'kie_image',
     higgsfield: 'higgsfield_image',
   };
-  return map[provider] ?? null;
+  return map[provider] ?? provider;
 }
