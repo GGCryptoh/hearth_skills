@@ -2,7 +2,7 @@
   "schema": "hearth.skill/1",
   "id": "google_search",
   "name": "Google Search (via Apify)",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "author": "hearth-team",
   "description": "Scrape Google SERP results — organic listings, ads, People Also Ask. Use this for research and competitive queries. NOT for crawling content of a specific URL — use website_content_crawler.",
   "tier": "free",

@@ -2,7 +2,7 @@
   "schema": "hearth.skill/1",
   "id": "facebook_posts",
   "name": "Facebook Posts (via Apify)",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "author": "hearth-team",
   "description": "Pull recent posts from a Facebook page. Use this for brand monitoring of an organic Facebook presence. NOT for paid ads — use facebook_ads_library.",
   "tier": "free",

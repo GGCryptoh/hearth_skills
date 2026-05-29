@@ -2,7 +2,7 @@
   "schema": "hearth.skill/1",
   "id": "linkedin_profile_posts",
   "name": "LinkedIn Profile Posts (via Apify)",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "author": "hearth-team",
   "description": "Fetch a SPECIFIC person's recent LinkedIn posts from their profile URL. Use this when the founder asks 'what did <person> post on LinkedIn' or 'show me recent posts from <profile URL>'. NOT for keyword search across LinkedIn — use linkedin_mentions for that. Reuses the same APIFY_API_TOKEN.",
   "tier": "free",

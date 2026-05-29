@@ -2,7 +2,7 @@
   "schema": "hearth.skill/1",
   "id": "website_content_crawler",
   "name": "Website Content Crawler (via Apify)",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "author": "hearth-team",
   "description": "Fetch a website's text content as clean markdown for RAG, summarization, or 'what does this URL say' questions. Use this when the founder gives a URL and wants the readable content. NOT for SERP results — use google_search.",
   "tier": "free",

@@ -2,7 +2,7 @@
   "schema": "hearth.skill/1",
   "id": "leads_finder",
   "name": "B2B Leads Finder (via Apify)",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "author": "hearth-team",
   "description": "Find B2B leads — emails, phones, LinkedIn URLs — from a free-form search query. Use this for outbound sales prospecting. For LinkedIn-specific employee lists, prefer linkedin_company_employees.",
   "tier": "free",

@@ -2,7 +2,7 @@
   "schema": "hearth.skill/1",
   "id": "reddit_search",
   "name": "Reddit Search (via Apify)",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "author": "hearth-team",
   "description": "Search Reddit posts and comments by keyword. Use this for community pulse and customer research. Optional subreddit narrows scope. NOT for X/Twitter — use twitter_search.",
   "tier": "free",

@@ -1,7 +1,7 @@
 {
-  "version": "0.5.22",
+  "version": "0.5.23",
   "format": "hearth.skill/1",
-  "updated_at": "2026-05-29T00:06:49.896Z",
+  "updated_at": "2026-05-29T01:43:21.876Z",
   "skills": [
     {
       "path": "free/apify_actor",
@@ -72,11 +72,11 @@
       "path": "free/ecommerce_pricing",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "674ed0c97a43f98b10645ffbefb615b4156081c5e3f0f4fe471da7c901bb244e",
+      "checksum": "3c9a95d3db14524921111445e643a37b55e9c3a2f1275ceb8c3230b88e385e81",
       "files": [
         {
           "name": "handler.js",
-          "checksum": "8654ff8af291a96089861c39d4c2067191789261828e712f5c629c4b576b8974"
+          "checksum": "8e00d016aa19c4abc20c714e1eccdb083577de89500ff76b73da8654d1cbbf40"
         }
       ]
     },
@@ -84,11 +84,11 @@
       "path": "free/facebook_ads_library",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "fa5255ba742f16934d989073518262b9787b0435a40f866e51429b4659802d5b",
+      "checksum": "1bb266d2c62904349884bd8c732b5d83436873ac1d9517f08e46405cb03f1b8e",
       "files": [
         {
           "name": "handler.js",
-          "checksum": "45f1d189add5172146516e74ad951eefb2685da8e79467ff86d0029d35ceaf0a"
+          "checksum": "2c45ce4abe62fd0fc31ea4683be1a1c183b47ce09a38175f63e5ba9c2fc30c06"
         }
       ]
     },
@@ -96,11 +96,11 @@
       "path": "free/facebook_posts",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "398da95db36d4e9e811b1ef5b20593546a6944d13538490355b1b7f2eea272a1",
+      "checksum": "cee9e27b62ed57da41791e4de9257d033add9290700f5ca277a02fdcef154b6a",
       "files": [
         {
           "name": "handler.js",
-          "checksum": "65fe1628cb201c0940f87e71e1ef61caa2c84659f3331e5fb5acacd2fe0963e6"
+          "checksum": "2a723d66f32fde2c61e98a3332f56d636b7e0cb619ae4811756670ffdb594509"
         }
       ]
     },
@@ -140,11 +140,11 @@
       "path": "free/google_maps_places",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "a29a1395d6fbd20a4180f7f1f78de36d0a8c8e304664f7999458714d47d19529",
+      "checksum": "e77e683fa0a09ee1a58dd604ffdbe92045a414f2cebbbef0f72d0e24a2dc887d",
       "files": [
         {
           "name": "handler.js",
-          "checksum": "57f2600b0f17ad26dbb38d9fe0eff17092bbf534ff9481f1cfa808cec6d449f7"
+          "checksum": "b8c86c5fb62340254c337915907d16c7eb8e5cf4540915cf70cfb53f890bf6fd"
         }
       ]
     },
@@ -152,11 +152,11 @@
       "path": "free/google_search",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "4bae123fb9aef0dcef715dff7fa2c04f954c910115ca70aa09c874a9c1a79722",
+      "checksum": "2898f6c4de89a0611a74fa2e358259e18c5ae4b9e623752b5795c05197ec921a",
       "files": [
         {
           "name": "handler.js",
-          "checksum": "80c816dd7f45062f4a44e7e62776219bf3c133e81c59365195303916acadd4fe"
+          "checksum": "68f08bbc5ad64db823124a4aa05076fef5913beb7952ff8ff64de58c20dd25bd"
         }
       ]
     },
@@ -194,11 +194,11 @@
       "path": "free/instagram_posts",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "a778b076424f0525a7a7d8c24b376bfb025aee0a9dc721b2d3b5faadcb6aad84",
+      "checksum": "fa77eb735a4d9430aaa103dc5c0bd54960a3397edbe1b57a0e4c6f135f6bae1b",
       "files": [
         {
           "name": "handler.js",
-          "checksum": "3d683e27ff56302bd5aace72dc55800961e73617b422b0694585b4f40f71bf2c"
+          "checksum": "2f86a937b0e0bd0d320605e543c8f27203b61c0b76ee3ff967a369079f829f10"
         }
       ]
     },
@@ -206,11 +206,11 @@
       "path": "free/instagram_profile",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "061e71ebfa772556a67a8628a51481902b6e9cef40683d7af76b7ccaa0d5294a",
+      "checksum": "daf4a17b95c7ca0f60ef241607c3cf85a2908884d0ac4570edebe7e4aa54cc7f",
       "files": [
         {
           "name": "handler.js",
-          "checksum": "02d1ace9649149953dc2c602e867b8108052f7de548db20621ac9d60389334b2"
+          "checksum": "5486d6047ea34cb14d5c71d4de085b97ddae85a439b6c44bcfe1a605bab57d75"
         }
       ]
     },
@@ -218,11 +218,11 @@
       "path": "free/leads_finder",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "1114532b6441dbdf69c9c28df666a0278bef0ff2edb17cf6594a2734282bbf03",
+      "checksum": "d373d7bf3b5635fd42bcd9e9556e6aa08fd4b54877ba37de3182aed9507e8aae",
       "files": [
         {
           "name": "handler.js",
-          "checksum": "dca2474ff544e67ea0ca3a41b1fe510b63aec95dcfaf18c097907baba191d13b"
+          "checksum": "5732f09602a1c5da67a9455abf2b530a7208cfa78ecb8b00b05456b868d4471b"
         }
       ]
     },
@@ -230,11 +230,11 @@
       "path": "free/linkedin_company_employees",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "73e04e7bebfaf67402a62819c3db3261ce65a86808c6515038dd8bebfd5a5c5f",
+      "checksum": "4cf0ffcf220864a2cfbe389ad8515f52e3964b8af0bc0d4d66d0d4780d7a2937",
       "files": [
         {
           "name": "handler.js",
-          "checksum": "0661d645689f8fec0ff6d9d0b1deb12969d3c6b63efae9a7933a6c18893263ba"
+          "checksum": "6bd848533debb55291ca0f1135a26d29f8b097a5c935a398f41576ae2596f45b"
         }
       ]
     },
@@ -254,11 +254,11 @@
       "path": "free/linkedin_profile_lookup",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "9e6f5d538c2e28303e17cccd9487c8a6de6db2caec303ceedab6da46e87aedd4",
+      "checksum": "15da434d31b1b5d2aa4e459b78a151d9229630b025b035a5a4b2f1f44a973130",
       "files": [
         {
           "name": "handler.js",
-          "checksum": "874bc25c2c9f94d020b25fa7d84b2a7de4a79f4dad4e6469b783a3fb2cb162d4"
+          "checksum": "bcfd9ffead60e4ffe379838371303d75fcb0fd295b09980a3810af9cb3a3d9a6"
         }
       ]
     },
@@ -266,11 +266,11 @@
       "path": "free/linkedin_profile_posts",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "2141b6be49a7b20bf5e42e0b39139ead9ef7e32db8fad29a2db839b7f9d64c2a",
+      "checksum": "527b5d65f3c7d2ee30923e452fcfca0c7607dbad6eb12aa06c206ffb8279dc9a",
       "files": [
         {
           "name": "handler.js",
-          "checksum": "06878290b74a343094f8cc87ac30f61bcd10a32d7a5f99578460dea05d3fce81"
+          "checksum": "63881bd8f55c07d8abc7986f62b2dd937ca2d624c1c8687350074ac7ea7f1f04"
         }
       ]
     },
@@ -343,11 +343,11 @@
       "path": "free/reddit_search",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "5df2eb097d9a432968bdee652069cffe6240ef07fdba50d1ef69f64586d2cb1d",
+      "checksum": "ced5722f2fee0f9eb59e948fba79bd6c35e0030cbdfc64597c8716fd10d78777",
       "files": [
         {
           "name": "handler.js",
-          "checksum": "0b10eb5153da950f9d82b4b7e095a328e5d3706791e1c0edce07ef29080ddc96"
+          "checksum": "18a29fcebc0099d523b3c6529abd4f684dac5e21432425e516efbefe564e148a"
         }
       ]
     },
@@ -388,11 +388,11 @@
       "path": "free/tiktok_scraper",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "220f5e76d70966466111c953e80b2b1a3894a48e126fd2c5d26f39a143822e4e",
+      "checksum": "cab19fefb37f457a1a3db2342fdedfe8b3b7c6bedf7eb5a35f48ccf0fa85ad2c",
       "files": [
         {
           "name": "handler.js",
-          "checksum": "9ecd103e95cd6e67bac87a412f53f20a5b882bb1cf29721b2f9f736263b43777"
+          "checksum": "99a7ec84a1b28abd37fa7bd40d8ac5896a5c554ca0c5157bc179188ec993e466"
         }
       ]
     },
@@ -416,11 +416,11 @@
       "path": "free/twitter_search",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "327c58fe529b022db8fa00c519396375481cff1ff2370b1f21c2bbb30141b7e0",
+      "checksum": "f034d99ffce70b268fb048ad69cb65a46a80d8870e7e8bf05533836158435274",
       "files": [
         {
           "name": "handler.js",
-          "checksum": "835d8d3ced133b041e710d651439f8646c5e6c25b4ded0dad605eba296210293"
+          "checksum": "fce4ac9dbdb042d655f8d946c58332c1140ab15424a09d2e30ed4479ebf300fa"
         }
       ]
     },
@@ -428,11 +428,11 @@
       "path": "free/website_content_crawler",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "570c9e4f0ecdb4e110118f064ea65fc96509f3c66d0a9b82a80dde095f6ab314",
+      "checksum": "aef8ec0c8a8614b6ace58a23c38d704916110f76bd95729dafac68bd54e2c7b2",
       "files": [
         {
           "name": "handler.js",
-          "checksum": "1db937434ff595676cbd10a629c7eff4e28e6dc231ed6e5b08513c6c1adfa75b"
+          "checksum": "12753789fd1e0b233ff00c70de0901e51201e459f81cbf80a21c51e37a1e67e2"
         }
       ]
     },
@@ -445,11 +445,11 @@
       "path": "free/youtube_channel",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "a19b8ac85eab8309edf905899d37562cdcde3101f7c8fc0f46ef0be70f01c22b",
+      "checksum": "8d0fe7c46795ae15fa403168d2eac24193ee92b7e183ed82a6458b1748270074",
       "files": [
         {
           "name": "handler.js",
-          "checksum": "29b0b77dd33aa1ed579505bc1c32ce1941a66a6fcd8ef1e1184c702007fe04c9"
+          "checksum": "eb312d157baa4b717d40e411328b15f57adfcd92c19e5cc94f56dee54775abf4"
         }
       ]
     },

@@ -2,7 +2,7 @@
   "schema": "hearth.skill/1",
   "id": "instagram_profile",
   "name": "Instagram Profile Snapshot (via Apify)",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "author": "hearth-team",
   "description": "Fetch an Instagram profile snapshot — bio, follower count, recent post count, verified status. Use for quick profile lookups. For actual post content, use instagram_posts.",
   "tier": "free",

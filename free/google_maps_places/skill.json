@@ -2,7 +2,7 @@
   "schema": "hearth.skill/1",
   "id": "google_maps_places",
   "name": "Google Maps Places (via Apify)",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "author": "hearth-team",
   "description": "Find Google Maps businesses — name, address, hours, reviews, rating. Use this for local business research and prospecting. NOT for general web search — use google_search.",
   "tier": "free",

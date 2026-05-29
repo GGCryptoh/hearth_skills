@@ -2,7 +2,7 @@
   "schema": "hearth.skill/1",
   "id": "youtube_channel",
   "name": "YouTube Channel (via Apify)",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "author": "hearth-team",
   "description": "Pull recent videos from a YouTube channel — title, views, subscriber count, video metadata. Use this for channel research and content tracking. NOT for transcripts — use youtube_transcript.",
   "tier": "free",

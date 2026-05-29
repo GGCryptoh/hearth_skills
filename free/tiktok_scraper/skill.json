@@ -2,7 +2,7 @@
   "schema": "hearth.skill/1",
   "id": "tiktok_scraper",
   "name": "TikTok Scraper (via Apify)",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "author": "hearth-team",
   "description": "Pull TikTok videos by hashtag or profile. Use this for trend monitoring and content intelligence. NOT for Instagram or YouTube — use the platform-specific skills.",
   "tier": "free",

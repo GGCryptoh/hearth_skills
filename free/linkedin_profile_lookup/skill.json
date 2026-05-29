@@ -2,7 +2,7 @@
   "schema": "hearth.skill/1",
   "id": "linkedin_profile_lookup",
   "name": "LinkedIn Profile Lookup (via Apify)",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "author": "hearth-team",
   "description": "Fetch a LinkedIn profile's full details — title, work history, education, contact info when available. Use for researching a specific person. NOT for their posts (use linkedin_profile_posts) or for searching employees (use linkedin_company_employees).",
   "tier": "free",

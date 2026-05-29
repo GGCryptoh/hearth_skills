@@ -2,7 +2,7 @@
   "schema": "hearth.skill/1",
   "id": "instagram_posts",
   "name": "Instagram Posts (via Apify)",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "author": "hearth-team",
   "description": "Scrape posts from an Instagram profile, hashtag, or location. Use for brand monitoring and content research. For a profile's bio + follower count, use instagram_profile instead.",
   "tier": "free",

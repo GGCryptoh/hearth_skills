@@ -2,7 +2,7 @@
   "schema": "hearth.skill/1",
   "id": "ecommerce_pricing",
   "name": "E-commerce Pricing (via Apify)",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "author": "hearth-team",
   "description": "Scrape product pricing and listings from e-commerce sites — Amazon, eBay, Shopify storefronts. Use this for pricing monitoring and competitive intel. NOT for general crawling — use website_content_crawler.",
   "tier": "free",

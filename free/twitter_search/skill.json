@@ -2,7 +2,7 @@
   "schema": "hearth.skill/1",
   "id": "twitter_search",
   "name": "Twitter / X Search (via Apify)",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "author": "hearth-team",
   "description": "Search X/Twitter posts by keyword or hashtag. Use for brand mention monitoring and trend research on X. NOT for LinkedIn or Instagram — use the platform-specific skills.",
   "tier": "free",

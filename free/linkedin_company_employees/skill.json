@@ -2,7 +2,7 @@
   "schema": "hearth.skill/1",
   "id": "linkedin_company_employees",
   "name": "LinkedIn Company Employees (via Apify)",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "author": "hearth-team",
   "description": "Pull all employees from a LinkedIn company page. Use this for sales prospecting at scale or competitive team mapping. NOT for a single person's profile — use linkedin_profile_lookup.",
   "tier": "free",

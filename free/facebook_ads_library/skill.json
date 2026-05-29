@@ -2,7 +2,7 @@
   "schema": "hearth.skill/1",
   "id": "facebook_ads_library",
   "name": "Facebook Ads Library (via Apify)",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "author": "hearth-team",
   "description": "Scrape Facebook Ads Library to see what ads competitors are running. Use this for marketing intelligence and ad creative research. NOT for organic Facebook posts — use facebook_posts.",
   "tier": "free",
