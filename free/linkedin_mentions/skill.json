@@ -2,7 +2,7 @@
   "schema": "hearth.skill/1",
   "id": "linkedin_mentions",
   "name": "LinkedIn Mentions (via Apify)",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "author": "hearth-team",
   "description": "Keyword search across ALL of LinkedIn — finds posts that mention a phrase, by anyone. Use this for 'find posts about X' or 'who's posting about Y'. NOT for 'what did <specific person> post' — use linkedin_profile_posts for that. Returns posts with author + URL + snippet. Reuses APIFY_API_TOKEN.",
   "tier": "free",
