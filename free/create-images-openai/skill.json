@@ -2,9 +2,15 @@
   "schema": "hearth.skill/1",
   "id": "create-images-openai",
   "name": "Image Generation — OpenAI",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "author": "hearth-team",
-  "description": "Generate images using gpt-image-2 (OpenAI). Saves the result to /dashboard/collateral as a base64 PNG.",
+  "description": "Generate images using gpt-image-2 (OpenAI). Saves the result to /dashboard/collateral as a base64 PNG. Part of the AI Image Family — sub-skills (headshot_business, social_post_image, etc.) route here by default.",
+  "family": {
+    "id": "ai_image",
+    "name": "AI Image Family",
+    "icon": "Image",
+    "description": "Headshots, inpainting, wardrobe swap, logos, social posts. Pick a provider (OpenAI / KIE / Higgsfield / Replicate / fal / Stability / Recraft / Ideogram) and your favorite task — sub-skills route through whichever provider you've configured."
+  },
   "tier": "free",
   "type": "tool",
   "category": "creation",

@@ -1,0 +1,49 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "kie_image",
+  "name": "KIE Image",
+  "version": "0.1.0",
+  "author": "hearth-team",
+  "description": "Image generation via KIE.ai — multi-model proxy for Flux, Stable Diffusion, Midjourney-style outputs. One key unlocks dozens of model endpoints. Single prompt → image, saved to /dashboard/collateral.",
+  "tier": "free",
+  "type": "tool",
+  "category": "creation",
+  "icon": "Image",
+  "publisher": "Hearth Team",
+  "risk": "moderate",
+  "permissions": ["net:outbound", "read:vault.entries"],
+  "family": {
+    "id": "ai_image",
+    "name": "AI Image Family",
+    "icon": "Image",
+    "description": "Headshots, inpainting, wardrobe swap, logos, social posts. Pick a provider (OpenAI / KIE / Higgsfield / Replicate / fal / Stability / Recraft / Ideogram) and your favorite task — sub-skills route through whichever provider you've configured."
+  },
+  "handler": {
+    "runtime": "node",
+    "entrypoint": "handler.js",
+    "function": "run"
+  },
+  "vault_inputs": [
+    {
+      "key": "KIE_API_KEY",
+      "label": "KIE.ai API Key",
+      "kind": "secret",
+      "help": "From kie.ai → Settings → API Keys. Stored encrypted.",
+      "required": true
+    }
+  ],
+  "api_keys_required": ["KIE_API_KEY"],
+  "files": ["handler.js"],
+  "cost_estimate": { "kind": "per_call", "per_call": 0.04 },
+  "latency_p50_ms": 8000,
+  "expected_duration_ms": 30000,
+  "status": "available",
+  "lifecycle_state": "new",
+  "marketplace": {
+    "category": "creation",
+    "tags": ["image", "kie", "flux", "midjourney"],
+    "icon": "Image"
+  },
+  "pre_call_message": "Generating image via KIE.ai…",
+  "post_call_message": "Image saved to collateral."
+}

@@ -1,7 +1,7 @@
 {
-  "version": "0.5.23",
+  "version": "0.5.24",
   "format": "hearth.skill/1",
-  "updated_at": "2026-05-29T01:43:21.876Z",
+  "updated_at": "2026-05-29T02:02:51.967Z",
   "skills": [
     {
       "path": "free/apify_actor",
@@ -31,7 +31,7 @@
       "path": "free/create-images-openai",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "de242de7b2e4520f48ac22c93da5cfc6678b3aa8b343137216d436752f089952",
+      "checksum": "db6033e602968e72897be67c97f709bcddf48c72542bd679231b8d09813a7c9d",
       "files": [
         {
           "name": "handler.js",
@@ -161,6 +161,18 @@
       ]
     },
     {
+      "path": "free/headshot_business",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "364e65fc9f7df18eb68bd013d9cbd8c15c29f70129753e9c468832d7aa0980d9",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "fac32ebf759d28709d02318003735363c5298d5e36864b7a9df7307debe26461"
+        }
+      ]
+    },
+    {
       "path": "free/hearth_create_mission.json",
       "type": "file",
       "checksum": "cb6604621a2a0b52b1d3658c2f1aacc92f80c729502fcebe6dc6d92dc77eac2f"
@@ -184,6 +196,18 @@
       "path": "free/hearth_skill_recommend.json",
       "type": "file",
       "checksum": "8372093d4f65ed47a88a7f141c5c617e4890d71d74ca2bf8c2ea73c3f3713fd6"
+    },
+    {
+      "path": "free/higgsfield_image",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "0b96171a97e24f4ce3ec713ed3ed10cffc35a330159935d6bd9449a12d9dcb22",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "41836040da9e4c01a2c3793f75f2b55ecac0681073014ceeada0c93e813a39e9"
+        }
+      ]
     },
     {
       "path": "free/hire_agent.json",
@@ -211,6 +235,18 @@
         {
           "name": "handler.js",
           "checksum": "5486d6047ea34cb14d5c71d4de085b97ddae85a439b6c44bcfe1a605bab57d75"
+        }
+      ]
+    },
+    {
+      "path": "free/kie_image",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "aee4123d4aa3b8708a010c719f38e208737c9acb5969525be9ceb3179b55e666",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "a9c79ced2697cdaa4a773c003f486e7ead97052f6ad86799857c9edc0084936c"
         }
       ]
     },
@@ -376,6 +412,18 @@
         {
           "name": "architecture.md",
           "checksum": "0051e067574e3036673b5a3740ad52ef07d3b21929172ba31db1bec76ff136f7"
+        }
+      ]
+    },
+    {
+      "path": "free/social_post_image",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "87594307600e6a43e3928a87988ebba5286dc638f92b7a68673bef3f4addb6d8",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "342ca9286c53ef67559f34d6e31fba871f62cd2081b846ff4e974ebc00e2608a"
         }
       ]
     },
