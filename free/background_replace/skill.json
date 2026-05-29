@@ -1,0 +1,70 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "background_replace",
+  "name": "Background Replace",
+  "version": "0.1.0",
+  "author": "hearth-team",
+  "description": "Replace the background of an image while keeping the subject intact. Pass `image_url` of the source + `background` describing the new backdrop. Best with a foreground mask, but works without one on portraits.",
+  "tier": "free",
+  "type": "tool",
+  "category": "creation",
+  "icon": "Layers",
+  "publisher": "Hearth Team",
+  "risk": "safe",
+  "permissions": [
+    "net:outbound",
+    "read:vault.entries"
+  ],
+  "family": {
+    "id": "ai_image",
+    "name": "AI Image Family",
+    "icon": "Image",
+    "description": "Headshots, inpainting, wardrobe swap, logos, social posts. Pick a provider (OpenAI / KIE / Higgsfield / Replicate / fal / Stability / Recraft / Ideogram) and your favorite task — sub-skills route through whichever provider you've configured."
+  },
+  "needed_capabilities": [
+    "image_to_image"
+  ],
+  "handler": {
+    "runtime": "node",
+    "entrypoint": "handler.js",
+    "function": "run"
+  },
+  "vault_inputs": [],
+  "api_keys_required": [],
+  "files": [
+    "handler.js"
+  ],
+  "cost_estimate": {
+    "kind": "per_call",
+    "per_call": 0.05
+  },
+  "latency_p50_ms": 10000,
+  "expected_duration_ms": 60000,
+  "status": "available",
+  "lifecycle_state": "new",
+  "marketplace": {
+    "category": "creation",
+    "tags": [
+      "image",
+      "background",
+      "compositing"
+    ],
+    "icon": "Layers"
+  },
+  "settings": [
+    {
+      "key": "preferred_provider",
+      "label": "Preferred provider",
+      "kind": "select",
+      "default": "fal",
+      "options": [
+        "fal",
+        "replicate",
+        "stability",
+        "kie"
+      ]
+    }
+  ],
+  "pre_call_message": "Replacing background…",
+  "post_call_message": "Done."
+}

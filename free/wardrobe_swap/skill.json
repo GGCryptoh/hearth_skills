@@ -1,0 +1,71 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "wardrobe_swap",
+  "name": "Wardrobe Swap",
+  "version": "0.1.0",
+  "author": "hearth-team",
+  "description": "Change what someone is wearing in an existing portrait while keeping the face, pose, and lighting consistent. Pass `image_url` of the source portrait + `outfit` for the new clothing description.",
+  "tier": "free",
+  "type": "tool",
+  "category": "creation",
+  "icon": "Shirt",
+  "publisher": "Hearth Team",
+  "risk": "safe",
+  "permissions": [
+    "net:outbound",
+    "read:vault.entries"
+  ],
+  "family": {
+    "id": "ai_image",
+    "name": "AI Image Family",
+    "icon": "Image",
+    "description": "Headshots, inpainting, wardrobe swap, logos, social posts. Pick a provider (OpenAI / KIE / Higgsfield / Replicate / fal / Stability / Recraft / Ideogram) and your favorite task — sub-skills route through whichever provider you've configured."
+  },
+  "needed_capabilities": [
+    "image_to_image"
+  ],
+  "handler": {
+    "runtime": "node",
+    "entrypoint": "handler.js",
+    "function": "run"
+  },
+  "vault_inputs": [],
+  "api_keys_required": [],
+  "files": [
+    "handler.js"
+  ],
+  "cost_estimate": {
+    "kind": "per_call",
+    "per_call": 0.05
+  },
+  "latency_p50_ms": 10000,
+  "expected_duration_ms": 60000,
+  "status": "available",
+  "lifecycle_state": "new",
+  "marketplace": {
+    "category": "creation",
+    "tags": [
+      "image",
+      "wardrobe",
+      "outfit",
+      "fashion"
+    ],
+    "icon": "Shirt"
+  },
+  "settings": [
+    {
+      "key": "preferred_provider",
+      "label": "Preferred provider",
+      "kind": "select",
+      "default": "fal",
+      "options": [
+        "fal",
+        "replicate",
+        "stability",
+        "kie"
+      ]
+    }
+  ],
+  "pre_call_message": "Swapping wardrobe…",
+  "post_call_message": "Done."
+}

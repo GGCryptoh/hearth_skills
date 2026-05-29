@@ -1,0 +1,73 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "stability_image",
+  "name": "Stability Image",
+  "version": "0.1.0",
+  "author": "hearth-team",
+  "description": "Image generation via Stability AI — Stable Diffusion 3, Stable Image Core, Ultra. Strong photorealism and prompt adherence; inpaint + outpaint + upscale endpoints under one key. Pass `model` to pick a tier (default core). Single prompt → image saved to /dashboard/collateral.",
+  "tier": "free",
+  "type": "tool",
+  "category": "creation",
+  "icon": "Layers",
+  "publisher": "Hearth Team",
+  "risk": "moderate",
+  "permissions": [
+    "net:outbound",
+    "read:vault.entries"
+  ],
+  "family": {
+    "id": "ai_image",
+    "name": "AI Image Family",
+    "icon": "Image",
+    "description": "Headshots, inpainting, wardrobe swap, logos, social posts. Pick a provider (OpenAI / KIE / Higgsfield / Replicate / fal / Stability / Recraft / Ideogram) and your favorite task — sub-skills route through whichever provider you've configured."
+  },
+  "capabilities": [
+    "text_to_image",
+    "image_to_image",
+    "inpaint",
+    "outpaint",
+    "upscale",
+    "controlnet",
+    "style_transfer"
+  ],
+  "handler": {
+    "runtime": "node",
+    "entrypoint": "handler.js",
+    "function": "run"
+  },
+  "vault_inputs": [
+    {
+      "key": "STABILITY_API_KEY",
+      "label": "Stability AI API Key",
+      "kind": "secret",
+      "help": "From platform.stability.ai → Account → API keys. Starts with sk-… . Stored encrypted.",
+      "required": true
+    }
+  ],
+  "api_keys_required": [
+    "STABILITY_API_KEY"
+  ],
+  "files": [
+    "handler.js"
+  ],
+  "cost_estimate": {
+    "kind": "per_call",
+    "per_call": 0.04
+  },
+  "latency_p50_ms": 6000,
+  "expected_duration_ms": 30000,
+  "status": "available",
+  "lifecycle_state": "new",
+  "marketplace": {
+    "category": "creation",
+    "tags": [
+      "image",
+      "stability",
+      "stable-diffusion",
+      "sd3"
+    ],
+    "icon": "Layers"
+  },
+  "pre_call_message": "Generating image via Stability…",
+  "post_call_message": "Image saved to collateral."
+}

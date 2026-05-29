@@ -1,7 +1,7 @@
 {
-  "version": "0.5.25",
+  "version": "0.5.26",
   "format": "hearth.skill/1",
-  "updated_at": "2026-05-29T02:37:40.703Z",
+  "updated_at": "2026-05-29T15:19:28.918Z",
   "skills": [
     {
       "path": "free/apify_actor",
@@ -12,6 +12,30 @@
         {
           "name": "handler.js",
           "checksum": "e8bab04f93bb83e322bcd2f83b99c86751061237a7d3157f8707ebd7f89be4ea"
+        }
+      ]
+    },
+    {
+      "path": "free/avatar_generator",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "7d05ad2a767e6dd633d144ce13b5f173ef56f7369fcc017ac5f3c5d03f461aac",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "8ff9365ae31f06536673900a207306bbafb53c76a52e97f27f264fc82bf6459b"
+        }
+      ]
+    },
+    {
+      "path": "free/background_replace",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "b75336787efdff7b50ba6a3b9177394564f6cd5dc1f927356979ab23426b74d1",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "5b50fe8e9b5bfeecb9ade7f4325d7e7bbdc20c65c37c21937392970f05520fb8"
         }
       ]
     },
@@ -105,6 +129,18 @@
       ]
     },
     {
+      "path": "free/fal_image",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "6115acddd307803f17ee459e1641c8262579cd36526aae31fb6d2d1ca71e9ab6",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "dcd9e9211c46830fcdd457dd5b63f79084eeed10bebca81b81690c3fa42164bf"
+        }
+      ]
+    },
+    {
       "path": "free/gmail_read",
       "type": "directory",
       "manifest_file": "skill.json",
@@ -173,6 +209,30 @@
       ]
     },
     {
+      "path": "free/headshot_creative",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "e1281dbeba3b73602935e3646dd75534b5b22abc74192d1184fb8c666e7bb8b5",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "a5eaacbf82278788817a32ca5d3d3e204f63f659abf2b35befa3c7aa9ef67f04"
+        }
+      ]
+    },
+    {
+      "path": "free/headshot_lifestyle",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "17213145fe624759da4702bcd4f7944dd2e63893f84cbd5435f1973127653109",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "2f4ea04f5595e488e0b320cfa4ed1a5a6494ef7cb8842dc04e6e967cae3ac144"
+        }
+      ]
+    },
+    {
       "path": "free/hearth_create_mission.json",
       "type": "file",
       "checksum": "cb6604621a2a0b52b1d3658c2f1aacc92f80c729502fcebe6dc6d92dc77eac2f"
@@ -213,6 +273,30 @@
       "path": "free/hire_agent.json",
       "type": "file",
       "checksum": "d99f5aa4f770445a3f802f6a753f7a61b7f0dd63f3165a9ef4d5b12a4033db5b"
+    },
+    {
+      "path": "free/ideogram_image",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "a46cb4361ca2187a1f59522f15935288af6ee6635c321b5b146476f36678fcf4",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "415642c0ef8b92ade43d84955726c55570a3d8a661f05cb121567d7e8265dc25"
+        }
+      ]
+    },
+    {
+      "path": "free/inpaint",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "8e4f3b79be1c9d8cc31172eb6977cfb5a54b550a0ad4a5d9cdeafbd2ba221634",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "ca877bb0a4113f5b7c48d93bbde075c5a1a720a891587b23bca1953fecc36b78"
+        }
+      ]
     },
     {
       "path": "free/instagram_posts",
@@ -311,6 +395,18 @@
       ]
     },
     {
+      "path": "free/logo_variant",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "bee9805da9dacdc5078f56b5c2ed22415d52fa2bcfc9739fc4f3b690e93e3250",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "ee810db1367d20d29411e13bf8da5a9020fa754980d06ea0628f770355f0c68e"
+        }
+      ]
+    },
+    {
       "path": "free/n8n_workflow",
       "type": "directory",
       "manifest_file": "skill.json",
@@ -335,6 +431,18 @@
         {
           "name": "architecture.md",
           "checksum": "69e527d564bc0015b59c7a5fa523ba803126cbbf8c979fe62caca6a226b7493d"
+        }
+      ]
+    },
+    {
+      "path": "free/outpaint",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "2515b9b578aefa6bef9b8a028400bafd0d1148935242384c8738ade80a62243e",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "15c6a06454989bb6d6f394fb3a98ccde193083171c864ac9c5091a67641d827b"
         }
       ]
     },
@@ -376,6 +484,30 @@
       ]
     },
     {
+      "path": "free/product_photo",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "4251614b6296421a2859f0a9d8b62857f317c573b974196063f5bb63401e33bd",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "0582c76497264d42c653148ba035d8d7fb47dfa412fec19cca91c0e7e4709821"
+        }
+      ]
+    },
+    {
+      "path": "free/recraft_image",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "d564f3e06c94d9d630eb4eb38f351d6403f076fd51fbd7b80e803ada82e1cfa0",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "395d3eabf19ce01fc160ab7e2a4322655b7262701ed492377a94687883568447"
+        }
+      ]
+    },
+    {
       "path": "free/reddit_search",
       "type": "directory",
       "manifest_file": "skill.json",
@@ -384,6 +516,18 @@
         {
           "name": "handler.js",
           "checksum": "18a29fcebc0099d523b3c6529abd4f684dac5e21432425e516efbefe564e148a"
+        }
+      ]
+    },
+    {
+      "path": "free/replicate_image",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "bb0f8d7feba94a8a55703a4e27dd43bd097c252a462df4d394bf51593daa52c5",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "0bcbbb5550902fa66c41eb552be167bae76518e2b9671e8e88d5cd8d8ea4e7a0"
         }
       ]
     },
@@ -428,9 +572,45 @@
       ]
     },
     {
+      "path": "free/stability_image",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "e61e73706d31166a381ef34cd800a6a9570af57ccfd7e70c3431943d637a03b9",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "acfd983faaec1a6cda4f42f36ba866c590615def6726afe960d9e4e81480d43d"
+        }
+      ]
+    },
+    {
+      "path": "free/style_transfer",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "32c57016f8a5888a4af424b3337e06d1049ab74856f0e3c9105678e68fb77638",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "1f83fb0bc3fb353c2e103063dfb8b2b13c992590f7c5e237b3d6d9d32d312b71"
+        }
+      ]
+    },
+    {
       "path": "free/telegram_send.json",
       "type": "file",
       "checksum": "f4e86ed09c6cc14c16863e6cbc46cf08d51e065dc2f85ec6e8129d710cdc3a77"
+    },
+    {
+      "path": "free/thumbnail_image",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "ae8744838db9dc65596c98ed194d39e578b0a7f24f7bc26c0029b4a62bcad24c",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "363b51c4ccbfa16dce6dae4842b759c6ba79b07f2d869f222c48bff1257ec96e"
+        }
+      ]
     },
     {
       "path": "free/tiktok_scraper",
@@ -469,6 +649,18 @@
         {
           "name": "handler.js",
           "checksum": "fce4ac9dbdb042d655f8d946c58332c1140ab15424a09d2e30ed4479ebf300fa"
+        }
+      ]
+    },
+    {
+      "path": "free/wardrobe_swap",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "2cd2ff1783dcd2723b13837e680902cdf4ea09570a75f97f13e12bfd0a3a3b50",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "9e5b4612cd647e6a884d0d40efecea20e7f078fcb372ef3911c6f7d97dd6a31b"
         }
       ]
     },

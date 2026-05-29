@@ -1,0 +1,75 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "replicate_image",
+  "name": "Replicate Image",
+  "version": "0.1.0",
+  "author": "hearth-team",
+  "description": "Image generation via Replicate — one key, hundreds of community-hosted models (Flux, SDXL, ControlNet, inpaint/outpaint variants, background remover, upscalers). Pass `model` to pick a slug; defaults to black-forest-labs/flux-schnell. Single prompt → image saved to /dashboard/collateral.",
+  "tier": "free",
+  "type": "tool",
+  "category": "creation",
+  "icon": "Image",
+  "publisher": "Hearth Team",
+  "risk": "moderate",
+  "permissions": [
+    "net:outbound",
+    "read:vault.entries"
+  ],
+  "family": {
+    "id": "ai_image",
+    "name": "AI Image Family",
+    "icon": "Image",
+    "description": "Headshots, inpainting, wardrobe swap, logos, social posts. Pick a provider (OpenAI / KIE / Higgsfield / Replicate / fal / Stability / Recraft / Ideogram) and your favorite task — sub-skills route through whichever provider you've configured."
+  },
+  "capabilities": [
+    "text_to_image",
+    "image_to_image",
+    "inpaint",
+    "outpaint",
+    "controlnet",
+    "style_transfer",
+    "upscale",
+    "background_remove"
+  ],
+  "handler": {
+    "runtime": "node",
+    "entrypoint": "handler.js",
+    "function": "run"
+  },
+  "vault_inputs": [
+    {
+      "key": "REPLICATE_API_TOKEN",
+      "label": "Replicate API Token",
+      "kind": "secret",
+      "help": "From replicate.com → Account → API tokens. Starts with r8_… . Stored encrypted.",
+      "required": true
+    }
+  ],
+  "api_keys_required": [
+    "REPLICATE_API_TOKEN"
+  ],
+  "files": [
+    "handler.js"
+  ],
+  "cost_estimate": {
+    "kind": "per_call",
+    "per_call": 0.04
+  },
+  "latency_p50_ms": 10000,
+  "expected_duration_ms": 60000,
+  "status": "available",
+  "lifecycle_state": "new",
+  "marketplace": {
+    "category": "creation",
+    "tags": [
+      "image",
+      "replicate",
+      "flux",
+      "sdxl",
+      "controlnet"
+    ],
+    "icon": "Image"
+  },
+  "pre_call_message": "Generating image via Replicate…",
+  "post_call_message": "Image saved to collateral."
+}

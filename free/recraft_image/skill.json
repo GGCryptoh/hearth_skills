@@ -1,0 +1,72 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "recraft_image",
+  "name": "Recraft Image",
+  "version": "0.1.0",
+  "author": "hearth-team",
+  "description": "Design-focused image + vector generation via Recraft.ai. Unique among providers: native SVG / vector output, brand-controllable style presets, icon and logo modes. Pass `style` for one of recraft's 30+ presets (realistic_image, digital_illustration, vector_illustration, icon).",
+  "tier": "free",
+  "type": "tool",
+  "category": "creation",
+  "icon": "PenTool",
+  "publisher": "Hearth Team",
+  "risk": "moderate",
+  "permissions": [
+    "net:outbound",
+    "read:vault.entries"
+  ],
+  "family": {
+    "id": "ai_image",
+    "name": "AI Image Family",
+    "icon": "Image",
+    "description": "Headshots, inpainting, wardrobe swap, logos, social posts. Pick a provider (OpenAI / KIE / Higgsfield / Replicate / fal / Stability / Recraft / Ideogram) and your favorite task — sub-skills route through whichever provider you've configured."
+  },
+  "capabilities": [
+    "text_to_image",
+    "image_to_image",
+    "vector",
+    "style_transfer"
+  ],
+  "handler": {
+    "runtime": "node",
+    "entrypoint": "handler.js",
+    "function": "run"
+  },
+  "vault_inputs": [
+    {
+      "key": "RECRAFT_API_TOKEN",
+      "label": "Recraft API Token",
+      "kind": "secret",
+      "help": "From recraft.ai → API. Stored encrypted.",
+      "required": true
+    }
+  ],
+  "api_keys_required": [
+    "RECRAFT_API_TOKEN"
+  ],
+  "files": [
+    "handler.js"
+  ],
+  "cost_estimate": {
+    "kind": "per_call",
+    "per_call": 0.04
+  },
+  "latency_p50_ms": 6000,
+  "expected_duration_ms": 30000,
+  "status": "available",
+  "lifecycle_state": "new",
+  "marketplace": {
+    "category": "creation",
+    "tags": [
+      "image",
+      "recraft",
+      "vector",
+      "logo",
+      "icon",
+      "svg"
+    ],
+    "icon": "PenTool"
+  },
+  "pre_call_message": "Generating image via Recraft…",
+  "post_call_message": "Image saved to collateral."
+}

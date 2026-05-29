@@ -1,0 +1,69 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "ideogram_image",
+  "name": "Ideogram Image",
+  "version": "0.1.0",
+  "author": "hearth-team",
+  "description": "Image generation via Ideogram.ai — best-in-class typography handling. Use this when the image needs to render readable text (posters, ads, thumbnails, signage). Pass `model` to pick V_2 (default) or V_2_TURBO. Single prompt → image saved to /dashboard/collateral.",
+  "tier": "free",
+  "type": "tool",
+  "category": "creation",
+  "icon": "Type",
+  "publisher": "Hearth Team",
+  "risk": "moderate",
+  "permissions": [
+    "net:outbound",
+    "read:vault.entries"
+  ],
+  "family": {
+    "id": "ai_image",
+    "name": "AI Image Family",
+    "icon": "Image",
+    "description": "Headshots, inpainting, wardrobe swap, logos, social posts. Pick a provider (OpenAI / KIE / Higgsfield / Replicate / fal / Stability / Recraft / Ideogram) and your favorite task — sub-skills route through whichever provider you've configured."
+  },
+  "capabilities": [
+    "text_to_image",
+    "image_to_image",
+    "inpaint"
+  ],
+  "handler": {
+    "runtime": "node",
+    "entrypoint": "handler.js",
+    "function": "run"
+  },
+  "vault_inputs": [
+    {
+      "key": "IDEOGRAM_API_KEY",
+      "label": "Ideogram API Key",
+      "kind": "secret",
+      "help": "From ideogram.ai → Manage API. Stored encrypted.",
+      "required": true
+    }
+  ],
+  "api_keys_required": [
+    "IDEOGRAM_API_KEY"
+  ],
+  "files": [
+    "handler.js"
+  ],
+  "cost_estimate": {
+    "kind": "per_call",
+    "per_call": 0.08
+  },
+  "latency_p50_ms": 8000,
+  "expected_duration_ms": 30000,
+  "status": "available",
+  "lifecycle_state": "new",
+  "marketplace": {
+    "category": "creation",
+    "tags": [
+      "image",
+      "ideogram",
+      "typography",
+      "poster"
+    ],
+    "icon": "Type"
+  },
+  "pre_call_message": "Generating image via Ideogram…",
+  "post_call_message": "Image saved to collateral."
+}
