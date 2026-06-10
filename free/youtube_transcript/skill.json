@@ -1,0 +1,64 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "youtube_transcript",
+  "name": "YouTube Transcript (via Apify)",
+  "version": "0.2.0",
+  "author": "hearth-team",
+  "description": "Fetch the transcript of a YouTube video by URL or ID — plain text from the caption track (human or auto-generated). NOT for channel/video metadata — use youtube_channel.",
+  "tier": "free",
+  "type": "tool",
+  "category": "research",
+  "icon": "Youtube",
+  "publisher": "Hearth Team",
+  "risk": "moderate",
+  "permissions": [
+    "net:outbound",
+    "read:vault.entries"
+  ],
+  "handler": {
+    "runtime": "node",
+    "entrypoint": "handler.js",
+    "function": "run"
+  },
+  "vault_inputs": [
+    {
+      "key": "APIFY_API_TOKEN",
+      "label": "Apify API Token",
+      "kind": "secret",
+      "help": "Same token as the other Apify skills — paste once, used here too.",
+      "required": true
+    }
+  ],
+  "api_keys_required": [
+    "APIFY_API_TOKEN"
+  ],
+  "files": [
+    "handler.js"
+  ],
+  "cost_estimate": {
+    "per_call": 0.01
+  },
+  "latency_p50_ms": 8000,
+  "expected_duration_ms": 60000,
+  "status": "available",
+  "lifecycle_state": "new",
+  "marketplace": {
+    "category": "research",
+    "tags": [
+      "youtube",
+      "transcript",
+      "captions",
+      "video",
+      "apify"
+    ],
+    "icon": "Youtube"
+  },
+  "family": {
+    "id": "apify",
+    "name": "Apify Family",
+    "icon": "Database",
+    "description": "Web, social, and data scraping via Apify's actor library. One API token unlocks all 18 specialized scrapers."
+  },
+  "pre_call_message": "Fetching transcript via Apify…",
+  "post_call_message": "Transcript fetched."
+}

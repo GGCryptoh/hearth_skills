@@ -1,7 +1,7 @@
 {
-  "version": "0.5.26",
+  "version": "0.5.27",
   "format": "hearth.skill/1",
-  "updated_at": "2026-05-29T15:19:28.918Z",
+  "updated_at": "2026-06-10T00:50:15.003Z",
   "skills": [
     {
       "path": "free/apify_actor",
@@ -694,9 +694,16 @@
       ]
     },
     {
-      "path": "free/youtube_transcript.json",
-      "type": "file",
-      "checksum": "aa08bee10fcd9ab7b1350ad07dd1b5139e059dd932481bab9939fcc5c0d0bece"
+      "path": "free/youtube_transcript",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "63e7724e2b6ed753caf363244a6c5de1ac239eb05e57ec1ce336c58bcd5971cd",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "1a8cd8f2d650e257b0e6b00209cb3f3540abc6e0dbdb9652c72f6c5f71e7ba55"
+        }
+      ]
     }
   ]
 }
