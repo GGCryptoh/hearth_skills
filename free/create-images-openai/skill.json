@@ -2,9 +2,9 @@
   "schema": "hearth.skill/1",
   "id": "create-images-openai",
   "name": "Image Generation — OpenAI",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "author": "hearth-team",
-  "description": "Generate images using gpt-image-2 (OpenAI). Saves the result to /dashboard/collateral as a base64 PNG. Part of the AI Image Family — sub-skills (headshot_business, social_post_image, etc.) route here by default.",
+  "description": "Generate AND edit images with gpt-image-2 (OpenAI). Text-to-image plus image-to-image, inpaint (with mask), and transparent-background cutouts via the /edits endpoint. Saves to /dashboard/collateral. Part of the AI Image Family — sub-skills (headshot_business, background_replace, wardrobe_swap, inpaint, social_post_image, etc.) route here by default.",
   "family": {
     "id": "ai_image",
     "name": "AI Image Family",
@@ -13,8 +13,9 @@
   },
   "capabilities": [
     "text_to_image",
+    "image_to_image",
     "inpaint",
-    "outpaint"
+    "background_remove"
   ],
   "tier": "free",
   "type": "tool",
