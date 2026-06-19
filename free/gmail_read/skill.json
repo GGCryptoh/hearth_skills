@@ -1,10 +1,10 @@
 {
   "schema": "hearth.skill/1",
   "id": "gmail_read",
-  "name": "Gmail Email — Read",
-  "version": "0.1.2",
+  "name": "Gmail Email \u2014 Read",
+  "version": "0.1.3",
   "author": "hearth-team",
-  "description": "Read email from your Gmail inbox via Google OAuth. Search messages, read bodies, list labels. Uses the minimum-privilege gmail.readonly scope — this skill physically cannot send email or modify your mailbox. Pair with Gmail Email — Send for outbound.",
+  "description": "Read email from your Gmail inbox via Google OAuth. Search messages, read bodies, list labels. Uses the minimum-privilege gmail.readonly scope \u2014 this skill physically cannot send email or modify your mailbox. Pair with Gmail Email \u2014 Send for outbound.",
   "tier": "free",
   "type": "tool",
   "category": "communication",
@@ -14,9 +14,16 @@
     "entrypoint": "handler.js",
     "function": "run"
   },
-  "permissions": ["net:outbound"],
-  "api_keys_required": ["GMAIL_READ_OAUTH_REFRESH_TOKEN"],
-  "files": ["handler.js", "architecture.md"],
+  "permissions": [
+    "net:outbound"
+  ],
+  "api_keys_required": [
+    "GMAIL_READ_OAUTH_REFRESH_TOKEN"
+  ],
+  "files": [
+    "handler.js",
+    "architecture.md"
+  ],
   "marketplace": {
     "tags": [
       "email",
@@ -34,7 +41,7 @@
       "label": "Google OAuth client ID",
       "kind": "text",
       "placeholder": "xxxxx.apps.googleusercontent.com",
-      "help": "One-time setup: console.cloud.google.com → New Project → APIs & Services → Library → enable 'Gmail API' → Credentials → Create Credentials → OAuth client ID → Application type 'Web application' → add 'https://developers.google.com/oauthplayground' as an Authorized redirect URI. Paste the resulting Client ID here. Same client serves Gmail Read + Gmail Send + future Workspace skills.",
+      "help": "One-time setup: console.cloud.google.com \u2192 New Project \u2192 APIs & Services \u2192 Library \u2192 enable 'Gmail API' \u2192 Credentials \u2192 Create Credentials \u2192 OAuth client ID \u2192 Application type 'Web application' \u2192 add 'https://developers.google.com/oauthplayground' as an Authorized redirect URI. Paste the resulting Client ID here. Same client serves Gmail Read + Gmail Send + future Workspace skills.",
       "required": true
     },
     {
@@ -50,11 +57,14 @@
       "label": "Gmail read refresh token",
       "kind": "secret",
       "placeholder": "1//0...",
-      "help": "Generate at developers.google.com/oauthplayground: (1) gear icon → check 'Use your own OAuth credentials' → paste Client ID + secret. (2) Step 1 → find 'Gmail API v1' → tick ONLY 'https://www.googleapis.com/auth/gmail.readonly' (no other scopes — keeps this token read-only). (3) Authorize, accept consent. (4) Step 2 → Exchange authorization code → copy the Refresh token here.",
+      "help": "Generate at developers.google.com/oauthplayground: (1) gear icon \u2192 check 'Use your own OAuth credentials' \u2192 paste Client ID + secret. (2) Step 1 \u2192 find 'Gmail API v1' \u2192 tick ONLY 'https://www.googleapis.com/auth/gmail.readonly' (no other scopes \u2014 keeps this token read-only). (3) Authorize, accept consent. (4) Step 2 \u2192 Exchange authorization code \u2192 copy the Refresh token here.",
       "required": true
     }
   ],
-  "cost_estimate": { "kind": "free", "usd": 0 },
+  "cost_estimate": {
+    "kind": "free",
+    "usd": 0
+  },
   "bundled": false,
   "lifecycle_state": "new"
 }

@@ -69,6 +69,78 @@ function readVaultString(ctx, key) {
   return null;
 }
 
+// --- Message body extraction (the `get` action) --------------------------
+// Gmail returns the body base64url-encoded inside a nested MIME tree. The
+// previous handler returned the raw `message` object + a "Read message
+// <id>." stub, so collateral saved the stub and the agent never saw the
+// text. These helpers decode it into readable content.
+
+function decodeB64Url(s) {
+  if (typeof s !== 'string' || s.length === 0) return '';
+  try {
+    return Buffer.from(s, 'base64url').toString('utf8');
+  } catch {
+    return '';
+  }
+}
+
+function headerValue(payload, name) {
+  const headers = payload && Array.isArray(payload.headers) ? payload.headers : [];
+  const h = headers.find(
+    (x) =>
+      x &&
+      typeof x.name === 'string' &&
+      x.name.toLowerCase() === name.toLowerCase(),
+  );
+  return h && typeof h.value === 'string' ? h.value : '';
+}
+
+function stripHtml(html) {
+  return String(html)
+    .replace(/<style[\s\S]*?<\/style>/gi, '')
+    .replace(/<script[\s\S]*?<\/script>/gi, '')
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<\/p>/gi, '\n\n')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&#39;/g, "'")
+    .replace(/&quot;/g, '"')
+    .replace(/[ \t]+\n/g, '\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
+
+// Walk the MIME tree for the most readable body: prefer text/plain, then
+// text/html (tags stripped). Recurses into multipart/* containers.
+function extractBody(payload) {
+  if (!payload) return '';
+  if (payload.body && payload.body.data && typeof payload.mimeType === 'string') {
+    if (payload.mimeType === 'text/plain') return decodeB64Url(payload.body.data);
+    if (payload.mimeType === 'text/html') return stripHtml(decodeB64Url(payload.body.data));
+  }
+  const parts = Array.isArray(payload.parts) ? payload.parts : [];
+  for (const p of parts) {
+    if (p.mimeType === 'text/plain' && p.body?.data) {
+      return decodeB64Url(p.body.data);
+    }
+  }
+  for (const p of parts) {
+    if (typeof p.mimeType === 'string' && p.mimeType.startsWith('multipart/')) {
+      const nested = extractBody(p);
+      if (nested) return nested;
+    }
+  }
+  for (const p of parts) {
+    if (p.mimeType === 'text/html' && p.body?.data) {
+      return stripHtml(decodeB64Url(p.body.data));
+    }
+  }
+  return '';
+}
+
 export async function run(ctx, args) {
   const a = args && typeof args === 'object' ? args : {};
 
@@ -126,13 +198,41 @@ export async function run(ctx, args) {
       `/messages/${encodeURIComponent(id)}?format=${format}`,
       accessToken,
     );
+    const from = headerValue(data.payload, 'From');
+    const to = headerValue(data.payload, 'To');
+    const subject = headerValue(data.payload, 'Subject');
+    const date = headerValue(data.payload, 'Date');
+    let body = extractBody(data.payload);
+    if (!body && typeof data.snippet === 'string') body = data.snippet;
+    const MAX_BODY = 8000;
+    const bodyText =
+      body.length > MAX_BODY
+        ? `${body.slice(0, MAX_BODY)}\n\n[truncated — ${body.length} chars total]`
+        : body;
+    const metaLine = [
+      from && `From: ${from}`,
+      to && `To: ${to}`,
+      date && `Date: ${date}`,
+    ]
+      .filter(Boolean)
+      .join('  ·  ');
+    const summary =
+      `${subject ? `**${subject}**` : '(no subject)'}\n` +
+      `${metaLine}\n\n` +
+      `${bodyText || '(no readable body found)'}`;
     return {
       ok: true,
       action: 'get',
       id,
       format,
+      from,
+      to,
+      subject,
+      date,
+      snippet: typeof data.snippet === 'string' ? data.snippet : null,
+      body: bodyText,
       message: data,
-      summary: `Read message ${id}.`,
+      summary,
     };
   }
 
