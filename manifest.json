@@ -1,7 +1,7 @@
 {
-  "version": "0.5.29",
+  "version": "0.5.30",
   "format": "hearth.skill/1",
-  "updated_at": "2026-06-19T17:28:59.127Z",
+  "updated_at": "2026-06-28T22:52:31.897Z",
   "skills": [
     {
       "path": "free/apify_actor",
@@ -144,11 +144,11 @@
       "path": "free/gmail_read",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "40ae4b5ffb8f6e3037a082d168d90b2f6cdb66e5ee9c0aeb8e4d41986274fb35",
+      "checksum": "63903ab4d4f85304d3c33fb5128fc64d1f96387bf1bd1dccf5e2b1f1f05d9a52",
       "files": [
         {
           "name": "handler.js",
-          "checksum": "7d96e7e8fab7ea75049bf030116148ee7381cb8cfad0d18c5e12a4c51f9ef966"
+          "checksum": "5d5652bcf62307027d0a8233cc20b6df3a4698d8de8751221d33370162e9d6c0"
         },
         {
           "name": "architecture.md",

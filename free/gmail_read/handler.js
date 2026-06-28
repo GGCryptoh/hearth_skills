@@ -8,7 +8,9 @@
 // endpoint is fast (~150ms).
 //
 // Commands (dispatched on args.action):
-//   action: 'search'         args: { query, max_results? }   → list messages
+//   action: 'search'         args: { query, max_results? }   → message ids
+//   action: 'digest'         args: { query?, max_results? }  → recent mail WITH
+//                            content (from/subject/date/snippet) in one call
 //   action: 'get'            args: { id, format? }           → single message
 //   action: 'labels'         args: {}                        → list labels
 //
@@ -187,6 +189,76 @@ export async function run(ctx, args) {
     };
   }
 
+  // action: 'digest' — one call → recent messages WITH content (sender,
+  // subject, date, snippet, unread). `search` returns only opaque ids,
+  // which is useless for a morning-brief summarizer; digest fetches each
+  // match's metadata (headers only — cheap) + Gmail's snippet so the LLM
+  // has something real to summarize. Default query targets the last day.
+  if (action === 'digest') {
+    const query =
+      typeof a.query === 'string' && a.query.trim().length > 0
+        ? a.query.trim()
+        : 'newer_than:1d';
+    const maxResults =
+      typeof a.max_results === 'number' &&
+      a.max_results > 0 &&
+      a.max_results <= 30
+        ? Math.floor(a.max_results)
+        : 12;
+    const params = new URLSearchParams({
+      maxResults: String(maxResults),
+      q: query,
+    });
+    const list = await gmailGet(`/messages?${params.toString()}`, accessToken);
+    const ids = (Array.isArray(list.messages) ? list.messages : []).map(
+      (m) => m.id,
+    );
+    // Header-only fetch per message (format=metadata + a header allowlist)
+    // — far cheaper than format=full, and the snippet rides along free.
+    const items = await Promise.all(
+      ids.map(async (id) => {
+        try {
+          const data = await gmailGet(
+            `/messages/${encodeURIComponent(id)}?format=metadata` +
+              `&metadataHeaders=From&metadataHeaders=Subject&metadataHeaders=Date`,
+            accessToken,
+          );
+          return {
+            id,
+            from: headerValue(data.payload, 'From'),
+            subject: headerValue(data.payload, 'Subject'),
+            date: headerValue(data.payload, 'Date'),
+            snippet: typeof data.snippet === 'string' ? data.snippet : '',
+            unread: Array.isArray(data.labelIds)
+              ? data.labelIds.includes('UNREAD')
+              : false,
+          };
+        } catch (e) {
+          return { id, error: e instanceof Error ? e.message : String(e) };
+        }
+      }),
+    );
+    const good = items.filter((m) => !m.error);
+    const text = good.length
+      ? good
+          .map(
+            (m) =>
+              `• ${m.subject || '(no subject)'} — ${m.from || '(unknown sender)'}` +
+              `${m.unread ? ' [unread]' : ''}\n  ${m.snippet}`,
+          )
+          .join('\n')
+      : `No messages matched "${query}".`;
+    return {
+      ok: true,
+      action: 'digest',
+      query,
+      count: good.length,
+      messages: good,
+      text,
+      summary: `${good.length} message(s) matching "${query}".`,
+    };
+  }
+
   if (action === 'get') {
     const id = typeof a.id === 'string' ? a.id : '';
     if (!id) throw new Error('action="get" requires args.id (message id)');
@@ -249,6 +321,6 @@ export async function run(ctx, args) {
   }
 
   throw new Error(
-    `Unknown action "${action}". Expected one of: search, get, labels.`,
+    `Unknown action "${action}". Expected one of: search, digest, get, labels.`,
   );
 }
