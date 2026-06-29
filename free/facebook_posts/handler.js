@@ -1,12 +1,19 @@
-// Facebook Posts — pull recent posts from a Facebook page.
+// Facebook Posts — pull recent posts + photos from a Facebook PAGE or
+// public PROFILE, given its URL.
 //
-// Uses Apify's apify/facebook-posts-scraper actor.
+// Uses Apify's apify/facebook-posts-scraper actor, which scrapes public
+// posts/media/reactions from BOTH pages (brands/businesses) and personal
+// profiles — only ever PUBLIC content. It does NOT search for a person by
+// name/city (Facebook walls that behind login); the caller must supply the
+// profile/page URL (web_search can find it first, e.g. "Jane Doe Phila
+// facebook").
 //
 // Args:
-//   page_url  string  required — Facebook page URL
-//   limit     number  optional — max posts (default 10, max 100)
+//   url | profile_url | page_url   string  required — any facebook.com URL
+//                                  (page OR public profile)
+//   limit                          number  optional — max posts (default 10, max 100)
 //
-// Returns: { ok, items, item_count, run_id, summary }
+// Returns: { ok, items, item_count, run_id, summary }  (items carry text + media/photo URLs)
 
 const API_BASE = 'https://api.apify.com/v2';
 const ACTOR_SLUG = 'apify~facebook-posts-scraper';
@@ -23,15 +30,18 @@ export async function run(ctx, args) {
     );
   }
 
-  const rawUrl =
-    typeof a.page_url === 'string' && a.page_url.trim().length > 0
-      ? a.page_url.trim()
-      : '';
-  if (!rawUrl) {
+  // Accept url / profile_url / page_url — all map to the actor's startUrls.
+  // (The actor scrapes pages AND public profiles; the field name is just a
+  // hint, so the agent can pass whichever it has.)
+  const candidate = [a.url, a.profile_url, a.page_url].find(
+    (u) => typeof u === 'string' && u.trim().length > 0,
+  );
+  if (typeof candidate !== 'string') {
     throw new Error(
-      "page_url is required (e.g. 'https://www.facebook.com/anthropic')",
+      "A Facebook URL is required — pass url/profile_url/page_url, e.g. 'https://www.facebook.com/anthropic' (page) or 'https://www.facebook.com/sarah.hopkins' (profile). To find someone's URL first, use web_search.",
     );
   }
+  const rawUrl = candidate.trim();
   const limit = clampInt(a.limit, 1, 100, 10);
 
   const input = {
