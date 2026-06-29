@@ -1,7 +1,7 @@
 {
-  "version": "0.5.30",
+  "version": "0.5.31",
   "format": "hearth.skill/1",
-  "updated_at": "2026-06-28T22:52:31.897Z",
+  "updated_at": "2026-06-29T01:07:43.028Z",
   "skills": [
     {
       "path": "free/apify_actor",
@@ -431,6 +431,18 @@
         {
           "name": "architecture.md",
           "checksum": "69e527d564bc0015b59c7a5fa523ba803126cbbf8c979fe62caca6a226b7493d"
+        }
+      ]
+    },
+    {
+      "path": "free/notion_api",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "aee7aa44a504e0ec79f4ee3facfeb5ba305aa28a77791f35356a7fa3e49d9a8c",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "61f516938b6e192caa1f4be7c4c7707876be9cf36c05c6fcef6c611847263706"
         }
       ]
     },

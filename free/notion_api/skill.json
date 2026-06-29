@@ -1,0 +1,59 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "notion_api",
+  "name": "Notion",
+  "version": "0.1.0",
+  "author": "hearth-team",
+  "description": "Read + write your Notion workspace via the official API. Pass `action` ∈ search / get_page / get_database / query_database / create_page / update_page / get_block_children / append_blocks plus the action-specific args. Use this to look things up in Notion, log entries to a database (CRM, tasks, content calendar), or read a page's content. Stored API key, gmail.readonly-style least privilege: the integration only sees pages you explicitly share with it.",
+  "tier": "free",
+  "type": "tool",
+  "category": "productivity",
+  "icon": "FileText",
+  "publisher": "Hearth Team",
+  "risk": "moderate",
+  "permissions": [
+    "net:outbound",
+    "read:vault.entries"
+  ],
+  "handler": {
+    "runtime": "node",
+    "entrypoint": "handler.js",
+    "function": "run"
+  },
+  "vault_inputs": [
+    {
+      "key": "NOTION_API_KEY",
+      "label": "Notion integration secret",
+      "kind": "secret",
+      "placeholder": "ntn_… (or secret_…)",
+      "help": "1) Create an internal integration at https://www.notion.so/my-integrations → copy the 'Internal Integration Secret'. 2) CRUCIAL: open each Notion page/database you want the agent to touch → ••• menu → Connections → add your integration. Notion only exposes content you've explicitly shared — a 'no results' search usually means the page isn't shared yet. Stored encrypted in your vault.",
+      "required": true
+    }
+  ],
+  "api_keys_required": [
+    "NOTION_API_KEY"
+  ],
+  "files": [
+    "handler.js"
+  ],
+  "cost_estimate": {
+    "kind": "free",
+    "usd": 0
+  },
+  "latency_p50_ms": 600,
+  "expected_duration_ms": 15000,
+  "status": "available",
+  "lifecycle_state": "new",
+  "marketplace": {
+    "category": "productivity",
+    "tags": [
+      "notion",
+      "productivity",
+      "database",
+      "notes",
+      "crm",
+      "api"
+    ],
+    "icon": "FileText"
+  }
+}
