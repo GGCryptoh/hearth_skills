@@ -1,0 +1,110 @@
+{
+  "gallery_version": "1.0.0",
+  "gallery": [
+    {
+      "id": "notion",
+      "name": "Notion",
+      "kind": "mcp",
+      "transport": "http",
+      "server_name": "notion",
+      "url": "https://mcp.notion.com/mcp",
+      "auth_kind": "bearer",
+      "category": "docs",
+      "official": true,
+      "description": "Search, read and update Notion pages/databases the integration is shared with.",
+      "docs_url": "https://developers.notion.com/docs/mcp"
+    },
+    {
+      "id": "linear",
+      "name": "Linear",
+      "kind": "mcp",
+      "transport": "sse",
+      "server_name": "linear",
+      "url": "https://mcp.linear.app/sse",
+      "auth_kind": "bearer",
+      "category": "project",
+      "official": true,
+      "description": "Query and update Linear issues, projects and cycles.",
+      "docs_url": "https://linear.app/docs/mcp"
+    },
+    {
+      "id": "sentry",
+      "name": "Sentry",
+      "kind": "mcp",
+      "transport": "http",
+      "server_name": "sentry",
+      "url": "https://mcp.sentry.dev/mcp",
+      "auth_kind": "bearer",
+      "category": "observability",
+      "official": true,
+      "description": "Inspect Sentry issues, events and traces.",
+      "docs_url": "https://docs.sentry.io/product/sentry-mcp/"
+    },
+    {
+      "id": "stripe",
+      "name": "Stripe",
+      "kind": "mcp",
+      "transport": "http",
+      "server_name": "stripe",
+      "url": "https://mcp.stripe.com",
+      "auth_kind": "bearer",
+      "category": "payments",
+      "official": true,
+      "description": "Read Stripe customers, charges, subscriptions and products.",
+      "docs_url": "https://docs.stripe.com/mcp"
+    },
+    {
+      "id": "huggingface",
+      "name": "Hugging Face",
+      "kind": "mcp",
+      "transport": "http",
+      "server_name": "huggingface",
+      "url": "https://huggingface.co/mcp",
+      "auth_kind": "bearer",
+      "category": "ml",
+      "official": true,
+      "description": "Search models, datasets and Spaces; run Gradio tools.",
+      "docs_url": "https://huggingface.co/settings/mcp"
+    },
+    {
+      "id": "deepwiki",
+      "name": "DeepWiki",
+      "kind": "mcp",
+      "transport": "sse",
+      "server_name": "deepwiki",
+      "url": "https://mcp.deepwiki.com/sse",
+      "auth_kind": "none",
+      "category": "docs",
+      "official": true,
+      "description": "Ask questions about any public GitHub repo — no auth. Good first test connector.",
+      "docs_url": "https://deepwiki.com"
+    },
+    {
+      "id": "context7",
+      "name": "Context7",
+      "kind": "mcp",
+      "transport": "http",
+      "server_name": "context7",
+      "url": "https://mcp.context7.com/mcp",
+      "auth_kind": "header",
+      "auth_header_name": "CONTEXT7_API_KEY",
+      "category": "docs",
+      "official": true,
+      "description": "Up-to-date library documentation and code examples for any framework.",
+      "docs_url": "https://context7.com"
+    },
+    {
+      "id": "github",
+      "name": "GitHub",
+      "kind": "mcp",
+      "transport": "http",
+      "server_name": "github",
+      "url": "https://api.githubcopilot.com/mcp/",
+      "auth_kind": "bearer",
+      "category": "dev",
+      "official": true,
+      "description": "Repos, issues, PRs and code search via GitHub's official MCP server (PAT auth).",
+      "docs_url": "https://github.com/github/github-mcp-server"
+    }
+  ]
+}
