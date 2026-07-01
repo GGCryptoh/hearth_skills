@@ -2,8 +2,21 @@
   "gallery_version": "1.0.0",
   "gallery": [
     {
+      "id": "notion_api",
+      "name": "Notion REST API",
+      "kind": "api",
+      "transport": "rest",
+      "server_name": "notion_api",
+      "url": "https://api.notion.com/v1",
+      "auth_kind": "bearer",
+      "category": "docs",
+      "official": true,
+      "description": "Notion via an internal-integration token (ntn_…) — works today, no OAuth. Agents call it through hearth_call_api. Get a token: notion.so/my-integrations → New integration → share your pages with it.",
+      "docs_url": "https://www.notion.so/my-integrations"
+    },
+    {
       "id": "notion",
-      "name": "Notion",
+      "name": "Notion (MCP, OAuth)",
       "kind": "mcp",
       "transport": "http",
       "server_name": "notion",
@@ -11,16 +24,16 @@
       "auth_kind": "bearer",
       "category": "docs",
       "official": true,
-      "description": "Search, read and update Notion pages/databases the integration is shared with.",
+      "description": "Notion's hosted MCP server. NOTE: OAuth-only — an ntn_ integration token will NOT work here. Use the Notion REST API preset until Hearth connector OAuth lands.",
       "docs_url": "https://developers.notion.com/docs/mcp"
     },
     {
       "id": "linear",
       "name": "Linear",
       "kind": "mcp",
-      "transport": "sse",
+      "transport": "http",
       "server_name": "linear",
-      "url": "https://mcp.linear.app/sse",
+      "url": "https://mcp.linear.app/mcp",
       "auth_kind": "bearer",
       "category": "project",
       "official": true,
@@ -70,14 +83,14 @@
       "id": "deepwiki",
       "name": "DeepWiki",
       "kind": "mcp",
-      "transport": "sse",
+      "transport": "http",
       "server_name": "deepwiki",
-      "url": "https://mcp.deepwiki.com/sse",
+      "url": "https://mcp.deepwiki.com/mcp",
       "auth_kind": "none",
       "category": "docs",
       "official": true,
       "description": "Ask questions about any public GitHub repo — no auth. Good first test connector.",
-      "docs_url": "https://deepwiki.com"
+      "docs_url": "https://docs.devin.ai/work-with-devin/deepwiki-mcp"
     },
     {
       "id": "context7",
