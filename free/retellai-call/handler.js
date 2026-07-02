@@ -40,7 +40,9 @@
 //
 // Errors throw with a specific message so the founder can debug.
 
-const CREATE_CALL_URL = 'https://api.retellai.com/create-phone-call';
+// 2026-07-02: RetellAI's outbound-call endpoint is versioned under /v2.
+// The unversioned path returns 404 "Cannot POST /create-phone-call".
+const CREATE_CALL_URL = 'https://api.retellai.com/v2/create-phone-call';
 
 export async function run(ctx, args) {
   const a = args && typeof args === 'object' ? args : {};

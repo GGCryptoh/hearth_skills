@@ -1,7 +1,7 @@
 {
-  "version": "0.5.35",
+  "version": "0.5.36",
   "format": "hearth.skill/1",
-  "updated_at": "2026-07-02T17:59:58.269Z",
+  "updated_at": "2026-07-02T19:49:59.649Z",
   "skills": [
     {
       "path": "free/apify_actor",
@@ -563,7 +563,7 @@
       "files": [
         {
           "name": "handler.js",
-          "checksum": "cca9f66c6effd685a259c4e0b69a5fafff6c88330de641cfc5cac984ad4f8b68"
+          "checksum": "9e0029d9af18ffb18c502ac265d130b66a32953453bed06a43f346474d5c4938"
         },
         {
           "name": "architecture.md",
