@@ -1,7 +1,7 @@
 {
-  "version": "0.5.32",
+  "version": "0.5.33",
   "format": "hearth.skill/1",
-  "updated_at": "2026-06-29T02:12:46.242Z",
+  "updated_at": "2026-07-02T12:11:23.716Z",
   "skills": [
     {
       "path": "free/apify_actor",
@@ -467,15 +467,15 @@
       "path": "free/privacy_card",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "f4cd1e0451ee030a641e4c88c8a059ef29c5f97087fd7c03096b8e9386978f76",
+      "checksum": "12277e5d5aa2d9324962f35bde9520757f9e216ec96cc78695f72a0d3f72e4d9",
       "files": [
         {
           "name": "handler.js",
-          "checksum": "7056b62191418bb36d854813b72510f2e52747d4f26c17601a1f0ac827e305fc"
+          "checksum": "8cbda1caa788c3c1b1295f729d59d5bae8aaa789f84d751a54fd86d1be36a30f"
         },
         {
           "name": "architecture.md",
-          "checksum": "10c7ef109e6ff933bcaa50ca3fe9707f9abb2ef46d7c53b9edc054933208923b"
+          "checksum": "215aa69ca7e8e0ae4cf4b3e3205d74c634db87882aa700b12a2c7c3f704efd20"
         }
       ]
     },

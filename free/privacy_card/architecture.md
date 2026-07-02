@@ -27,12 +27,13 @@ If you don't want the agent spending money autonomously, just don't enable this 
 
 | Verb | Args | Returns |
 |---|---|---|
-| `mint` | `spend_limit_usd` (required), `memo` (required), `type` (default `MERCHANT_LOCKED`) | Card PAN + CVV + exp + token |
+| `mint` | `spend_limit_usd` (required), `memo` (required), `type` (default `MERCHANT_LOCKED`), `spend_limit_duration` (default `TRANSACTION`) | `card_token` + `last_four` — PAN/CVV withheld from chat by design (PLAN-AUTONOMY 1.2) |
 | `list` | `page` (default 1) | Active + paused cards |
 | `freeze` | `card_token` | Card state = PAUSED |
 | `unfreeze` | `card_token` | Card state = OPEN |
+| `close` | `card_token`, `confirm: true` | Card state = CLOSED (PERMANENT) |
 | `set_limit` | `card_token`, `spend_limit_usd` | Updated cap |
-| `transactions` | `card_token` (optional), `begin_iso` (optional) | Recent transaction list |
+| `transactions` | `card_token` (optional), `begin`/`end` (optional), `result` (optional) | Recent transaction list |
 
 ## Safety rails (in this order)
 
@@ -52,8 +53,10 @@ Agent thinks:
   - $20 < $25 approval threshold → no approval needed
   - Call privacy_card.mint(spend_limit_usd=20, memo="OpenAI Plus subscription",
                             type='MERCHANT_LOCKED')
-  - Returns { pan: 4111…, cvv: 123, exp_month: 5, exp_year: 2030 }
-  - Open openai.com checkout, paste card details
+  - Returns { card_token, last_four } — PAN/CVV never enter chat; the
+    purchase rail passes full details to checkout, or the founder
+    grabs them from the Privacy.com dashboard
+  - Checkout completes with the card
   - First charge $20 locks the card to OpenAI's merchant_id
   - Done. Card stays open, auto-renews monthly at the same $20 cap.
 
@@ -83,7 +86,7 @@ Data is pulled fresh on page load via the supervisor's `/financials/privacy/*` p
 | US-only | Privacy.com requires US SSN. International equivalents (Wise, Revolut) not supported. |
 | Funding source | Free tier draws from a linked bank account. Pro tier ($10/mo) allows funding from debit cards. |
 | Card type defaults | `MERCHANT_LOCKED` for new mints unless the agent explicitly passes `type='SINGLE_USE'`. |
-| Card details | Returned ONLY once on mint. The agent should use them immediately (paste into a checkout). Hearth doesn't persist PAN/CVV — they live in the response, in memory, briefly. |
+| Card details | NEVER returned by this skill (changed 2026-07-02 — skill output lands in chat/logs/Telegram). Mint yields `card_token` + `last_four`; the purchase rail (`hearth_purchase`, PLAN-AUTONOMY 1.2) handles PAN delivery to checkout out-of-band, and the founder can always see full details in the Privacy.com dashboard. |
 | Spend duration | All cards mint with `spend_limit_duration='TRANSACTION'` — the cap is per-transaction. For monthly caps, the agent should `set_limit` after each cycle, OR you can patch the duration manually in the Privacy.com dashboard. |
 | Rate limits | Privacy.com allows 100 requests/min. The skill backs off on 429 (TODO — currently throws). |
 

@@ -2,9 +2,9 @@
   "schema": "hearth.skill/1",
   "id": "privacy_card",
   "name": "Privacy.com Virtual Card",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": "hearth-team",
-  "description": "Agent-issued virtual cards via Privacy.com. Mint single-use or merchant-locked cards with spend caps, freeze/unfreeze, list transactions. Bring your own PRIVACY_API_KEY. US-only.",
+  "description": "Agent-issued virtual cards via Privacy.com. Mint single-use or merchant-locked cards with hard spend caps, freeze/unfreeze/close, update limits, list transactions. Bring your own PRIVACY_API_KEY. US-only. Card numbers are NEVER returned to chat — mint yields the card token + last four; the founder retrieves full details in the Privacy.com dashboard or via the purchase rail.",
   "tier": "free",
   "type": "tool",
   "category": "payments",
@@ -70,7 +70,7 @@
   "verbs": [
     {
       "verb": "mint",
-      "description": "Mint a new virtual card. Args: spend_limit_usd (required), memo (required, what's it for), type ('SINGLE_USE'|'MERCHANT_LOCKED' default MERCHANT_LOCKED). Returns card number + CVV + exp."
+      "description": "Mint a new virtual card. Args: spend_limit_usd (required), memo (required, what's it for), type ('SINGLE_USE'|'MERCHANT_LOCKED' default MERCHANT_LOCKED), spend_limit_duration ('TRANSACTION' default |'MONTHLY'|'ANNUALLY'|'FOREVER'). Returns card_token + last_four — the full card number and CVV are withheld from chat by design."
     },
     {
       "verb": "list",
@@ -85,12 +85,16 @@
       "description": "Resume a paused card (state=OPEN). Args: card_token (required)."
     },
     {
+      "verb": "close",
+      "description": "PERMANENTLY close a card (state=CLOSED, cannot be undone). Args: card_token (required), confirm (must be true). Prefer freeze for anything reversible."
+    },
+    {
       "verb": "set_limit",
       "description": "Update spend cap on an existing card. Args: card_token, spend_limit_usd."
     },
     {
       "verb": "transactions",
-      "description": "List recent transactions. Args: card_token (optional, filter), begin_iso (optional). Returns [{token, amount_usd, merchant, status, created}]."
+      "description": "List recent transactions. Args: card_token (optional, filter), begin/end (YYYY-MM-DD, optional), result ('APPROVED'|'DECLINED', optional), page (optional). Returns [{token, amount_usd, merchant, status, result, created}]."
     }
   ],
   "pre_call_message": "Calling Privacy.com…",
