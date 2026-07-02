@@ -1,0 +1,133 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "voice_companion",
+  "name": "Voice Companion (Jarvis mode)",
+  "version": "0.1.0",
+  "author": "hearth-team",
+  "description": "Realtime voice conversation with your agent—speak to an animated avatar, powered by OpenAI Realtime. Tool calls route through your existing skills. Daily usage cap, push-to-talk default, and approvals rail for safety. The voice lane that keeps data on your machine (local WebRTC to OpenAI, no audio relay through Hearth).",
+  "tier": "free",
+  "type": "tool",
+  "category": "communication",
+  "risk": "safe",
+  "handler": {
+    "runtime": "node",
+    "entrypoint": "handler.js",
+    "function": "run"
+  },
+  "permissions": [],
+  "api_keys_required": [
+    "OPENAI_API_KEY"
+  ],
+  "files": [
+    "handler.js",
+    "architecture.md"
+  ],
+  "marketplace": {
+    "tags": [
+      "voice",
+      "realtime",
+      "avatar",
+      "communication",
+      "openai"
+    ],
+    "icon": "Mic"
+  },
+  "vault_inputs": [
+    {
+      "key": "companion_voice",
+      "label": "Voice",
+      "kind": "select",
+      "options": [
+        {
+          "value": "alloy",
+          "label": "Alloy (balanced, crisp)"
+        },
+        {
+          "value": "ash",
+          "label": "Ash (distinctive, older)"
+        },
+        {
+          "value": "ballad",
+          "label": "Ballad (warm, engaging)"
+        },
+        {
+          "value": "coral",
+          "label": "Coral (expressive, varied)"
+        },
+        {
+          "value": "echo",
+          "label": "Echo (resonant, deep)"
+        },
+        {
+          "value": "juniper",
+          "label": "Juniper (natural, calm)"
+        },
+        {
+          "value": "marin",
+          "label": "Marin (youthful, bright)"
+        },
+        {
+          "value": "sage",
+          "label": "Sage (thoughtful, measured)"
+        },
+        {
+          "value": "shimmer",
+          "label": "Shimmer (bright, ethereal)"
+        },
+        {
+          "value": "verse",
+          "label": "Verse (poetic, articulate)"
+        }
+      ],
+      "help": "Which voice the agent uses to speak to you. All OpenAI Realtime voices; preview at https://platform.openai.com/docs/guides/realtime. Default: marin.",
+      "required": false
+    },
+    {
+      "key": "companion_mic_mode",
+      "label": "Microphone mode",
+      "kind": "select",
+      "options": [
+        {
+          "value": "ptt",
+          "label": "Push-to-talk (hold button to speak)"
+        },
+        {
+          "value": "vad",
+          "label": "Voice activity detection (always listening)"
+        }
+      ],
+      "help": "Push-to-talk (PTT) is the default — lower cost and privacy. Voice activity detection (VAD) is opt-in and more expensive. Choose based on your preference.",
+      "required": false
+    },
+    {
+      "key": "companion_daily_minutes_cap",
+      "label": "Daily usage cap (minutes)",
+      "kind": "number",
+      "help": "Maximum total duration of voice sessions per calendar day. Realtime is expensive (~$0.30-0.60/min); default 30 min/day enforces containment. Adjust based on your comfort with cost.",
+      "required": false
+    },
+    {
+      "key": "companion_avatar",
+      "label": "Avatar style",
+      "kind": "select",
+      "options": [
+        {
+          "value": "orb",
+          "label": "Orb (stylized sphere with eyes and mouth)"
+        },
+        {
+          "value": "floppy",
+          "label": "Floppy disk (retro mascot, prop mode)"
+        }
+      ],
+      "help": "Which 3D avatar renders in the voice interface. Orb is a detailed face; floppy is a retro prop that animates via transform rather than facial rigs. More avatars coming in v0.2. Default: orb.",
+      "required": false
+    }
+  ],
+  "commands": [],
+  "output_kind": "none",
+  "cost_estimate_usd": 0.5,
+  "expected_duration_ms": 0,
+  "bundled": false,
+  "lifecycle_state": "new"
+}

@@ -1,7 +1,7 @@
 {
-  "version": "0.5.33",
+  "version": "0.5.35",
   "format": "hearth.skill/1",
-  "updated_at": "2026-07-02T12:11:23.716Z",
+  "updated_at": "2026-07-02T17:59:58.269Z",
   "skills": [
     {
       "path": "free/apify_actor",
@@ -661,6 +661,22 @@
         {
           "name": "handler.js",
           "checksum": "fce4ac9dbdb042d655f8d946c58332c1140ab15424a09d2e30ed4479ebf300fa"
+        }
+      ]
+    },
+    {
+      "path": "free/voice_companion",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "660c7fcd77f7983a34078a09cfb005dbad145dc97e2a96d98bf29737ab4cd4d3",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "ea106f6e27763de97a96f54d1683387e0497190f5836b4d55bb6a40382e60671"
+        },
+        {
+          "name": "architecture.md",
+          "checksum": "a45b848b9f0678be7023ad7879520ca8aa3b0c2d1d2b102a73220fb91426fd87"
         }
       ]
     },
