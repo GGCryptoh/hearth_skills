@@ -1,7 +1,7 @@
 {
-  "version": "0.5.37",
+  "version": "0.5.38",
   "format": "hearth.skill/1",
-  "updated_at": "2026-07-03T03:04:47.801Z",
+  "updated_at": "2026-07-03T12:13:20.356Z",
   "skills": [
     {
       "path": "free/apify_actor",
@@ -55,11 +55,11 @@
       "path": "free/create-images-openai",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "5ef314507aa9388ff4f08327177d81de9b4ed0e7e5f157528aa4df92f8dbff81",
+      "checksum": "e1ee6483a4012017fb9f58b4d581734d192a3fde3a0a591798e73985500ba4c3",
       "files": [
         {
           "name": "handler.js",
-          "checksum": "ab09012644db4ef4ba663cf6de8f9dde9af7d6b173c9d5d46841a2549c70e925"
+          "checksum": "d903662175c8c918aedcd0ff966b0eab36a7f616f9392e246de0758e60859fb4"
         }
       ]
     },

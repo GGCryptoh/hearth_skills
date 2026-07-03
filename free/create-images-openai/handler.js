@@ -4,9 +4,16 @@
 //
 //   text_to_image   (no input image)  → POST /v1/images/generations
 //       prompt   string  required
-//       size     string  '1024x1024' | '1024x1792' | '1792x1024'
-//       quality  string  'standard' | 'hd'
-//       style    string  'vivid' | 'natural'
+//       size     string  '1024x1024' | '1536x1024' | '1024x1536' | 'auto'
+//                        (legacy DALL-E 3 sizes 1024x1792/1792x1024 are
+//                        remapped to the nearest gpt-image size)
+//       quality  string  'low' | 'medium' | 'high' | 'auto'
+//                        (legacy 'standard'→'medium', 'hd'→'high')
+//
+//   NOTE (2026-07-03): gpt-image-2 rejects the DALL-E 3 params `style`
+//   and `response_format` with 400 unknown_parameter — the founder hit
+//   this live (companion + chat image asks failed). Neither is sent
+//   anymore; the API returns b64_json by default.
 //
 //   image_to_image / inpaint / background_remove  (input image supplied)
 //                                       → POST /v1/images/edits
@@ -29,15 +36,25 @@
 
 const GENERATIONS_URL = 'https://api.openai.com/v1/images/generations';
 const EDITS_URL = 'https://api.openai.com/v1/images/edits';
-const VALID_SIZES = new Set(['1024x1024', '1024x1792', '1792x1024']);
+const VALID_SIZES = new Set([
+  '1024x1024',
+  '1536x1024',
+  '1024x1536',
+  'auto',
+]);
+// Callers still passing DALL-E 3 shapes get the nearest gpt-image size.
+const LEGACY_SIZE_REMAP = {
+  '1024x1792': '1024x1536',
+  '1792x1024': '1536x1024',
+};
 const VALID_EDIT_SIZES = new Set([
   '1024x1024',
   '1536x1024',
   '1024x1536',
   'auto',
 ]);
-const VALID_QUALITY = new Set(['standard', 'hd']);
-const VALID_STYLE = new Set(['vivid', 'natural']);
+const VALID_QUALITY = new Set(['low', 'medium', 'high', 'auto']);
+const LEGACY_QUALITY_REMAP = { standard: 'medium', hd: 'high' };
 
 export async function run(ctx, args) {
   const a = args && typeof args === 'object' ? args : {};
@@ -79,9 +96,12 @@ export async function run(ctx, args) {
 // ---- text-to-image (unchanged behavior) -------------------------------
 
 async function generateImage({ apiKey, prompt, a, transparent }) {
-  const size = VALID_SIZES.has(a.size) ? a.size : '1024x1024';
-  const quality = VALID_QUALITY.has(a.quality) ? a.quality : 'standard';
-  const style = VALID_STYLE.has(a.style) ? a.style : 'vivid';
+  const requestedSize = LEGACY_SIZE_REMAP[a.size] ?? a.size;
+  const size = VALID_SIZES.has(requestedSize) ? requestedSize : '1024x1024';
+  const requestedQuality = LEGACY_QUALITY_REMAP[a.quality] ?? a.quality;
+  const quality = VALID_QUALITY.has(requestedQuality)
+    ? requestedQuality
+    : 'auto';
 
   const body = {
     model: 'gpt-image-2',
@@ -89,8 +109,6 @@ async function generateImage({ apiKey, prompt, a, transparent }) {
     n: 1,
     size,
     quality,
-    style,
-    response_format: 'b64_json',
   };
   if (transparent) body.background = 'transparent';
 
@@ -116,7 +134,6 @@ async function generateImage({ apiKey, prompt, a, transparent }) {
       typeof item.revised_prompt === 'string' ? item.revised_prompt : '',
     size,
     quality,
-    style,
     transparent: !!transparent,
     mode: 'text_to_image',
   };
@@ -163,7 +180,6 @@ async function editImage({ apiKey, prompt, inputImage, a, transparent, ctx }) {
       typeof item.revised_prompt === 'string' ? item.revised_prompt : '',
     size,
     quality: null,
-    style: null,
     transparent: !!transparent,
     mode: maskUrl ? 'inpaint' : 'image_to_image',
   };
@@ -192,7 +208,6 @@ async function persistAndSummarize({
   revisedPrompt,
   size,
   quality,
-  style,
   transparent,
   mode,
   ctx,
@@ -221,7 +236,6 @@ async function persistAndSummarize({
           mode,
           size,
           quality,
-          style,
           transparent,
           prompt,
           revised_prompt: revisedPrompt || null,
@@ -272,7 +286,6 @@ async function persistAndSummarize({
     mode,
     size,
     quality,
-    style,
     transparent,
     summary: lines.join('\n'),
   };
