@@ -1,7 +1,7 @@
 {
-  "version": "0.5.36",
+  "version": "0.5.37",
   "format": "hearth.skill/1",
-  "updated_at": "2026-07-02T19:49:59.649Z",
+  "updated_at": "2026-07-03T03:04:47.801Z",
   "skills": [
     {
       "path": "free/apify_actor",
@@ -668,7 +668,7 @@
       "path": "free/voice_companion",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "660c7fcd77f7983a34078a09cfb005dbad145dc97e2a96d98bf29737ab4cd4d3",
+      "checksum": "0e3c1d5ee17348c26328ea9eecbaa48505cfd488d4a9eb66e9246a2b4482944d",
       "files": [
         {
           "name": "handler.js",

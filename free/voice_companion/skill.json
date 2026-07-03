@@ -2,7 +2,7 @@
   "schema": "hearth.skill/1",
   "id": "voice_companion",
   "name": "Voice Companion (Jarvis mode)",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "hearth-team",
   "description": "Realtime voice conversation with your agent—speak to an animated avatar, powered by OpenAI Realtime. Tool calls route through your existing skills. Daily usage cap, push-to-talk default, and approvals rail for safety. The voice lane that keeps data on your machine (local WebRTC to OpenAI, no audio relay through Hearth).",
   "tier": "free",
@@ -118,9 +118,13 @@
         {
           "value": "floppy",
           "label": "Floppy disk (retro mascot, prop mode)"
+        },
+        {
+          "value": "ironman",
+          "label": "Iron Man (mask with lip sync + moods)"
         }
       ],
-      "help": "Which 3D avatar renders in the voice interface. Orb is a detailed face; floppy is a retro prop that animates via transform rather than facial rigs. More avatars coming in v0.2. Default: orb.",
+      "help": "Which 3D avatar renders in the voice interface. Orb is a detailed face; floppy is a retro prop that animates via transform rather than facial rigs; Iron Man is a full face-mode mask (lip sync, blink, moods). Default: orb.",
       "required": false
     }
   ],
