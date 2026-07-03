@@ -2,7 +2,7 @@
   "schema": "hearth.skill/1",
   "id": "voice_companion",
   "name": "Voice Companion (Jarvis mode)",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "hearth-team",
   "description": "Realtime voice conversation with your agent—speak to an animated avatar, powered by OpenAI Realtime. Tool calls route through your existing skills. Daily usage cap, push-to-talk default, and approvals rail for safety. The voice lane that keeps data on your machine (local WebRTC to OpenAI, no audio relay through Hearth).",
   "tier": "free",
@@ -117,7 +117,7 @@
         },
         {
           "value": "floppy",
-          "label": "Floppy disk (retro mascot, prop mode)"
+          "label": "Floppy Jarvis (red/gold disk, HUD face)"
         },
         {
           "value": "ironman",
