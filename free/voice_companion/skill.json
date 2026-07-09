@@ -2,7 +2,7 @@
   "schema": "hearth.skill/1",
   "id": "voice_companion",
   "name": "Voice Companion (Jarvis mode)",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "author": "hearth-team",
   "description": "Realtime voice conversation with your agent—speak to an animated avatar, powered by OpenAI Realtime. Tool calls route through your existing skills. Daily usage cap, push-to-talk default, and approvals rail for safety. The voice lane that keeps data on your machine (local WebRTC to OpenAI, no audio relay through Hearth).",
   "tier": "free",
@@ -125,6 +125,32 @@
         }
       ],
       "help": "Which 3D avatar renders in the voice interface. Orb is a detailed face; floppy is a retro prop that animates via transform rather than facial rigs; Iron Man is a full face-mode mask (lip sync, blink, moods). Default: orb.",
+      "required": false
+    },
+    {
+      "key": "companion_voice_engine",
+      "label": "Voice engine",
+      "kind": "select",
+      "options": [
+        { "value": "openai", "label": "OpenAI Realtime (native, lowest latency)" },
+        { "value": "elevenlabs", "label": "ElevenLabs — MacMini (cloned voice)" }
+      ],
+      "help": "Which engine speaks. OpenAI is native speech-to-speech (fastest). ElevenLabs uses your cloned MacMini voice — needs the ElevenLabs key below; adds ~0.6-1s latency (voice identity, not speed). Default: openai.",
+      "required": false
+    },
+    {
+      "key": "ELEVENLABS_API_KEY",
+      "label": "ElevenLabs API key",
+      "kind": "secret",
+      "help": "Required only for the MacMini (ElevenLabs) voice. Stored in the vault; never sent to the browser — synthesis runs through the supervisor's /companion/tts proxy.",
+      "required": false
+    },
+    {
+      "key": "ELEVENLABS_VOICE_ID",
+      "label": "ElevenLabs voice ID",
+      "kind": "text",
+      "placeholder": "Jawo6cHo6XePmRWQJ4m5",
+      "help": "The ElevenLabs voice to clone. Default is the MacMini voice (Jawo6cHo6XePmRWQJ4m5). Find voice IDs in your ElevenLabs voice library.",
       "required": false
     }
   ],
