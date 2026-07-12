@@ -1,0 +1,29 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "domain_check",
+  "name": "Domain Availability Check",
+  "version": "0.1.0",
+  "author": "hearth-team",
+  "description": "Check whether domain names are registered, using the public RDAP protocol (rdap.org). No API key. Args: domains (required — one domain, an array, or a comma/space separated string; up to 20; e.g. 'example.com foobar123.io'). For each domain returns available|taken|unknown; taken domains include the registrar and expiry date when the registry publishes them. Note: 'available' means unregistered per RDAP — it is not a purchase quote and premium/reserved names may still be unbuyable.",
+  "tier": "free",
+  "type": "tool",
+  "category": "utility",
+  "risk": "safe",
+  "handler": {
+    "runtime": "node",
+    "entrypoint": "handler.js",
+    "function": "run"
+  },
+  "permissions": ["net:outbound"],
+  "api_keys_required": [],
+  "files": ["handler.js"],
+  "cost_estimate": { "kind": "free", "usd": 0 },
+  "latency_p50_ms": 800,
+  "status": "available",
+  "lifecycle_state": "new",
+  "marketplace": {
+    "category": "utility",
+    "tags": ["domain", "rdap", "availability", "whois", "utility"],
+    "icon": "Globe"
+  }
+}

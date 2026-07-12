@@ -1,0 +1,56 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "airtable_crm",
+  "name": "Airtable CRM",
+  "version": "0.1.0",
+  "author": "hearth-team",
+  "description": "Read and write lead/CRM records in your Airtable base (pairs well with leads_finder). action='add' creates a record (args: fields — an object of column-name → value, e.g. {\"Name\":\"Ada\",\"Email\":\"ada@x.com\",\"Status\":\"New\"}). action='list' returns records (args: max default 20 max 100, view optional). action='update' patches a record (args: record_id (required, rec…), fields (required object)). Bring your own AIRTABLE_API_KEY (a personal access token with data.records:read + data.records:write), base_id, and table_name (default 'Leads').",
+  "tier": "premium",
+  "requires_entitlement": "pro",
+  "type": "tool",
+  "category": "productivity",
+  "risk": "moderate",
+  "handler": {
+    "runtime": "node",
+    "entrypoint": "handler.js",
+    "function": "run"
+  },
+  "permissions": ["net:outbound"],
+  "api_keys_required": ["AIRTABLE_API_KEY"],
+  "vault_inputs": [
+    {
+      "key": "AIRTABLE_API_KEY",
+      "label": "Airtable personal access token",
+      "kind": "secret",
+      "placeholder": "pat...",
+      "help": "Create at https://airtable.com/create/tokens → grant the 'data.records:read' AND 'data.records:write' scopes → add access to the base you want to use. Starts with 'pat'. Stored encrypted in your vault.",
+      "required": true
+    },
+    {
+      "key": "base_id",
+      "label": "Base ID",
+      "kind": "text",
+      "placeholder": "appXXXXXXXXXXXXXX",
+      "help": "The base id — find it in the base URL (airtable.com/appXXXX/...) or at https://airtable.com/api. Starts with 'app'.",
+      "required": true
+    },
+    {
+      "key": "table_name",
+      "label": "Table name",
+      "kind": "text",
+      "placeholder": "Leads",
+      "help": "The table to read/write. Defaults to 'Leads'. Use the exact table name as shown in Airtable (case-sensitive).",
+      "required": false
+    }
+  ],
+  "files": ["handler.js"],
+  "cost_estimate": { "kind": "free", "usd": 0 },
+  "latency_p50_ms": 900,
+  "status": "available",
+  "lifecycle_state": "new",
+  "marketplace": {
+    "category": "productivity",
+    "tags": ["airtable", "crm", "leads", "database", "productivity", "connection:api_key"],
+    "icon": "Table"
+  }
+}

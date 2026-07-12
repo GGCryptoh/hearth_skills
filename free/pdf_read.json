@@ -2,7 +2,7 @@
   "schema": "hearth.skill/1",
   "id": "pdf_read",
   "name": "PDF Read",
-  "description": "Extract text from a PDF file or URL.",
+  "description": "Extract text from a PDF. Provide the source ONE of three ways: path (an absolute file path on the Hearth host), data_url (a data:application/pdf;base64,… inline payload), or collateral_id (a PDF saved to Collateral). Optional: pages (a range like '1-5' or '3', defaults to all pages). Returns the extracted text plus a page count.",
   "tier": "free",
   "category": "research",
   "publisher": "hearth",
@@ -21,7 +21,7 @@
     "runtime": "node",
     "entry": "pdf-read"
   },
-  "status": "catalog-only",
+  "status": "shipped",
   "risk": "low",
   "icon": "file-text"
 }

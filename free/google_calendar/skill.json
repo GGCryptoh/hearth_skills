@@ -1,0 +1,56 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "google_calendar",
+  "name": "Google Calendar",
+  "version": "0.1.0",
+  "author": "hearth-team",
+  "description": "Read and create events on your Google Calendar via Google OAuth. action='list' returns upcoming events (args: days_ahead default 7, calendar_id default 'primary'). action='create' books an event (args: summary (required), start_iso (required, RFC3339 e.g. 2026-07-15T15:00:00-04:00), end_iso (required), description (optional), attendees (optional — email or array of emails)). Uses the calendar.events + calendar.readonly scopes. One-time OAuth setup — see architecture.md.",
+  "tier": "premium",
+  "requires_entitlement": "pro",
+  "type": "tool",
+  "category": "productivity",
+  "risk": "moderate",
+  "handler": {
+    "runtime": "node",
+    "entrypoint": "handler.js",
+    "function": "run"
+  },
+  "permissions": ["net:outbound"],
+  "api_keys_required": ["GCAL_OAUTH_REFRESH_TOKEN"],
+  "vault_inputs": [
+    {
+      "key": "GCAL_OAUTH_CLIENT_ID",
+      "label": "Google OAuth client ID",
+      "kind": "text",
+      "placeholder": "xxxxx.apps.googleusercontent.com",
+      "help": "One-time setup: console.cloud.google.com → New Project → APIs & Services → Library → enable 'Google Calendar API' → Credentials → Create Credentials → OAuth client ID → Application type 'Web application' → add 'https://developers.google.com/oauthplayground' as an Authorized redirect URI. Paste the resulting Client ID here.",
+      "required": true
+    },
+    {
+      "key": "GCAL_OAUTH_CLIENT_SECRET",
+      "label": "Google OAuth client secret",
+      "kind": "secret",
+      "placeholder": "GOCSPX-...",
+      "help": "The 'Client secret' shown next to the Client ID in the Cloud Console Credentials list. Stored encrypted in your vault. If you rotate it, paste the new value here and Save.",
+      "required": true
+    },
+    {
+      "key": "GCAL_OAUTH_REFRESH_TOKEN",
+      "label": "Calendar refresh token",
+      "kind": "secret",
+      "placeholder": "1//0...",
+      "help": "Generate at developers.google.com/oauthplayground: (1) gear icon → check 'Use your own OAuth credentials' → paste Client ID + secret. (2) Step 1 → find 'Calendar API v3' → tick 'https://www.googleapis.com/auth/calendar.events' AND 'https://www.googleapis.com/auth/calendar.readonly'. (3) Authorize, accept consent. (4) Step 2 → Exchange authorization code → copy the Refresh token here.",
+      "required": true
+    }
+  ],
+  "files": ["handler.js", "architecture.md"],
+  "cost_estimate": { "kind": "free", "usd": 0 },
+  "latency_p50_ms": 900,
+  "status": "available",
+  "lifecycle_state": "new",
+  "marketplace": {
+    "category": "productivity",
+    "tags": ["calendar", "google", "events", "scheduling", "oauth", "productivity"],
+    "icon": "Calendar"
+  }
+}

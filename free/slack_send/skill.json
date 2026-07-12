@@ -1,0 +1,47 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "slack_send",
+  "name": "Slack — Send Message",
+  "version": "0.1.0",
+  "author": "hearth-team",
+  "description": "Post a message to Slack via chat.postMessage. Bring your own SLACK_BOT_TOKEN (a bot token with the chat:write scope). Args: text (required — the message body, Slack markdown/mrkdwn ok), channel (optional — channel id like C0123ABCD or a #channel name; falls back to your configured default channel). The bot must be a member of the target channel. Returns the posted message timestamp + channel.",
+  "tier": "free",
+  "type": "tool",
+  "category": "communication",
+  "risk": "moderate",
+  "handler": {
+    "runtime": "node",
+    "entrypoint": "handler.js",
+    "function": "run"
+  },
+  "permissions": ["net:outbound"],
+  "api_keys_required": ["SLACK_BOT_TOKEN"],
+  "vault_inputs": [
+    {
+      "key": "SLACK_BOT_TOKEN",
+      "label": "Slack bot token",
+      "kind": "secret",
+      "placeholder": "xoxb-...",
+      "help": "Create a Slack app at https://api.slack.com/apps → OAuth & Permissions → add the 'chat:write' bot scope → Install to Workspace → copy the 'Bot User OAuth Token' (starts with xoxb-). Invite the bot to any channel it should post in.",
+      "required": true
+    },
+    {
+      "key": "default_channel",
+      "label": "Default channel",
+      "kind": "text",
+      "placeholder": "#general or C0123ABCD",
+      "help": "Used when a message doesn't name a channel. A channel id (C0123ABCD) is most reliable; a #channel name also works.",
+      "required": false
+    }
+  ],
+  "files": ["handler.js"],
+  "cost_estimate": { "kind": "free", "usd": 0 },
+  "latency_p50_ms": 600,
+  "status": "available",
+  "lifecycle_state": "new",
+  "marketplace": {
+    "category": "communication",
+    "tags": ["slack", "chat", "messaging", "communication", "connection:api_key"],
+    "icon": "MessageSquare"
+  }
+}

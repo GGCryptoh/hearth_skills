@@ -2,7 +2,7 @@
   "schema": "hearth.skill/1",
   "id": "csv_parse",
   "name": "CSV Parse",
-  "description": "Parse a CSV file or string into structured rows.",
+  "description": "Parse CSV into structured rows. Provide the source ONE of three ways: path (an absolute file path on the Hearth host), data_url (a data:text/csv;base64,… inline payload), or collateral_id (a CSV previously saved to Collateral). Optional: max_rows (cap returned rows). Returns headers + rows (array of objects) plus a row count.",
   "tier": "free",
   "category": "research",
   "publisher": "hearth",
@@ -19,7 +19,7 @@
     "runtime": "node",
     "entry": "csv-parse"
   },
-  "status": "placeholder",
+  "status": "shipped",
   "risk": "low",
   "icon": "table"
 }

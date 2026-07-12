@@ -2,7 +2,7 @@
   "schema": "hearth.skill/1",
   "id": "xlsx_parse",
   "name": "XLSX Parse",
-  "description": "Parse Excel files — sheets, ranges, formulas.",
+  "description": "Parse an Excel (.xlsx) workbook into rows. Provide the source ONE of three ways: path (an absolute file path on the Hearth host), data_url (a data:…;base64,… inline payload), or collateral_id (a workbook saved to Collateral). Optional: sheet (name or 0-based index; defaults to the first sheet), max_rows (cap returned rows). Returns headers + rows plus a row count.",
   "tier": "free",
   "category": "research",
   "publisher": "hearth",
@@ -19,7 +19,7 @@
     "runtime": "node",
     "entry": "xlsx-parse"
   },
-  "status": "placeholder",
+  "status": "shipped",
   "risk": "low",
   "icon": "table"
 }

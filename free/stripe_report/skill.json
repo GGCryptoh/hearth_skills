@@ -1,0 +1,41 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "stripe_report",
+  "name": "Stripe Revenue Report",
+  "version": "0.1.0",
+  "author": "hearth-team",
+  "description": "Read-only money-in reporting from YOUR OWN Stripe account. This skill only READS — it never creates charges, refunds, or any write. Args: report (one of 'summary' (default), 'recent_charges', 'failed_payments', 'subscriptions') and limit (optional, for recent_charges; default 10, max 100). 'summary' returns available balance, last-30-day gross volume + successful charge count, active subscription count, and failed payments in the last 7 days. Bring your own STRIPE_RESTRICTED_KEY — a RESTRICTED key with read-only access, never your full secret key.",
+  "tier": "premium",
+  "requires_entitlement": "pro",
+  "type": "tool",
+  "category": "finance",
+  "risk": "moderate",
+  "handler": {
+    "runtime": "node",
+    "entrypoint": "handler.js",
+    "function": "run"
+  },
+  "permissions": ["net:outbound"],
+  "api_keys_required": ["STRIPE_RESTRICTED_KEY"],
+  "vault_inputs": [
+    {
+      "key": "STRIPE_RESTRICTED_KEY",
+      "label": "Stripe restricted key",
+      "kind": "secret",
+      "placeholder": "rk_live_...",
+      "help": "Create a RESTRICTED key (NOT your secret key) at https://dashboard.stripe.com/apikeys → Create restricted key. Grant READ (never write) on: Charges, Subscriptions, Invoices, Balance. Starts with rk_live_ or rk_test_. Stored encrypted in your vault.",
+      "required": true
+    }
+  ],
+  "files": ["handler.js"],
+  "cost_estimate": { "kind": "free", "usd": 0 },
+  "latency_p50_ms": 1500,
+  "status": "available",
+  "lifecycle_state": "new",
+  "output_kind": "note",
+  "marketplace": {
+    "category": "finance",
+    "tags": ["stripe", "revenue", "finance", "reporting", "read-only", "connection:api_key"],
+    "icon": "DollarSign"
+  }
+}

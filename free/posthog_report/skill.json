@@ -1,0 +1,57 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "posthog_report",
+  "name": "PostHog Analytics Report",
+  "version": "0.1.0",
+  "author": "hearth-team",
+  "description": "Read-only product-analytics pulse from your PostHog project. This skill only READS via HogQL queries — it never writes. report='summary' (default) returns total event volume over the last 7 days plus the top 10 events by count. report='top_pages' returns the top 10 $current_url values from $pageview events over the last 7 days. Bring your own POSTHOG_API_KEY (a read-only personal API key), POSTHOG_PROJECT_ID, and posthog_host (default https://us.posthog.com; use https://eu.posthog.com for EU cloud or your self-hosted URL).",
+  "tier": "premium",
+  "requires_entitlement": "pro",
+  "type": "tool",
+  "category": "analytics",
+  "risk": "moderate",
+  "handler": {
+    "runtime": "node",
+    "entrypoint": "handler.js",
+    "function": "run"
+  },
+  "permissions": ["net:outbound"],
+  "api_keys_required": ["POSTHOG_API_KEY"],
+  "vault_inputs": [
+    {
+      "key": "POSTHOG_API_KEY",
+      "label": "PostHog personal API key",
+      "kind": "secret",
+      "placeholder": "phx_...",
+      "help": "Create at PostHog → Settings → Personal API keys → 'Create personal API key'. Scope it read-only (Query Read is enough). Starts with 'phx_'. This is NOT the phc_ project write key. Stored encrypted in your vault.",
+      "required": true
+    },
+    {
+      "key": "POSTHOG_PROJECT_ID",
+      "label": "PostHog project ID",
+      "kind": "text",
+      "placeholder": "12345",
+      "help": "The numeric project id — find it in PostHog → Settings → Project, or in the app URL (/project/12345).",
+      "required": true
+    },
+    {
+      "key": "posthog_host",
+      "label": "PostHog host",
+      "kind": "text",
+      "placeholder": "https://us.posthog.com",
+      "help": "https://us.posthog.com (US cloud, default), https://eu.posthog.com (EU cloud), or your self-hosted instance URL.",
+      "required": false
+    }
+  ],
+  "files": ["handler.js"],
+  "cost_estimate": { "kind": "free", "usd": 0 },
+  "latency_p50_ms": 1800,
+  "status": "available",
+  "lifecycle_state": "new",
+  "output_kind": "note",
+  "marketplace": {
+    "category": "analytics",
+    "tags": ["posthog", "analytics", "product", "metrics", "read-only", "connection:api_key"],
+    "icon": "BarChart"
+  }
+}

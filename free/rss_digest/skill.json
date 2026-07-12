@@ -1,0 +1,30 @@
+{
+  "schema": "hearth.skill/1",
+  "id": "rss_digest",
+  "name": "RSS / Atom Digest",
+  "version": "0.1.0",
+  "author": "hearth-team",
+  "description": "Fetch one or more RSS/Atom feeds and return the latest items (title, link, date, snippet) as clean markdown. No API key. Args: feeds (required — one URL, an array of URLs, or a comma/space/newline separated string; up to 20), limit (optional — max items per feed, default 5), hours (optional — only include items published within the last N hours). Great for a morning brief routine: the `text` field is ready-to-deliver markdown.",
+  "tier": "free",
+  "type": "tool",
+  "category": "research",
+  "risk": "safe",
+  "handler": {
+    "runtime": "node",
+    "entrypoint": "handler.js",
+    "function": "run"
+  },
+  "permissions": ["net:outbound"],
+  "api_keys_required": [],
+  "files": ["handler.js"],
+  "cost_estimate": { "kind": "free", "usd": 0 },
+  "latency_p50_ms": 1200,
+  "status": "available",
+  "lifecycle_state": "new",
+  "output_kind": "note",
+  "marketplace": {
+    "category": "research",
+    "tags": ["rss", "atom", "feed", "news", "digest", "research"],
+    "icon": "Rss"
+  }
+}

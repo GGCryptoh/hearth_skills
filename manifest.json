@@ -1,8 +1,20 @@
 {
-  "version": "0.5.40",
+  "version": "0.5.41",
   "format": "hearth.skill/1",
-  "updated_at": "2026-07-09T16:42:12.350Z",
+  "updated_at": "2026-07-12T21:13:59.065Z",
   "skills": [
+    {
+      "path": "free/airtable_crm",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "a7a96672373173952df699f8cf496ac1aa7421cc8eeb6e813e84048e099b81db",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "8207e6df50c6c2a4cc96cc9bcc2d7cf90a306e2288c86fda1dffad38618d2009"
+        }
+      ]
+    },
     {
       "path": "free/apify_actor",
       "type": "directory",
@@ -66,7 +78,7 @@
     {
       "path": "free/csv_parse.json",
       "type": "file",
-      "checksum": "5f0e81192ab05440c6067fb5a3f8a99c7843be43425ff2be4156f7a434261531"
+      "checksum": "e688311587264f9f09bb59e50fd2b905a270a1cbb168ef0dee895234c82ecc7c"
     },
     {
       "path": "free/daily-brief",
@@ -89,6 +101,18 @@
         {
           "name": "handler.js",
           "checksum": "3fd0e13c00439e98f9d78ad308e928bca0140e82740780339c89988528947fed"
+        }
+      ]
+    },
+    {
+      "path": "free/domain_check",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "e05f9277adf4b7423489afae20895c2af2f25113b659dbbdf324c6d03689023d",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "914581893379b6aac04e0055a95b4175809ed748e5dafa4a7be922971282222c"
         }
       ]
     },
@@ -169,6 +193,22 @@
         {
           "name": "architecture.md",
           "checksum": "7d0bf2dc33f3e2c3da970c7a7a388db1fc6c28bdd073147f70ec8e86524aadd2"
+        }
+      ]
+    },
+    {
+      "path": "free/google_calendar",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "8b011edc02f47dde26c331414621cfc01c6a38008f23fda04e4ff995cbd0521c",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "6bbce988b239dbd2b08ecc56257f522b09206084ce3726bb15a1e97fc58d6dfe"
+        },
+        {
+          "name": "architecture.md",
+          "checksum": "1fa84e51fcabae5b22a17016b59faadccdc65df47b8b0e657c9daa884ef5198d"
         }
       ]
     },
@@ -338,7 +378,7 @@
       "path": "free/leads_finder",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "d373d7bf3b5635fd42bcd9e9556e6aa08fd4b54877ba37de3182aed9507e8aae",
+      "checksum": "1ec746260d78a91a5cc33577553bc1a8c3e02cdb34f4ae1ded92ac66d5fac06f",
       "files": [
         {
           "name": "handler.js",
@@ -350,7 +390,7 @@
       "path": "free/linkedin_company_employees",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "4cf0ffcf220864a2cfbe389ad8515f52e3964b8af0bc0d4d66d0d4780d7a2937",
+      "checksum": "e159f376ef23edcb61907f09142314820b0dddd05ec666df3e49f6635476f842",
       "files": [
         {
           "name": "handler.js",
@@ -374,7 +414,7 @@
       "path": "free/linkedin_profile_lookup",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "15da434d31b1b5d2aa4e459b78a151d9229630b025b035a5a4b2f1f44a973130",
+      "checksum": "17d5ccff9cdcc9ee12d23522a34682e4be30cd8722dd7e7845695d8388df3e89",
       "files": [
         {
           "name": "handler.js",
@@ -461,13 +501,25 @@
     {
       "path": "free/pdf_read.json",
       "type": "file",
-      "checksum": "95143b60da9dbc5ee9c765e12d4797686fc031daf2bfe25fd50fef65e64e1502"
+      "checksum": "b20943009673fd0afe31bdc824ce452f69765cdfe52bcb52d12778e364d773c8"
+    },
+    {
+      "path": "free/posthog_report",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "1274a4c6e4753cbdddbf9c198e3e4029b7e213cb38d9df7b75699ecdc7f67f98",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "6b6a68283b1144086a4f2ad818f25783d5dabd64d1aaa64879ae6e27d2d0ece5"
+        }
+      ]
     },
     {
       "path": "free/privacy_card",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "12277e5d5aa2d9324962f35bde9520757f9e216ec96cc78695f72a0d3f72e4d9",
+      "checksum": "e2c5fe77918c863c659d8f8560b4dc7069f2029dd7bd2e45e4e0f71d5c2458e0",
       "files": [
         {
           "name": "handler.js",
@@ -559,7 +611,7 @@
       "path": "free/retellai-call",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "f07602bea706366877a46fca9845942cd032256b4457844945ae74fd8013f297",
+      "checksum": "19706abca27849bcfbe0ed753356afa9aa84dca7e70e16ce9486b26c730967f7",
       "files": [
         {
           "name": "handler.js",
@@ -568,6 +620,30 @@
         {
           "name": "architecture.md",
           "checksum": "0051e067574e3036673b5a3740ad52ef07d3b21929172ba31db1bec76ff136f7"
+        }
+      ]
+    },
+    {
+      "path": "free/rss_digest",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "b6c357c7b0df3040a04f77cabc5606aa50c04b968bd16500b940c50aa81c3a24",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "7f61c8d46c3fa4ecc15b2af901551b3faa3634f42c91fecdaaa172a91fba0c87"
+        }
+      ]
+    },
+    {
+      "path": "free/slack_send",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "9373c7410894ab2e2ee0e5e0df3214fe9d27bf6c35100a6723bdac9f73b03ff0",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "13471378fdc39aa97183f1069f42ef8985b4dd909d69e9001ba9c93e24e36b86"
         }
       ]
     },
@@ -592,6 +668,18 @@
         {
           "name": "handler.js",
           "checksum": "acfd983faaec1a6cda4f42f36ba866c590615def6726afe960d9e4e81480d43d"
+        }
+      ]
+    },
+    {
+      "path": "free/stripe_report",
+      "type": "directory",
+      "manifest_file": "skill.json",
+      "checksum": "dc6f442821c3f7aab266bff8c54688806c09bb15f508187a9cbba293372799a8",
+      "files": [
+        {
+          "name": "handler.js",
+          "checksum": "c52d33a6193f201811702e538132ec6514734dd7b8b9149c2a5849c06f8715a2"
         }
       ]
     },
@@ -707,7 +795,7 @@
     {
       "path": "free/xlsx_parse.json",
       "type": "file",
-      "checksum": "e98eb785048069b912afa17f23f39999ebe6fce1e20cff1066b737eb4b7485a0"
+      "checksum": "27e8999a9adbcd4db095fba46b52142d48da74ed3691401f28fda4a73c2db889"
     },
     {
       "path": "free/youtube_channel",
