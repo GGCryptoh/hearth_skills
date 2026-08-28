@@ -1,15 +1,15 @@
 {
   "schema": "hearth.skill/1",
   "id": "create-images-openai",
-  "name": "Image Generation — OpenAI",
-  "version": "0.4.1",
+  "name": "Image Generation \u2014 OpenAI",
+  "version": "0.4.2",
   "author": "hearth-team",
-  "description": "Generate AND edit images with gpt-image-2 (OpenAI). Text-to-image plus image-to-image, inpaint (with mask), and transparent-background cutouts via the /edits endpoint. Saves to /dashboard/collateral. Part of the AI Image Family — sub-skills (headshot_business, background_replace, wardrobe_swap, inpaint, social_post_image, etc.) route here by default.",
+  "description": "Generate AND edit images with gpt-image-2 (OpenAI). Text-to-image plus image-to-image, inpaint (with mask), and transparent-background cutouts via the /edits endpoint. Saves to /dashboard/collateral. Part of the AI Image Family \u2014 sub-skills (headshot_business, background_replace, wardrobe_swap, inpaint, social_post_image, etc.) route here by default.",
   "family": {
     "id": "ai_image",
     "name": "AI Image Family",
     "icon": "Image",
-    "description": "Headshots, inpainting, wardrobe swap, logos, social posts. Pick a provider (OpenAI / KIE / Higgsfield / Replicate / fal / Stability / Recraft / Ideogram) and your favorite task — sub-skills route through whichever provider you've configured."
+    "description": "Headshots, inpainting, wardrobe swap, logos, social posts. Pick a provider (OpenAI / KIE / Higgsfield / Replicate / fal / Stability / Recraft / Ideogram) and your favorite task \u2014 sub-skills route through whichever provider you've configured."
   },
   "capabilities": [
     "text_to_image",
@@ -43,5 +43,9 @@
     "icon": "Image"
   },
   "bundled": false,
-  "lifecycle_state": "new"
+  "lifecycle_state": "new",
+  "cost_estimate": {
+    "kind": "per_call",
+    "per_call": 0.07
+  }
 }

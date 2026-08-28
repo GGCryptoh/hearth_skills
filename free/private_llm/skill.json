@@ -2,9 +2,9 @@
   "schema": "hearth.skill/1",
   "id": "private_llm",
   "name": "Private LLM",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "author": "hearth-team",
-  "description": "Route the chat's incognito mode to a local LLM you run yourself — LM Studio, Ollama, llama.cpp's server, vLLM, or any OpenAI-compatible endpoint. Two URL slots so you can pin a primary (e.g. localhost or LAN) plus an optional fallback (e.g. Tailscale) — Hearth tries the primary first and falls through. While incognito is active, only save-to-collateral is allowed; nothing else leaves your box.",
+  "description": "Route the chat's incognito mode to a local LLM you run yourself \u2014 LM Studio, Ollama, llama.cpp's server, vLLM, or any OpenAI-compatible endpoint. Two URL slots so you can pin a primary (e.g. localhost or LAN) plus an optional fallback (e.g. Tailscale) \u2014 Hearth tries the primary first and falls through. While incognito is active, only save-to-collateral is allowed; nothing else leaves your box.",
   "tier": "free",
   "type": "tool",
   "category": "privacy",
@@ -37,7 +37,7 @@
       "label": "Primary URL",
       "kind": "text",
       "placeholder": "http://localhost:1234",
-      "help": "Where your local LLM is reachable. If you omit the port, 1234 is assumed (LM Studio default — Ollama uses 11434, set explicitly). Examples: http://localhost:1234, http://192.168.1.22:1234, http://192.168.1.22 (port → 1234).",
+      "help": "Where your local LLM is reachable. If you omit the port, 1234 is assumed (LM Studio default \u2014 Ollama uses 11434, set explicitly). Examples: http://localhost:1234, http://192.168.1.22:1234, http://192.168.1.22 (port \u2192 1234).",
       "required": true
     },
     {
@@ -45,7 +45,7 @@
       "label": "Fallback URL (optional)",
       "kind": "text",
       "placeholder": "http://hearth-mac.tailnet.ts.net:1234",
-      "help": "Optional second URL — used if the primary fails. Useful for Tailscale fallback when you're away from home. Same port-default rule (1234 if omitted).",
+      "help": "Optional second URL \u2014 used if the primary fails. Useful for Tailscale fallback when you're away from home. Same port-default rule (1234 if omitted).",
       "required": false
     },
     {
@@ -105,9 +105,13 @@
   ],
   "output_kind": "data",
   "expected_duration_ms": 4000,
-  "pre_call_message": "Asking the local model…",
+  "pre_call_message": "Asking the local model\u2026",
   "post_call_message": "Local model reply ready.",
   "cost_estimate_usd": 0,
   "bundled": false,
-  "lifecycle_state": "new"
+  "lifecycle_state": "new",
+  "cost_estimate": {
+    "kind": "per_call",
+    "per_call": 0
+  }
 }

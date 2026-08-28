@@ -2,9 +2,9 @@
   "schema": "hearth.skill/1",
   "id": "daily-brief",
   "name": "Daily Brief",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "hearth-team",
-  "description": "Morning briefing — three world headlines, one weather summary, and a one-line outlook for the day. Single Sonnet hop. Schedule it at 7am via hearth_schedule for a daily delivery to chat.",
+  "description": "Morning briefing \u2014 three world headlines, one weather summary, and a one-line outlook for the day. Single Sonnet hop. Schedule it at 7am via hearth_schedule for a daily delivery to chat.",
   "tier": "free",
   "type": "tool",
   "category": "research",
@@ -15,7 +15,9 @@
     "function": "run"
   },
   "permissions": [],
-  "api_keys_required": ["ANTHROPIC_API_KEY"],
+  "api_keys_required": [
+    "ANTHROPIC_API_KEY"
+  ],
   "vault_inputs": [
     {
       "key": "city",
@@ -34,16 +36,28 @@
       "required": false
     }
   ],
-  "files": ["handler.js"],
+  "files": [
+    "handler.js"
+  ],
   "marketplace": {
-    "tags": ["llm", "anthropic", "briefing", "morning", "schedule"],
+    "tags": [
+      "llm",
+      "anthropic",
+      "briefing",
+      "morning",
+      "schedule"
+    ],
     "icon": "Sun"
   },
   "cost_estimate_usd": 0.02,
-  "pre_call_message": "Putting your morning brief together…",
+  "pre_call_message": "Putting your morning brief together\u2026",
   "post_call_message": "Brief is ready",
   "expected_duration_ms": 8000,
   "output_kind": "note",
   "bundled": false,
-  "lifecycle_state": "new"
+  "lifecycle_state": "new",
+  "cost_estimate": {
+    "kind": "per_call",
+    "per_call": 0.01
+  }
 }

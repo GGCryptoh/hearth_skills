@@ -1,7 +1,7 @@
 {
-  "version": "0.5.41",
+  "version": "0.5.42",
   "format": "hearth.skill/1",
-  "updated_at": "2026-07-12T21:13:59.065Z",
+  "updated_at": "2026-08-28T18:21:42.632Z",
   "skills": [
     {
       "path": "free/airtable_crm",
@@ -55,7 +55,7 @@
       "path": "free/cat-selfie-maker",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "ecbd26b59d6c051e77b3223ea14b8188a483ab8e3ee10c2fbdbef2ac5c80cd52",
+      "checksum": "c970c6d230d46264a82d5d23d43c743f4b3ff52498056385ac76747113d3009f",
       "files": [
         {
           "name": "handler.js",
@@ -67,7 +67,7 @@
       "path": "free/create-images-openai",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "e1ee6483a4012017fb9f58b4d581734d192a3fde3a0a591798e73985500ba4c3",
+      "checksum": "e6bd4b2ea4c0f5baba181686a497025aa36798f24bb06b51fc8d22768a247772",
       "files": [
         {
           "name": "handler.js",
@@ -84,7 +84,7 @@
       "path": "free/daily-brief",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "95104bbf8cdcb6638aa5b9f7fa386372fcd52a9e96133f11d2e3647e591dc9e9",
+      "checksum": "851ab11cb6aebe4fcbb08f830e3ae2b412a64cc8f7f3346157eaa61dac50b1c1",
       "files": [
         {
           "name": "handler.js",
@@ -96,7 +96,7 @@
       "path": "free/dog-selfie-maker",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "775c17230db5beda1fe0528fcf81a1c950f97a9fae2d78145bcaacb98a30b4ea",
+      "checksum": "a9637bf6be80bfb6ab483a72a90991d3fff98ab5500d3319bb994476fad7757d",
       "files": [
         {
           "name": "handler.js",
@@ -535,7 +535,7 @@
       "path": "free/private_llm",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "35b08cfd003ae86d442699d91285e80e6326b6fabb81f249592a09a168611a79",
+      "checksum": "80946fa0a1e0593963edb3ca6ac165e2a100cd830823896a933326fe86829c14",
       "files": [
         {
           "name": "handler.js",
@@ -599,7 +599,7 @@
       "path": "free/resend-email",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "87a1c8362c7c8911cd2b5937c7529d0eb97bf8aed12b9fe2fa48bf8c261d90da",
+      "checksum": "24704e91c9961142543e0ec4165a65efe3674ca943a80d44c0796a4d70ed37b1",
       "files": [
         {
           "name": "handler.js",
@@ -756,7 +756,7 @@
       "path": "free/voice_companion",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "bfde52a88cb8603bbfe57f756b8506dea713a7708bcddb391c8ccdeffb80e79e",
+      "checksum": "6ad489d341e7673598bfb1d3909f81425bdca2647a4513dd732fdac75fcf60dc",
       "files": [
         {
           "name": "handler.js",
