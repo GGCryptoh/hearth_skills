@@ -1,7 +1,7 @@
 {
-  "version": "0.5.42",
+  "version": "0.5.43",
   "format": "hearth.skill/1",
-  "updated_at": "2026-08-28T18:21:42.632Z",
+  "updated_at": "2026-08-28T19:18:30.612Z",
   "skills": [
     {
       "path": "free/airtable_crm",
@@ -611,7 +611,7 @@
       "path": "free/retellai-call",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "19706abca27849bcfbe0ed753356afa9aa84dca7e70e16ce9486b26c730967f7",
+      "checksum": "184505f0134b74ac4e14929f59b61ba8fe6637cc857e9c4e0661d3f924906295",
       "files": [
         {
           "name": "handler.js",

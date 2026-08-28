@@ -2,9 +2,9 @@
   "schema": "hearth.skill/1",
   "id": "retellai_call",
   "name": "RetellAI Phone Call",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "hearth-team",
-  "description": "Place an outbound phone call via RetellAI with a synthesized agent script. Configure once with API key + a 'from' number + voice model (Hearth enumerates both from your RetellAI account); routines + the agent then dispatch. ~$0.07/min, SOC 2 Type II. Risk-classed destructive — every call goes through the M32 risk gate.",
+  "description": "Place an outbound phone call via RetellAI with a synthesized agent script. Configure once with API key + a 'from' number + voice model (Hearth enumerates both from your RetellAI account); routines + the agent then dispatch. ~$0.07/min, SOC 2 Type II. Risk-classed destructive \u2014 every call goes through the M32 risk gate.",
   "tier": "premium",
   "requires_entitlement": "pro",
   "type": "tool",
@@ -12,7 +12,10 @@
   "icon": "Phone",
   "publisher": "Hearth Team",
   "risk": "dangerous",
-  "permissions": ["net:outbound", "read:vault.entries"],
+  "permissions": [
+    "net:outbound",
+    "read:vault.entries"
+  ],
   "handler": {
     "runtime": "node",
     "entrypoint": "handler.js",
@@ -23,7 +26,7 @@
       "key": "RETELLAI_API_KEY",
       "label": "RetellAI API Key",
       "kind": "secret",
-      "help": "Find this in the RetellAI dashboard: app.retellai.com → API Keys",
+      "help": "Find this in the RetellAI dashboard: app.retellai.com \u2192 API Keys",
       "required": true
     },
     {
@@ -31,7 +34,9 @@
       "label": "From number",
       "kind": "enumerated_select",
       "help": "Hearth lists your RetellAI-purchased numbers automatically once the API key is saved.",
-      "enumerator": { "endpoint": "retellai.list_from_numbers" },
+      "enumerator": {
+        "endpoint": "retellai.list_from_numbers"
+      },
       "required": true
     },
     {
@@ -39,15 +44,17 @@
       "label": "Voice model",
       "kind": "enumerated_select",
       "help": "Hearth lists the voices available on your RetellAI account (ElevenLabs / Play.ht / native).",
-      "enumerator": { "endpoint": "retellai.list_voices" },
+      "enumerator": {
+        "endpoint": "retellai.list_voices"
+      },
       "required": true
     },
     {
       "key": "RETELLAI_PHONETIC_CODE",
-      "label": "Phonetic code (outbound integrity tag — NOT a login code)",
+      "label": "Phonetic code (outbound integrity tag \u2014 NOT a login code)",
       "kind": "text",
       "placeholder": "hearth-pineapple",
-      "help": "OUTBOUND TAG: a niche 2-3 word phrase your agent will SAY OUT LOUD in the first sentence of every call. The recipient hears it and knows the call is from your agent (not a deepfake/impersonator). Tell trusted recipients the phrase ahead of time; they should hang up on any call missing it. Pick something memorable + unlikely to appear in normal speech (e.g. 'octopus-mailbox'). See architecture.md → 'What the Phonetic Code actually is' for the full threat model.",
+      "help": "OUTBOUND TAG: a niche 2-3 word phrase your agent will SAY OUT LOUD in the first sentence of every call. The recipient hears it and knows the call is\u2026 (see architecture.md for the full two-factor phrase protocol)",
       "required": true
     },
     {
@@ -59,18 +66,31 @@
       "required": false
     }
   ],
-  "api_keys_required": ["RETELLAI_API_KEY"],
-  "files": ["handler.js", "architecture.md"],
-  "cost_estimate": { "kind": "per_call", "per_call": 0.21 },
+  "api_keys_required": [
+    "RETELLAI_API_KEY"
+  ],
+  "files": [
+    "handler.js",
+    "architecture.md"
+  ],
+  "cost_estimate": {
+    "kind": "per_call",
+    "per_call": 0.21
+  },
   "latency_p50_ms": 8000,
   "expected_duration_ms": 30000,
   "status": "available",
   "lifecycle_state": "new",
   "marketplace": {
     "category": "communication",
-    "tags": ["phone", "voice", "retellai", "delivery"],
+    "tags": [
+      "phone",
+      "voice",
+      "retellai",
+      "delivery"
+    ],
     "icon": "Phone"
   },
-  "pre_call_message": "Placing phone call via RetellAI…",
+  "pre_call_message": "Placing phone call via RetellAI\u2026",
   "post_call_message": "Call initiated. RetellAI handles the conversation; transcript available in their dashboard."
 }
