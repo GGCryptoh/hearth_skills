@@ -146,20 +146,22 @@ function extractBody(payload) {
 export async function run(ctx, args) {
   const a = args && typeof args === 'object' ? args : {};
 
-  const clientId = readVaultString(ctx, 'GOOGLE_OAUTH_CLIENT_ID');
-  const clientSecret = readVaultString(ctx, 'GOOGLE_OAUTH_CLIENT_SECRET');
-  const refreshToken = readVaultString(ctx, 'GMAIL_READ_OAUTH_REFRESH_TOKEN');
-  if (!clientId || !clientSecret || !refreshToken) {
-    throw new Error(
-      'Gmail Read not configured — open the gear panel and set GOOGLE_OAUTH_CLIENT_ID, GOOGLE_OAUTH_CLIENT_SECRET, GMAIL_READ_OAUTH_REFRESH_TOKEN.',
-    );
+  // One-click OAuth (2026-08-29): when the founder used the gear panel's
+  // "Connect Google" button, the supervisor injects a fresh access token
+  // as GOOGLE_OAUTH_ACCESS_TOKEN — prefer it. The pasted refresh-token
+  // exchange below stays as the manual fallback.
+  let accessToken = readVaultString(ctx, 'GOOGLE_OAUTH_ACCESS_TOKEN');
+  if (!accessToken) {
+    const clientId = readVaultString(ctx, 'GOOGLE_OAUTH_CLIENT_ID');
+    const clientSecret = readVaultString(ctx, 'GOOGLE_OAUTH_CLIENT_SECRET');
+    const refreshToken = readVaultString(ctx, 'GMAIL_READ_OAUTH_REFRESH_TOKEN');
+    if (!clientId || !clientSecret || !refreshToken) {
+      throw new Error(
+        'Gmail Read not configured — click "Connect Google" in the gear panel (one click), or set GOOGLE_OAUTH_CLIENT_ID, GOOGLE_OAUTH_CLIENT_SECRET, GMAIL_READ_OAUTH_REFRESH_TOKEN manually.',
+      );
+    }
+    accessToken = await exchangeRefreshToken(clientId, clientSecret, refreshToken);
   }
-
-  const accessToken = await exchangeRefreshToken(
-    clientId,
-    clientSecret,
-    refreshToken,
-  );
 
   const action = typeof a.action === 'string' ? a.action : 'search';
 

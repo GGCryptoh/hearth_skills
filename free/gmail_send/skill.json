@@ -2,7 +2,7 @@
   "schema": "hearth.skill/1",
   "id": "gmail_send",
   "name": "Gmail Email — Send",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "author": "hearth-team",
   "description": "Send email through your Gmail account via Google OAuth. Uses the minimum-privilege gmail.send scope — this skill can compose and send email but physically cannot read your inbox. Pair with Gmail Email — Read if your agent also needs inbox visibility.",
   "tier": "free",
@@ -14,9 +14,14 @@
     "entrypoint": "handler.js",
     "function": "run"
   },
-  "permissions": ["net:outbound"],
-  "api_keys_required": ["GMAIL_SEND_OAUTH_REFRESH_TOKEN"],
-  "files": ["handler.js", "architecture.md"],
+  "permissions": [
+    "net:outbound"
+  ],
+  "api_keys_required": [],
+  "files": [
+    "handler.js",
+    "architecture.md"
+  ],
   "marketplace": {
     "tags": [
       "email",
@@ -47,11 +52,11 @@
     },
     {
       "key": "GMAIL_SEND_OAUTH_REFRESH_TOKEN",
-      "label": "Gmail send refresh token",
+      "label": "Gmail send refresh token (manual fallback)",
       "kind": "secret",
       "placeholder": "1//0...",
-      "help": "Generate at developers.google.com/oauthplayground: (1) gear → 'Use your own OAuth credentials' → paste Client ID + secret. (2) Step 1 → 'Gmail API v1' → tick ONLY 'https://www.googleapis.com/auth/gmail.send' (send-only). (3) Authorize + consent. (4) Step 2 → Exchange authorization code → copy Refresh token. Use a DIFFERENT token from the read skill — minimum-privilege isolation.",
-      "required": true
+      "help": "OPTIONAL — the 'Connect Google' button above does this in one click. Manual path: Generate at developers.google.com/oauthplayground: (1) gear → 'Use your own OAuth credentials' → paste Client ID + secret. (2) Step 1 → 'Gmail API v1' → tick ONLY 'https://www.googleapis.com/auth/gmail.send' (send-only). (3) Authorize + consent. (4) Step 2 → Exchange authorization code → copy Refresh token. Use a DIFFERENT token from the read skill — minimum-privilege isolation.",
+      "required": false
     },
     {
       "key": "gmail_from_name",
@@ -62,7 +67,22 @@
       "required": false
     }
   ],
-  "cost_estimate": { "kind": "free", "usd": 0 },
+  "cost_estimate": {
+    "kind": "free",
+    "usd": 0
+  },
   "bundled": false,
-  "lifecycle_state": "new"
+  "lifecycle_state": "new",
+  "oauthConfig": {
+    "provider": "google",
+    "auth_url": "https://accounts.google.com/o/oauth2/v2/auth",
+    "token_url": "https://oauth2.googleapis.com/token",
+    "scopes": [
+      "https://www.googleapis.com/auth/gmail.send"
+    ],
+    "pkce": true
+  },
+  "api_keys_optional": [
+    "GMAIL_SEND_OAUTH_REFRESH_TOKEN"
+  ]
 }

@@ -1,7 +1,7 @@
 {
-  "version": "0.5.43",
+  "version": "0.5.46",
   "format": "hearth.skill/1",
-  "updated_at": "2026-08-28T19:18:30.612Z",
+  "updated_at": "2026-08-29T22:26:05.637Z",
   "skills": [
     {
       "path": "free/airtable_crm",
@@ -168,11 +168,11 @@
       "path": "free/gmail_read",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "63903ab4d4f85304d3c33fb5128fc64d1f96387bf1bd1dccf5e2b1f1f05d9a52",
+      "checksum": "93030899a754ec0aca7ceeef34c325ce37a36dfbfd22aefbf39f12760315d7cc",
       "files": [
         {
           "name": "handler.js",
-          "checksum": "5d5652bcf62307027d0a8233cc20b6df3a4698d8de8751221d33370162e9d6c0"
+          "checksum": "e1461a5a8b89f67d84858492111e66075a123ede1e6f6ce4cfb7e371decd4051"
         },
         {
           "name": "architecture.md",
@@ -184,11 +184,11 @@
       "path": "free/gmail_send",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "8b56f930c582bfb1e9d40789e07c14c8cb84b3c5421aa7cdeca655462268089a",
+      "checksum": "c415d2ae4622e7d5bebaded8987250ca6a7309a591304dd304ea59c87b5c1365",
       "files": [
         {
           "name": "handler.js",
-          "checksum": "68a24fa15126400b8549791bed481e515e10c10989ad1aa2c21c70a7c200df8a"
+          "checksum": "5ce3aee606bad0b50520c7df28e2edb1a2c101d1f4bef959ea2136980f92d1b1"
         },
         {
           "name": "architecture.md",
@@ -200,11 +200,11 @@
       "path": "free/google_calendar",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "8b011edc02f47dde26c331414621cfc01c6a38008f23fda04e4ff995cbd0521c",
+      "checksum": "2ddf8b3040754cc14feae9618443ef0cc789adb0fc3dda7fe8b0400ce8950ec7",
       "files": [
         {
           "name": "handler.js",
-          "checksum": "6bbce988b239dbd2b08ecc56257f522b09206084ce3726bb15a1e97fc58d6dfe"
+          "checksum": "496776f8cdd2b55162034ca736dfd97567f142f3d8e2c8149c156bcee49e90ea"
         },
         {
           "name": "architecture.md",

@@ -124,12 +124,16 @@ function base64UrlEncode(str) {
 export async function run(ctx, args) {
   const a = args && typeof args === 'object' ? args : {};
 
+  // One-click OAuth (2026-08-29): prefer the supervisor-injected access
+  // token from the gear panel's "Connect Google" button; the pasted
+  // refresh-token exchange stays as the manual fallback.
+  const injectedAccessToken = readVaultString(ctx, 'GOOGLE_OAUTH_ACCESS_TOKEN');
   const clientId = readVaultString(ctx, 'GOOGLE_OAUTH_CLIENT_ID');
   const clientSecret = readVaultString(ctx, 'GOOGLE_OAUTH_CLIENT_SECRET');
   const refreshToken = readVaultString(ctx, 'GMAIL_SEND_OAUTH_REFRESH_TOKEN');
-  if (!clientId || !clientSecret || !refreshToken) {
+  if (!injectedAccessToken && (!clientId || !clientSecret || !refreshToken)) {
     throw new Error(
-      'Gmail Send not configured — open the gear panel and set GOOGLE_OAUTH_CLIENT_ID, GOOGLE_OAUTH_CLIENT_SECRET, GMAIL_SEND_OAUTH_REFRESH_TOKEN.',
+      'Gmail Send not configured — click "Connect Google" in the gear panel (one click), or set GOOGLE_OAUTH_CLIENT_ID, GOOGLE_OAUTH_CLIENT_SECRET, GMAIL_SEND_OAUTH_REFRESH_TOKEN manually.',
     );
   }
 
@@ -143,11 +147,9 @@ export async function run(ctx, args) {
   const text = typeof a.text === 'string' ? a.text : null;
   if (!html && !text) throw new Error('one of html or text is required');
 
-  const accessToken = await exchangeRefreshToken(
-    clientId,
-    clientSecret,
-    refreshToken,
-  );
+  const accessToken =
+    injectedAccessToken ||
+    (await exchangeRefreshToken(clientId, clientSecret, refreshToken));
 
   // Resolve the From address: explicit args.from > authenticated mailbox.
   let from = typeof a.from === 'string' && a.from.length > 0 ? a.from : null;
