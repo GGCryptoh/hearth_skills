@@ -1,7 +1,7 @@
 {
-  "version": "0.5.46",
+  "version": "0.5.48",
   "format": "hearth.skill/1",
-  "updated_at": "2026-08-29T22:26:05.637Z",
+  "updated_at": "2026-09-01T14:12:11.669Z",
   "skills": [
     {
       "path": "free/airtable_crm",
@@ -168,7 +168,7 @@
       "path": "free/gmail_read",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "93030899a754ec0aca7ceeef34c325ce37a36dfbfd22aefbf39f12760315d7cc",
+      "checksum": "bba3b4f72f494b725e5ec8e6b475a65c571443a1dd59b8fb92cf1d5390c82cbb",
       "files": [
         {
           "name": "handler.js",
@@ -184,7 +184,7 @@
       "path": "free/gmail_send",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "c415d2ae4622e7d5bebaded8987250ca6a7309a591304dd304ea59c87b5c1365",
+      "checksum": "84c5604d3875ad28136c7c8ca64f9fb8aa953467f4ab9e1f65f6da3eea31a9db",
       "files": [
         {
           "name": "handler.js",
@@ -200,7 +200,7 @@
       "path": "free/google_calendar",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "2ddf8b3040754cc14feae9618443ef0cc789adb0fc3dda7fe8b0400ce8950ec7",
+      "checksum": "e8c991359e19710bdc87353bdf8ef610c5ec855ab892dec3c726e6544cd0037a",
       "files": [
         {
           "name": "handler.js",
