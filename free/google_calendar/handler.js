@@ -11,6 +11,9 @@
 //                     → upcoming events (start, end, summary, location, link)
 //   action: 'create'  args: { summary, start_iso, end_iso, description?,
 //                              attendees? } → the created event
+//   action: 'update'  args: { event_id, summary?, start_iso?, end_iso?,
+//                              description?, calendar_id? } → patched event
+//   action: 'delete'  args: { event_id, calendar_id? } → deletion receipt
 //
 // Vault config:
 //   GCAL_OAUTH_CLIENT_ID       text   — Google OAuth client id
@@ -92,8 +95,13 @@ export async function run(ctx, args) {
 
   if (action === 'list') return listEvents(a, accessToken);
   if (action === 'create') return createEvent(a, accessToken);
+  if (action === 'update') return updateEvent(a, accessToken);
+  if (action === 'delete') return deleteEvent(a, accessToken);
 
-  throw new Error(`Unknown action "${action}". Expected one of: list, create.`);
+  throw new Error(
+    `Unknown action "${action}". Expected one of: list, create, update, delete. ` +
+      'update/delete need args.event_id — get ids from action="list".',
+  );
 }
 
 async function listEvents(a, accessToken) {
@@ -205,6 +213,91 @@ async function createEvent(a, accessToken) {
     attendees: attendees.map((x) => x.email),
     text,
     summary: `Created "${summary}" for ${fmtWhen(startIso)}.`,
+  };
+}
+
+function requireEventId(a, action) {
+  const id = typeof a.event_id === 'string' ? a.event_id.trim() : '';
+  if (!id) {
+    throw new Error(
+      `action="${action}" requires args.event_id — run action="list" first; each event in the response carries its id.`,
+    );
+  }
+  return id;
+}
+
+function calendarIdOf(a) {
+  return typeof a.calendar_id === 'string' && a.calendar_id.trim()
+    ? a.calendar_id.trim()
+    : 'primary';
+}
+
+async function updateEvent(a, accessToken) {
+  const eventId = requireEventId(a, 'update');
+  const calendarId = calendarIdOf(a);
+
+  const patch = {};
+  if (typeof a.summary === 'string' && a.summary.trim()) patch.summary = a.summary.trim();
+  if (typeof a.description === 'string') patch.description = a.description;
+  if (typeof a.start_iso === 'string' && a.start_iso.trim())
+    patch.start = { dateTime: a.start_iso.trim() };
+  if (typeof a.end_iso === 'string' && a.end_iso.trim())
+    patch.end = { dateTime: a.end_iso.trim() };
+  if (Object.keys(patch).length === 0) {
+    throw new Error(
+      'action="update" needs at least one of args.summary, args.start_iso, args.end_iso, args.description (start/end RFC3339, e.g. 2026-09-02T11:00:00-04:00).',
+    );
+  }
+  // Moving an event needs both ends or Google keeps the old duration
+  // anchored oddly — demand the pair when either time moves.
+  if ((patch.start && !patch.end) || (patch.end && !patch.start)) {
+    throw new Error(
+      'action="update" — pass BOTH args.start_iso and args.end_iso when moving an event.',
+    );
+  }
+
+  const data = await calFetch(
+    `/calendars/${encodeURIComponent(calendarId)}/events/${encodeURIComponent(eventId)}`,
+    accessToken,
+    { method: 'PATCH', body: JSON.stringify(patch) },
+  );
+
+  const start = data.start?.dateTime || data.start?.date || null;
+  const end = data.end?.dateTime || data.end?.date || null;
+  const text =
+    `## Event updated\n\n**${data.summary || '(no title)'}**\n` +
+    `${start ? fmtWhen(start) : '?'} → ${end ? fmtWhen(end) : '?'}\n` +
+    `${data.htmlLink ? `[Open in Google Calendar](${data.htmlLink})` : ''}`;
+
+  return {
+    ok: true,
+    action: 'update',
+    id: data.id || eventId,
+    html_link: data.htmlLink || null,
+    start,
+    end,
+    text,
+    summary: `Updated "${data.summary || eventId}"${start ? ` → ${fmtWhen(start)}` : ''}.`,
+  };
+}
+
+async function deleteEvent(a, accessToken) {
+  const eventId = requireEventId(a, 'delete');
+  const calendarId = calendarIdOf(a);
+
+  await calFetch(
+    `/calendars/${encodeURIComponent(calendarId)}/events/${encodeURIComponent(eventId)}`,
+    accessToken,
+    { method: 'DELETE' },
+  );
+
+  return {
+    ok: true,
+    action: 'delete',
+    id: eventId,
+    calendar_id: calendarId,
+    text: `## Event deleted\n\nEvent \`${eventId}\` removed from calendar \`${calendarId}\`.`,
+    summary: `Deleted event ${eventId}.`,
   };
 }
 

@@ -1,7 +1,7 @@
 {
-  "version": "0.5.48",
+  "version": "0.5.49",
   "format": "hearth.skill/1",
-  "updated_at": "2026-09-01T14:12:11.669Z",
+  "updated_at": "2026-09-01T14:52:03.083Z",
   "skills": [
     {
       "path": "free/airtable_crm",
@@ -200,11 +200,11 @@
       "path": "free/google_calendar",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "e8c991359e19710bdc87353bdf8ef610c5ec855ab892dec3c726e6544cd0037a",
+      "checksum": "ef133c2ac8a7d91f01095e0e9450ddd713d249ed99a090a95106fc83b86bf3a3",
       "files": [
         {
           "name": "handler.js",
-          "checksum": "496776f8cdd2b55162034ca736dfd97567f142f3d8e2c8149c156bcee49e90ea"
+          "checksum": "bb15debbd22891a1812a0e8fe71983c381f7d0caf3eb09e285dc0676f36368b9"
         },
         {
           "name": "architecture.md",
