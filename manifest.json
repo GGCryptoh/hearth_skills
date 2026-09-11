@@ -1,7 +1,7 @@
 {
-  "version": "0.5.49",
+  "version": "0.5.50",
   "format": "hearth.skill/1",
-  "updated_at": "2026-09-01T14:52:03.083Z",
+  "updated_at": "2026-09-11T20:09:35.990Z",
   "skills": [
     {
       "path": "free/airtable_crm",
@@ -168,11 +168,11 @@
       "path": "free/gmail_read",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "bba3b4f72f494b725e5ec8e6b475a65c571443a1dd59b8fb92cf1d5390c82cbb",
+      "checksum": "63fafb00e5d548520eab5a621e12a0deeca64f03bfd9f71b7cd28f6a05e6663e",
       "files": [
         {
           "name": "handler.js",
-          "checksum": "e1461a5a8b89f67d84858492111e66075a123ede1e6f6ce4cfb7e371decd4051"
+          "checksum": "bad81bf0685f3ae0f0ea37de4fb04eefac4e4b771d77b881529ac8e496391eb7"
         },
         {
           "name": "architecture.md",

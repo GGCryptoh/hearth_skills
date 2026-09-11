@@ -175,6 +175,7 @@ export async function run(ctx, args) {
         : 25;
     const params = new URLSearchParams({ maxResults: String(maxResults) });
     if (query) params.set('q', query);
+    if (typeof a.page_token === 'string' && a.page_token) params.set('pageToken', a.page_token);
     const data = await gmailGet(
       `/messages?${params.toString()}`,
       accessToken,
@@ -187,6 +188,8 @@ export async function run(ctx, args) {
       count: messages.length,
       messages,
       result_size_estimate: data.resultSizeEstimate ?? null,
+      next_page_token: typeof data.nextPageToken === 'string' ? data.nextPageToken : null,
+      complete: !data.nextPageToken,
       summary: `Found ${messages.length} message(s)${query ? ` matching "${query}"` : ''}.`,
     };
   }

@@ -2,7 +2,7 @@
   "schema": "hearth.skill/1",
   "id": "gmail_read",
   "name": "Gmail Email — Read",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "author": "hearth-team",
   "description": "Read email from your Gmail inbox via Google OAuth. action='digest' returns recent mail WITH content (sender, subject, snippet) in one call — ideal for a morning brief; also search (ids), get (one message body), labels. Uses the minimum-privilege gmail.readonly scope — this skill physically cannot send email or modify your mailbox. Pair with Gmail Email — Send for outbound.",
   "tier": "free",
