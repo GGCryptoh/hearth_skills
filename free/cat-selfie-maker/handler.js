@@ -1,3 +1,5 @@
+import { requestImage } from './image-models.js';
+
 // Cat Selfie Maker — OpenAI gpt-image-2.
 //
 // Generates a 9:16 vertical "ordinary iPhone snapshot" of a cat taking a
@@ -42,26 +44,19 @@ export async function run(ctx, args) {
     );
   }
 
-  const res = await fetch(API_URL, {
+  const { data, model, requestedModel, fallbackReason } = await requestImage(ctx, (model) => fetch(API_URL, {
     method: 'POST',
     headers: {
       'content-type': 'application/json',
       authorization: `Bearer ${apiKey}`,
     },
     body: JSON.stringify({
-      model: 'gpt-image-2',
+      model,
       prompt,
       n: 1,
       size,
     }),
-  });
-
-  if (!res.ok) {
-    const detail = await res.text().catch(() => '');
-    throw new Error(`OpenAI ${res.status}: ${detail.slice(0, 500)}`);
-  }
-
-  const data = await res.json();
+  }));
   const item = data?.data?.[0] ?? {};
   const b64 = typeof item.b64_json === 'string' ? item.b64_json : '';
 
@@ -88,13 +83,13 @@ export async function run(ctx, args) {
         sourceId: 'cat-selfie-maker',
         metadata: JSON.stringify({
           mime: 'image/png',
-          model: 'gpt-image-2',
+          model, requested_model: requestedModel, fallback_reason: fallbackReason,
           size,
           prompt,
           prompt_was_override: override.length > 0,
           skill_id: 'cat-selfie-maker',
         }),
-        tags: JSON.stringify(['image', 'gpt-image-2', 'cat', 'selfie']),
+        tags: JSON.stringify(['image', model, 'cat', 'selfie']),
         createdAt,
         seenAt: null,
       });
@@ -114,7 +109,7 @@ export async function run(ctx, args) {
         target: collateralId ? `collateral:${collateralId}` : null,
         severity: 'info',
         details: {
-          model: 'gpt-image-2',
+          model, requested_model: requestedModel, fallback_reason: fallbackReason,
           size,
           prompt_was_override: override.length > 0,
         },
@@ -125,22 +120,24 @@ export async function run(ctx, args) {
   }
 
   const lines = [
-    `## Cat selfie (gpt-image-2)`,
+    `## Cat selfie (${model})`,
     '',
     `![${titleStub}](${dataUrl})`,
     '',
   ];
+  if (fallbackReason) lines.push(`Fallback used: ${fallbackReason}. Actual model: ${model}.`, '');
   if (collateralId) {
     lines.push(`Saved to collateral as \`${collateralId}\`.`);
   }
 
   return {
     ok: true,
+    requested_model: requestedModel, fallback_reason: fallbackReason,
     collateral_id: collateralId,
     image_url: dataUrl,
     prompt,
     prompt_was_override: override.length > 0,
-    model: 'gpt-image-2',
+    model,
     size,
     summary: lines.join('\n'),
   };

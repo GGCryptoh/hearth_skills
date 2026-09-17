@@ -1,3 +1,5 @@
+import { requestImage } from './image-models.js';
+
 // Image Generation / Editing — OpenAI gpt-image-2.
 //
 // Two modes, auto-selected by whether an input image is supplied:
@@ -88,14 +90,14 @@ export async function run(ctx, args) {
 
   const result = inputImage
     ? await editImage({ apiKey, prompt, inputImage, a, transparent, ctx })
-    : await generateImage({ apiKey, prompt, a, transparent });
+    : await generateImage({ apiKey, prompt, a, transparent, ctx });
 
   return persistAndSummarize({ ...result, ctx, prompt });
 }
 
 // ---- text-to-image (unchanged behavior) -------------------------------
 
-async function generateImage({ apiKey, prompt, a, transparent }) {
+async function generateImage({ apiKey, prompt, a, transparent, ctx }) {
   const requestedSize = LEGACY_SIZE_REMAP[a.size] ?? a.size;
   const size = VALID_SIZES.has(requestedSize) ? requestedSize : '1024x1024';
   const requestedQuality = LEGACY_QUALITY_REMAP[a.quality] ?? a.quality;
@@ -104,7 +106,6 @@ async function generateImage({ apiKey, prompt, a, transparent }) {
     : 'auto';
 
   const body = {
-    model: 'gpt-image-2',
     prompt,
     n: 1,
     size,
@@ -112,24 +113,20 @@ async function generateImage({ apiKey, prompt, a, transparent }) {
   };
   if (transparent) body.background = 'transparent';
 
-  const res = await fetch(GENERATIONS_URL, {
+  const { data, model, requestedModel, fallbackReason } = await requestImage(ctx, (model) => fetch(GENERATIONS_URL, {
     method: 'POST',
     headers: {
       'content-type': 'application/json',
       authorization: `Bearer ${apiKey}`,
     },
-    body: JSON.stringify(body),
-  });
-  if (!res.ok) {
-    const detail = await res.text().catch(() => '');
-    throw new Error(`OpenAI ${res.status}: ${detail.slice(0, 500)}`);
-  }
-  const data = await res.json();
+    body: JSON.stringify({ ...body, model }),
+  }), { transparent });
   const item = data?.data?.[0] ?? {};
   const b64 = typeof item.b64_json === 'string' ? item.b64_json : '';
   if (!b64) throw new Error('OpenAI returned no image data');
   return {
     b64,
+    model, requestedModel, fallbackReason,
     revisedPrompt:
       typeof item.revised_prompt === 'string' ? item.revised_prompt : '',
     size,
@@ -150,7 +147,6 @@ async function editImage({ apiKey, prompt, inputImage, a, transparent, ctx }) {
 
   const img = await loadImageBytes(inputImage);
   const form = new FormData();
-  form.append('model', 'gpt-image-2');
   form.append('prompt', prompt);
   form.append('n', '1');
   form.append('size', size);
@@ -161,21 +157,20 @@ async function editImage({ apiKey, prompt, inputImage, a, transparent, ctx }) {
     form.append('mask', new Blob([mask.bytes], { type: mask.mime }), 'mask.png');
   }
 
-  const res = await fetch(EDITS_URL, {
+  const { data, model, requestedModel, fallbackReason } = await requestImage(ctx, (model) => {
+    form.set('model', model);
+    return fetch(EDITS_URL, {
     method: 'POST',
     headers: { authorization: `Bearer ${apiKey}` }, // fetch sets multipart boundary
     body: form,
   });
-  if (!res.ok) {
-    const detail = await res.text().catch(() => '');
-    throw new Error(`OpenAI edits ${res.status}: ${detail.slice(0, 500)}`);
-  }
-  const data = await res.json();
+  }, { transparent });
   const item = data?.data?.[0] ?? {};
   const b64 = typeof item.b64_json === 'string' ? item.b64_json : '';
   if (!b64) throw new Error('OpenAI edits returned no image data');
   return {
     b64,
+    model, requestedModel, fallbackReason,
     revisedPrompt:
       typeof item.revised_prompt === 'string' ? item.revised_prompt : '',
     size,
@@ -205,6 +200,7 @@ async function loadImageBytes(urlOrDataUrl) {
 
 async function persistAndSummarize({
   b64,
+  model, requestedModel, fallbackReason,
   revisedPrompt,
   size,
   quality,
@@ -232,7 +228,7 @@ async function persistAndSummarize({
         sourceId: 'create-images-openai',
         metadata: JSON.stringify({
           mime: 'image/png',
-          model: 'gpt-image-2',
+          model, requested_model: requestedModel, fallback_reason: fallbackReason,
           mode,
           size,
           quality,
@@ -241,7 +237,7 @@ async function persistAndSummarize({
           revised_prompt: revisedPrompt || null,
           skill_id: 'create-images-openai',
         }),
-        tags: JSON.stringify(['image', 'gpt-image-2', 'openai', mode]),
+        tags: JSON.stringify(['image', model, 'openai', mode]),
         createdAt,
         seenAt: null,
       });
@@ -260,7 +256,7 @@ async function persistAndSummarize({
         action: 'image.generated',
         target: collateralId ? `collateral:${collateralId}` : null,
         severity: 'info',
-        details: { mode, size, transparent, has_revised_prompt: !!revisedPrompt },
+        details: { model, requested_model: requestedModel, fallback_reason: fallbackReason, mode, size, transparent, has_revised_prompt: !!revisedPrompt },
       });
     } catch {
       /* audit failures never break the skill */
@@ -268,17 +264,19 @@ async function persistAndSummarize({
   }
 
   const lines = [
-    `## ${mode === 'text_to_image' ? 'Generated' : 'Edited'} image (gpt-image-2 · ${mode})`,
+    `## ${mode === 'text_to_image' ? 'Generated' : 'Edited'} image (${model} · ${mode})`,
     '',
     `![${titleStub}](${dataUrl})`,
     '',
     `**Prompt:** ${prompt}`,
   ];
   if (revisedPrompt) lines.push('', `_Revised prompt:_ ${revisedPrompt}`);
+  if (fallbackReason) lines.push('', `Fallback used: ${fallbackReason}. Actual model: ${model}.`);
   if (collateralId) lines.push('', `Saved to collateral as \`${collateralId}\`.`);
 
   return {
     ok: true,
+    model, requested_model: requestedModel, fallback_reason: fallbackReason,
     collateral_id: collateralId,
     image_url: dataUrl,
     prompt,

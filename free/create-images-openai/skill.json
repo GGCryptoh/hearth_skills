@@ -2,9 +2,9 @@
   "schema": "hearth.skill/1",
   "id": "create-images-openai",
   "name": "Image Generation \u2014 OpenAI",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "author": "hearth-team",
-  "description": "Generate AND edit images with gpt-image-2 (OpenAI). Text-to-image plus image-to-image, inpaint (with mask), and transparent-background cutouts via the /edits endpoint. Saves to /dashboard/collateral. Part of the AI Image Family \u2014 sub-skills (headshot_business, background_replace, wardrobe_swap, inpaint, social_post_image, etc.) route here by default.",
+  "description": "Generate and edit images with your preferred OpenAI image model (default gpt-image-2). Supports image-to-image and inpainting; transparent backgrounds require a compatible model. Configure a preferred model and optional fallback under skill settings. Saves results and the actual model used to Collateral. AI Image Family sub-skills route here by default.",
   "family": {
     "id": "ai_image",
     "name": "AI Image Family",
@@ -32,7 +32,8 @@
     "OPENAI_API_KEY"
   ],
   "files": [
-    "handler.js"
+    "handler.js",
+    "image-models.js"
   ],
   "marketplace": {
     "tags": [
@@ -47,5 +48,33 @@
   "cost_estimate": {
     "kind": "per_call",
     "per_call": 0.07
-  }
+  },
+  "vault_inputs": [
+    {
+      "key": "OPENAI_API_KEY",
+      "label": "OpenAI API key",
+      "kind": "secret",
+      "required": true
+    },
+    {
+      "key": "OPENAI_IMAGE_MODEL",
+      "label": "Preferred image model",
+      "kind": "enumerated_select",
+      "required": false,
+      "help": "Shared by OpenAI image generation and cat/dog selfies. Blank uses gpt-image-2. Refresh lists supported models available to your key; it does not generate images. Save configuration to apply.",
+      "enumerator": {
+        "endpoint": "openai.list_image_models"
+      }
+    },
+    {
+      "key": "OPENAI_IMAGE_FALLBACK_MODEL",
+      "label": "Fallback image model (optional)",
+      "kind": "enumerated_select",
+      "required": false,
+      "help": "Blank disables fallback. Used only when the preferred model is unavailable or incompatible with transparency. No retry for quota, authentication, moderation or network errors. Pricing depends on the model used.",
+      "enumerator": {
+        "endpoint": "openai.list_image_models"
+      }
+    }
+  ]
 }

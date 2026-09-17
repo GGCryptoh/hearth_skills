@@ -1,7 +1,7 @@
 {
-  "version": "0.5.50",
+  "version": "0.5.52",
   "format": "hearth.skill/1",
-  "updated_at": "2026-09-11T20:09:35.990Z",
+  "updated_at": "2026-09-17T18:08:15.676Z",
   "skills": [
     {
       "path": "free/airtable_crm",
@@ -55,11 +55,15 @@
       "path": "free/cat-selfie-maker",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "c970c6d230d46264a82d5d23d43c743f4b3ff52498056385ac76747113d3009f",
+      "checksum": "42f923f9a6ba576278a887f0aa8a23db8c1f7e1245417cc898c005faa15fcc89",
       "files": [
         {
           "name": "handler.js",
-          "checksum": "71bbad54bd73d906eb05d4021ebac9d13e0f17a205d53c1f826eabeaf7635af2"
+          "checksum": "77d58e44dcf7c61db54ba13c23220c7a77b9d57d780b9ff0418eeb4700f2bac8"
+        },
+        {
+          "name": "image-models.js",
+          "checksum": "5644f4b102729d019083d76a3b92ae61dd9d03743577d388108b907636d2be9b"
         }
       ]
     },
@@ -67,11 +71,15 @@
       "path": "free/create-images-openai",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "e6bd4b2ea4c0f5baba181686a497025aa36798f24bb06b51fc8d22768a247772",
+      "checksum": "4e4ac472aa55cf4f637a3ff0f05b625451c950c69e672adfdd96be5826ac8446",
       "files": [
         {
           "name": "handler.js",
-          "checksum": "d903662175c8c918aedcd0ff966b0eab36a7f616f9392e246de0758e60859fb4"
+          "checksum": "36235d9faa045f4ee381dab7a72c51c1a70d5ad185c4bad222326abb7599035d"
+        },
+        {
+          "name": "image-models.js",
+          "checksum": "5644f4b102729d019083d76a3b92ae61dd9d03743577d388108b907636d2be9b"
         }
       ]
     },
@@ -96,11 +104,15 @@
       "path": "free/dog-selfie-maker",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "a9637bf6be80bfb6ab483a72a90991d3fff98ab5500d3319bb994476fad7757d",
+      "checksum": "8103afedcdab11b165ba112732c4fb016a58963a7e37557a1165349f0be6447c",
       "files": [
         {
           "name": "handler.js",
-          "checksum": "3fd0e13c00439e98f9d78ad308e928bca0140e82740780339c89988528947fed"
+          "checksum": "a186fae1bbe848c6fa8be92254736be8715072d5164d67adaa771f0807567e67"
+        },
+        {
+          "name": "image-models.js",
+          "checksum": "5644f4b102729d019083d76a3b92ae61dd9d03743577d388108b907636d2be9b"
         }
       ]
     },
