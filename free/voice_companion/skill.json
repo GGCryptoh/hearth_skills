@@ -2,7 +2,7 @@
   "schema": "hearth.skill/1",
   "id": "voice_companion",
   "name": "Voice Companion (Jarvis mode)",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "author": "hearth-team",
   "description": "Realtime voice conversation with your agent\u2014speak to an animated avatar, powered by OpenAI Realtime. Tool calls route through your existing skills. Daily usage cap, push-to-talk default, and approvals rail for safety. The voice lane that keeps data on your machine (local WebRTC to OpenAI, no audio relay through Hearth).",
   "tier": "free",
@@ -112,19 +112,51 @@
       "kind": "select",
       "options": [
         {
-          "value": "orb",
-          "label": "Orb (stylized sphere with eyes and mouth)"
+          "value": "clippy",
+          "label": "Clippy"
+        },
+        {
+          "value": "temu-iron",
+          "label": "Temu Iron"
+        },
+        {
+          "value": "rubber-duck",
+          "label": "Rubber Duck"
+        },
+        {
+          "value": "robot-head",
+          "label": "Robot Head"
+        },
+        {
+          "value": "iron-mask",
+          "label": "Iron Mask"
         },
         {
           "value": "floppy",
-          "label": "Floppy Jarvis (red/gold disk, HUD face)"
+          "label": "Floppy"
+        },
+        {
+          "value": "orb",
+          "label": "Orb"
+        },
+        {
+          "value": "crt-terminal",
+          "label": "CRT Terminal"
+        },
+        {
+          "value": "server-rack",
+          "label": "Server Rack"
+        },
+        {
+          "value": "satellite",
+          "label": "Satellite"
         },
         {
           "value": "ironman",
-          "label": "Iron Man (mask with lip sync + moods)"
+          "label": "Iron Mask (original)"
         }
       ],
-      "help": "Which 3D avatar renders in the voice interface. Orb is a detailed face; floppy is a retro prop that animates via transform rather than facial rigs; Iron Man is a full face-mode mask (lip sync, blink, moods). Default: orb.",
+      "help": "Choose a companion: Clippy (animated 2D paperclip, default), Temu Iron (full-body animation), or a 3D mascot. Existing saved selections are kept. Avatar animation runs locally; Temu Iron sound effects start muted. New characters require Hearth v0.1.41 or newer.",
       "required": false
     },
     {

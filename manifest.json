@@ -1,7 +1,7 @@
 {
-  "version": "0.5.52",
+  "version": "0.5.53",
   "format": "hearth.skill/1",
-  "updated_at": "2026-09-17T18:08:15.676Z",
+  "updated_at": "2026-09-30T15:41:32.353Z",
   "skills": [
     {
       "path": "free/airtable_crm",
@@ -768,7 +768,7 @@
       "path": "free/voice_companion",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "6ad489d341e7673598bfb1d3909f81425bdca2647a4513dd732fdac75fcf60dc",
+      "checksum": "3cc919633648df5e706e65cca8d6aa6e6d53088bb306bdd0cbb657cf17a13802",
       "files": [
         {
           "name": "handler.js",
@@ -776,7 +776,7 @@
         },
         {
           "name": "architecture.md",
-          "checksum": "a45b848b9f0678be7023ad7879520ca8aa3b0c2d1d2b102a73220fb91426fd87"
+          "checksum": "a746c47435207fcea5f1cac2d8daf21ad10b7cd733803dae3e456ba241fb7a69"
         }
       ]
     },

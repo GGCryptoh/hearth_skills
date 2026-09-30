@@ -43,7 +43,7 @@ No new permissions. Tool calls inherit the full M32 risk classifier + approvals 
 - **Companion_voice**: Which voice the agent uses (10 OpenAI Realtime options: alloy, ash, ballad, coral, echo, juniper, marin, sage, shimmer, verse). Preview at https://platform.openai.com/docs/guides/realtime.
 - **Companion_mic_mode**: `ptt` (push-to-talk, default) or `vad` (voice activity detection, opt-in).
 - **Companion_daily_minutes_cap**: Max session duration per calendar day (default 30 min). Fail-closed enforcement at session mint.
-- **Companion_avatar**: Which 3D avatar renders (`orb` — stylized face with morph targets; `floppy` — retro prop with transform animation). More avatars ship in v0.2.
+- **Companion_avatar**: Clippy is the animated 2D default for unset selections. The picker also offers Temu Iron, Rubber Duck, Robot Head, Iron Mask, Floppy, Orb, CRT Terminal, Server Rack and Satellite. The original helmet (`ironman`) remains selectable for compatibility. Saved selections are preserved; assets render locally in the dashboard. Temu Iron sound effects default off. These options require Hearth v0.1.41 or newer.
 
 All config writes flow through the supervisor's vault layer — encrypted at rest, never exposed in plaintext.
 
