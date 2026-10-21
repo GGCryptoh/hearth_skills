@@ -70,6 +70,6 @@ Twilio charges per outbound segment (~$0.0079/segment for US numbers in 2026). T
 
 ## What this skill does NOT do (yet)
 
-- **No MMS** — body-only. Routine step attachments (M38, in progress) will add image/file pass-through via Twilio's `MediaUrl` parameter
+- **MMS via `media_url` only with a public https URL** — the handler validates the host before calling Twilio (rejects localhost, `*.local`, RFC1918/link-local/loopback IPs, bare IPs and `*.ts.net` tailnet hosts) because Twilio fetches `MediaUrl` from its own cloud. Hearth collateral is not publicly hosted, so an agent must deliver generated images on Telegram or email instead
 - **No inbound** — receiving SMS to your Twilio number would require a webhook + a public URL. Out of scope for v0.1
 - **No template/short-link rewriting** — what you pass in `body` is what gets sent verbatim

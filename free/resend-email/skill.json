@@ -1,10 +1,10 @@
 {
   "schema": "hearth.skill/1",
   "id": "resend-email",
-  "name": "Email \u2014 Resend",
-  "version": "0.1.2",
+  "name": "Email — Resend",
+  "version": "0.1.3",
   "author": "hearth-team",
-  "description": "Send transactional email via Resend. Bring your own RESEND_API_KEY and a verified sender domain. Simple POST under the hood \u2014 agent supplies to/subject/html/text/attachments.",
+  "description": "Send email via Resend with to, subject and html or text. Attach a saved Hearth file with collateral_id (plus optional attachment_filename), or attachments:[{filename,collateral_id}]; the bytes are resolved server-side, no public hosting needed. Also accepts attachments:[{filename,content}] (base64), attachments:[{filename,path}] (hosted HTTPS URL) and attachment_data_url. An attachment that cannot be resolved (unknown id, empty, over 40 MB) FAILS the call and nothing is sent. The result's summary states whether an attachment was included with its filename and byte size — only report 'sent with attachment' when the summary says so. Requires RESEND_API_KEY and a verified sender domain.",
   "tier": "free",
   "type": "tool",
   "category": "communication",

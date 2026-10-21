@@ -1,7 +1,7 @@
 {
-  "version": "0.5.53",
+  "version": "0.5.54",
   "format": "hearth.skill/1",
-  "updated_at": "2026-09-30T15:41:32.353Z",
+  "updated_at": "2026-10-21T12:13:34.490Z",
   "skills": [
     {
       "path": "free/airtable_crm",
@@ -611,11 +611,11 @@
       "path": "free/resend-email",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "24704e91c9961142543e0ec4165a65efe3674ca943a80d44c0796a4d70ed37b1",
+      "checksum": "a70c88eafe3edf58028e36b75789ebf954246c8faed53e1ea30acd5a96b97876",
       "files": [
         {
           "name": "handler.js",
-          "checksum": "b8bd423a28fa97eb29e569b1b667efb9ca3cf7fdb82b1c66f5e0481cc8c4e9b3"
+          "checksum": "c91e6e51365518c6c4ec4b1ab9241486489a01f56d2df6b447d85a6b49677c47"
         }
       ]
     },
@@ -740,15 +740,15 @@
       "path": "free/twilio-sms",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "637a92c942c74fff480447e21ba4d32bec23a4dfd9aa4a16fac256e69c4f79ff",
+      "checksum": "c823a6efae90e51371af01a3a14dc4f048d40b2db7bb16449bd8bdf3089a63a7",
       "files": [
         {
           "name": "handler.js",
-          "checksum": "38e9effd9dd4ef009bde3091d1701fdfd9efc8ac0668cdf164f6d01193156218"
+          "checksum": "9a08f1ae5eca91ac29fffa2708b12f82ddb4f218481a3fecd2459c1a36d9810c"
         },
         {
           "name": "architecture.md",
-          "checksum": "94c21e78df2e4699ef2cc8f2e85e81cfc78ceb9b31df5f4f93d1866b3c3a5409"
+          "checksum": "4170f6f6877466801f9002b4e3c2816871cdcb455b2164f728017e6251c8fffb"
         }
       ]
     },
