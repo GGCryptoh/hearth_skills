@@ -1,7 +1,7 @@
 {
-  "version": "0.5.54",
+  "version": "0.5.55",
   "format": "hearth.skill/1",
-  "updated_at": "2026-10-21T12:13:34.490Z",
+  "updated_at": "2026-10-23T19:10:54.279Z",
   "skills": [
     {
       "path": "free/airtable_crm",
@@ -19,7 +19,7 @@
       "path": "free/apify_actor",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "853322575233dc16d31a7d92ebcb7a9c39f4d9c3dc67461be343f27690d14c52",
+      "checksum": "335f3dfed4a4550c0d587c3dd2426c78326db20b7c8f1a5e32b635fd8d22635e",
       "files": [
         {
           "name": "handler.js",
@@ -438,7 +438,7 @@
       "path": "free/linkedin_profile_posts",
       "type": "directory",
       "manifest_file": "skill.json",
-      "checksum": "527b5d65f3c7d2ee30923e452fcfca0c7607dbad6eb12aa06c206ffb8279dc9a",
+      "checksum": "3ee66df50cd270bede71377d27514408a87dc6790d4527eaa848a917b5addb4c",
       "files": [
         {
           "name": "handler.js",

@@ -2,7 +2,7 @@
   "schema": "hearth.skill/1",
   "id": "apify_actor",
   "name": "Apify Actor",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": "hearth-team",
   "description": "Run any Apify actor and get the dataset items back. Defaults to async mode — the actor runs in the background (up to 60 min) and Hearth posts the results into your chat / Telegram when ready. Pass mode='sync' for fast actors under 90s. Bring your own APIFY_API_TOKEN.",
   "tier": "free",
@@ -36,7 +36,7 @@
     "handler.js"
   ],
   "cost_estimate": {
-    "per_call": 0.1
+    "per_call": 3.5
   },
   "latency_p50_ms": 15000,
   "expected_duration_ms": 300000,
